@@ -6,7 +6,10 @@
 - Provides runtime components for torque curves, RPM simulation, and parameterized motor behaviors.
 - Includes debugging and standard component packs to speed up vehicle audio setup.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime `UAudioMotorModelComponent` with modular motor sim components and debug widgets for vehicle audio authors.
+
+## 3. Key Modules
 
 - **AudioMotorSim** (Runtime)  
   - Role: Core motor simulation framework and base components.
@@ -15,7 +18,7 @@
 - **AudioMotorSimStandardComponents** (Runtime)  
   - Role: Library of ready-to-use motor sim components (boost, physics, resistance, throttle, etc.).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UAudioMotorModelComponent` (UActorComponent)
 
@@ -30,13 +33,14 @@
 
 - Debug widgets (e.g., `AudioMotorModelDebugWidget`) register motor model components and visualize parameters for tuning.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and add `AudioMotorModelComponent` to vehicle actors.
 - Compose behavior by attaching motor sim components (RPM curve, throttle state, boost, physics, resistance, etc.).
 - Use the debug module to visualize RPM, throttle, and limiter behavior while tuning.
 - Route simulated motor parameters into your audio pipeline (e.g., modulation or submix effects) for engine sounds.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

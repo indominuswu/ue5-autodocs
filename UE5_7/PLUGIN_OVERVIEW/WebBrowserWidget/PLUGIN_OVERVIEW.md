@@ -6,12 +6,16 @@
 - Supports loading URLs or raw HTML strings and exposes delegate events for navigation, popups, and console messages.
 - Ships with asset management helpers for browser materials/resources.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - UMG `UWebBrowser` widget with load functions and navigation/popup/console delegates for embedding web content in UI.
+
+## 3. Key Modules
 
 - **WebBrowserWidget** (Runtime)
   - Role: Browser widget implementation and module setup; loads early (`PreDefault`).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UWebBrowser` (Widget)
 - Role: UMG widget wrapping a web browser view.
@@ -23,12 +27,13 @@
 ### `IWebBrowserWidgetModule`
 - Role: Module interface (header) providing module availability and initialization helpers.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (Win64/Mac/Linux/Android/iOS). Add a `Web Browser` widget to a UMG layout and call `LoadURL` or `LoadString` to display content.
 - Bind to the delegates to react to navigation changes, block popups, or capture console logs.
 - For platform/browser configuration, adjust settings via project configuration (uses underlying WebBrowser subsystem).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes; behavior reflects the current runtime widget implementation.
+

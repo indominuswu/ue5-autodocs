@@ -6,7 +6,10 @@
 - Includes editor subsystems, providers, and settings for code generation plus optional LiquidJS templating.
 - Supplies runtime types for HTTP requests/responses and a subsystem to execute operations.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor codegen tools/providers and runtime subsystem/Blueprint nodes for invoking generated web APIs.
+
+## 3. Key Modules
 
 - **WebAPI** (Runtime)
   - Role: Runtime plumbing for web API operations (`UWebAPISubsystem`, HTTP handlers, developer settings, operation objects).
@@ -19,7 +22,7 @@
 - **WebAPILiquidJS** (Editor)
   - Role: LiquidJS templating support for codegen output.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UWebAPISubsystem` (Subsystem)
 - Role: Central runtime entry point to send web requests defined by generated operations and handle responses.
@@ -40,13 +43,13 @@
 ### Blueprint graph support
 - Role: `WebAPIBlueprintGraph` module exposes Blueprint nodes for generated operations, enabling visual scripting against the generated APIs.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (and dependencies `PluginBrowser`, `WebSocketNetworking`). In the editor, import an OpenAPI spec using the WebAPI tools; choose an OpenAPI provider and generation template (LiquidJS or defaults) in the settings.
 - Generated definitions create `UWebAPIOperationObject`-based assets and supporting C++/Blueprint types. Use `UWebAPIEditorSubsystem` to regenerate when specs change.
 - At runtime, access `UWebAPISubsystem` to dispatch operations; configure `UWebAPIDeveloperSettings` for handler defaults and message processing.
 - Blueprint users can call generated nodes provided by `WebAPIBlueprintGraph` to send requests and process responses.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental. No explicit UE 5.7-only behaviors were noted; overview reflects current source.

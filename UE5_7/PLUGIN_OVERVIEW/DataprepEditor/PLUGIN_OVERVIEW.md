@@ -6,7 +6,10 @@
 - Includes core libraries and scripting utilities for Dataprep assets, filters, and operations.
 - Extends the editor with UI, viewport, and scripting hooks tailored to Dataprep workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Delivers the Dataprep Editor UI/viewport plus Blueprint scripting utilities for authoring and running Dataprep pipelines.
+
+## 3. Key Modules
 
 - **DataprepEditor** (Editor)  
   - Role: Main editor UI, widgets, and viewport integration for Dataprep assets.
@@ -19,7 +22,7 @@
   - Role: Blueprint/automation helpers for interacting with Dataprep assets.
   - Notable types: `UEditorDataprepAssetLibrary`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UEditorDataprepAssetLibrary`
 - Role: Blueprint-exposed utilities for creating and manipulating Dataprep assets via scripts.
@@ -32,12 +35,12 @@
 ### Dataprep editor widgets (`SDataprepEditorViewport`, etc.)
 - Role: Custom Slate widgets providing viewport and editing UI for Dataprep assets.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (and required Dataprep dependencies) to author Dataprep assets in the editor.
 - Use the Dataprep Editor to assemble pipelines from provided operations and transforms, previewing results in the viewport.
 - Script Dataprep workflows with `UEditorDataprepAssetLibrary` for automation or batch processing.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin is disabled by default; no UE 5.7-specific changes noted beyond current module layout.

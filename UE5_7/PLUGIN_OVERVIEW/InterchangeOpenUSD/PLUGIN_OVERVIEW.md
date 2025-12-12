@@ -7,13 +7,17 @@
 - Depends on the USDCore plugin and other Interchange extensions.
 - Experimental and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users enable this to import USD via Interchange, configure `UInterchangeUsdTranslatorSettings` in the import dialog, and run the USD-specific pipeline.
+
+## 3. Key Modules
 
 - **InterchangeOpenUSDImport** (Runtime, Default) — USD translator, pipeline, and context helpers.
 - **InterchangeOpenUSDEditor** (Editor, Default) — Details customization for translator settings and editor integration.
 - Plugin dependencies: `Interchange`, `InterchangeEditor` (Editor/Program), `InterchangeOpenVDB` (Editor), `USDCore`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UInterchangeUSDTranslator`
 
@@ -33,13 +37,13 @@
 
 - `FInterchangeUsdTranslatorSettingsCustomization` (in editor module) customizes details panels for USD translator settings.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin along with Interchange and USDCore. Choose the USD translator during import; settings are exposed through the Interchange import dialog.
 - Configure `UInterchangeUsdTranslatorSettings` (via the dialog) for scene variants, payload loading, and other USD options.
 - USD assets flow through `UInterchangeUsdPipeline`, which applies USD-specific adjustments during import.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental and disabled by default; no additional UE 5.7-specific notes present in the source.
 

@@ -6,7 +6,10 @@
 - Supplies components, base animator classes, property resolvers/handlers, presets, and time sources used by higher-level animator plugins.
 - Integrates with Sequencer tracks/sections and exposes an editor subsystem for authoring animator assets.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime components/animator presets and Sequencer tracks plus editor subsystem/factories.
+
+## 3. Key Modules
 
 - **PropertyAnimatorCore** (Runtime)  
   - Role: Fundamental animator infrastructure, property contexts/resolvers, time sources, presets, and a component for attaching animators to actors.
@@ -15,7 +18,7 @@
   - Role: Editor-facing subsystems, preset factories, and UI integration.
   - Notable types: `UPropertyAnimatorCoreEditorSubsystem`, `UPropertyAnimatorCorePresetFactory`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UPropertyAnimatorCoreComponent`
 
@@ -45,14 +48,14 @@
 
 - Role: Engine config object to set defaults and toggles for the core system.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Attach `UPropertyAnimatorCoreComponent` to an actor, add animators derived from `UPropertyAnimatorCoreBase`, and choose a time source.
 - Use presets (`UPropertyAnimatorCoreAnimatorPreset`, `UPropertyAnimatorCorePropertyPreset`) to author reusable animator setups in the editor.
 - For editor tooling, leverage `UPropertyAnimatorCoreEditorSubsystem` to manage presets and registrations; Sequencer tracks/sections are available for timeline control.
 - Higher-level plugins (e.g., Property Animator) build on these base classes; enable this plugin first when using them.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Classified under Virtual Production; no explicit 5.7-specific deprecations found.
 - Remains experimental-style infrastructure but ships with editor/runtime modules in UE 5.7.

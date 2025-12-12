@@ -6,7 +6,10 @@
 - Covers mesh creation, boolean ops, selection, UVs, normals/tangents, baking, voxelization, collision, and point/shape utilities.
 - Adds editor helpers for generating assets and dynamic mesh actors directly from Blueprint/Editor scripting.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Extensive Blueprint geometry libraries and editor asset/dynamic mesh utilities.
+
+## 3. Key Modules
 
 - **GeometryScriptingCore** (Runtime)  
   - Role: Core Blueprint libraries for geometry operations.  
@@ -16,7 +19,7 @@
   - Role: Editor-facing utilities for asset creation and dynamic mesh actor support.  
   - Notable types: `UEditorGeometryGenerationSubsystem`, `UGeneratedDynamicMeshActor`, `UGeometryScriptLibrary_CreateNewAssetUtilityFunctions`, `UGeometryScriptLibrary_EditorDynamicMeshUtilityFunctions`, `UGeometryScriptLibrary_OpenSubdivUtilityFunctions`, `UGeometryScriptLibrary_EditorTextureMapFunctions`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Blueprint function libraries (`UGeometryScriptLibrary_*`)
 
@@ -33,13 +36,13 @@
 
 - Role: Helpers to create new meshes/material assets, generate texture maps, and interface with OpenSubdiv in editor workflows.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then in Blueprint (or Python via Blueprint-callable functions) use `UGeometryScriptLibrary_*` nodes to generate or modify meshes at runtime or in editor utility widgets.
 - Operate on `UDynamicMesh` instances for intermediate processing; convert to `UStaticMesh`/`USkeletalMesh` with asset utility functions when ready to save.
 - In editor scripts, use `UEditorGeometryGenerationSubsystem` and `UGeneratedDynamicMeshActor` to create preview actors, then run geometry script nodes to procedurally build/alter geometry.
 - Use collision/voxel/selection helpers to prepare meshes for simulation or further modeling steps.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

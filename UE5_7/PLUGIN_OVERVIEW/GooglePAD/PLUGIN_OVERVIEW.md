@@ -6,7 +6,11 @@
 - Adds runtime settings to gate usage to distribution/shipping builds.
 - Editor module wires settings into Project/Packaging configuration.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Android developers configure `UGooglePADRuntimeSettings` and call `UGooglePADFunctionLibrary` Blueprint nodes to download/manage asset packs at runtime.
+
+## 3. Key Modules
 - **GooglePAD** (Runtime)  
   - Role: Implements PAD JNI integration and Blueprint-accessible asset pack management (downloads, status queries, storage paths).
   - Notable types: `UGooglePADFunctionLibrary`.
@@ -14,7 +18,7 @@
   - Role: Registers runtime settings for enabling PAD and build gating.
   - Notable types: `UGooglePADRuntimeSettings`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGooglePADFunctionLibrary`
 - Role: Blueprint node set for issuing PAD requests and querying download state.
@@ -24,11 +28,12 @@
 - Role: Engine config object gating PAD usage (`bEnablePlugin`, `bOnlyDistribution`, `bOnlyShipping`).
 - Location: Project Settings → Packaging when the editor module is loaded.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Android-only: enable the plugin (on by default) and configure `GooglePAD Runtime Settings` to restrict to shipping/distribution if desired.
 - Add Blueprint PAD nodes to request asset pack downloads at runtime and poll status/progress before mounting content.
 - Use `GetAssetPackLocation` / `GetAssetsPath` after completion to access delivered files.
 - Remember to release PAD handles (`ReleaseDownloadState`, `ReleaseAssetPackLocation`) when finished.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

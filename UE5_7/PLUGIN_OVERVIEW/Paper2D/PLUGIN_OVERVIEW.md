@@ -7,7 +7,10 @@
 - Includes importers for sprite sheets and Tiled (.tmx/.json) tile maps to quickly bring external 2D content into UE.
 - Offers optional editor snapping helpers for planar 2D workflows (SmartSnapping module).
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor sprite/flipbook/tile editors and importers plus runtime 2D components and Blueprint utilities.
+
+## 3. Key Modules
 
 - **Paper2D** (Runtime, PreDefault)  
   - Role: Core 2D asset definitions and runtime components for sprites, flipbooks, tile maps, grouped sprites, and 2D terrain; exposes Blueprint utilities and plugin runtime settings.  
@@ -26,7 +29,7 @@
 - **SmartSnapping** (Editor, PostEngineInit)  
   - Role: Adds planar constraint snapping policy (`FPlanarConstraintSnapPolicy`) to editor transform snapping for 2D workflows.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UPaperSprite`
 
@@ -90,7 +93,7 @@
 
 - Role: Editor snapping policy that constrains translation/rotation/scale to a plane; toggleable via the snapping system to aid 2D layout.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - **Editor workflows**  
   - Enable Paper2D (enabled by default). Create sprites from textures or sprite sheets via the Paper2D sprite/sheet importers.  
@@ -106,7 +109,7 @@
   - Apply `UPaperTerrainComponent` with an associated spline for 2D terrain rendering; adjust colors and collision settings per component.  
   - Use Blueprint libraries for utility (`UTileMapBlueprintLibrary::BreakTile`/`MakeTile`, `GetTileUserData`, `UPaperSpriteBlueprintLibrary::MakeBrushFromSprite` for UI brushes).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Tile map component is marked `EarlyAccessPreview`; terrain components are marked `Experimental`, consistent with prior versions.  
 - `UPaperRuntimeSettings` exposes experimental toggles for atlas groups and terrain spline editing.  

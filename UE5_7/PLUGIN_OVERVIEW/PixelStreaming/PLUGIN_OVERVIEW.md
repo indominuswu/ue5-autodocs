@@ -5,7 +5,11 @@
 - Provides runtime capture, encoding, signalling, and player/session management plus Blueprint helpers and editor tools.
 - Supports HMD integration and multiple backends/codecs (NV, AMF, VT) through dependent codec plugins.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Full WebRTC streaming stack with Blueprint components (`UPixelStreamingInputComponent`, `UPixelStreamingAudioComponent`, Blueprint nodes) and settings that developers configure to stream scenes to browsers/clients.
+
+## 3. Key Modules
 - **PixelStreaming** (Runtime)  
   - Role: Core WebRTC integration, streamer/session management, capture/input routing, settings, stats, signalling.
 - **PixelStreamingServers** (Runtime)  
@@ -21,7 +25,7 @@
 - **PixelStreamingInput** (Runtime)  
   - Role: Input device routing from WebRTC data channels back into the engine.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - Core interfaces: `IPixelStreamingModule`, `IPixelStreamingStreamer`, `IPixelStreamingSignallingConnection`, `IPixelStreamingStats`, `IPixelStreamingAudioSink/Input/Consumer`, `IPixelStreamingVideoInput` (and RHI/RenderTarget/NV12/I420/PIEViewport/backbuffer variants).  
   - Role: Drive capture sources, signalling, and media pipeline.
 - Components:  
@@ -32,7 +36,7 @@
 - Configuration: `UPixelStreamingSettings` and `FPixelStreamingPlayerConfig` for stream/session options; `PixelStreamingCodec` helpers select encoder codecs.  
 - Utilities: `PixelStreamingBufferBuilder`, `PixelStreamingUtils`, `PixelStreamingTrace`/`StatNames` for diagnostics.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable Pixel Streaming plus dependencies (`PixelCapture`, codecs, WebSocketNetworking, MediaIOFramework).  
 - Configure settings (`PixelStreaming` project settings) for signalling servers, codecs, resolutions, input handling.  
 - In Blueprint or C++, create/get a streamer (`IPixelStreamingModule`), register input/audio/video sources, and start streaming.  
@@ -40,6 +44,7 @@
   - Use `PixelStreamingBlueprint` nodes for start/stop streaming, send custom data channel messages, and respond to viewer connections.  
 - Launch signalling/turn servers (via provided scripts or custom deployment) and connect WebRTC clients to receive the stream.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Plugin is stable (not marked beta) but depends on platform codec plugins and `PixelCapture`.  
 - No explicit UE 5.7-only changes noted; overview reflects the 5.7 source tree.
+

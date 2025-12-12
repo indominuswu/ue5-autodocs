@@ -5,11 +5,15 @@
 - Supports runtime and Blueprint access to build and process localized messages with contextual parameters.
 - Enabled by default; useful for networked messaging/UI flows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developers build/replicate `FLocalizableMessage` payloads and use `ULocalizableMessageLibrary`/processors to resolve localized text in gameplay/UI.
+
+## 3. Key Modules
 - **LocalizableMessage** (Runtime) - Core message types, processors, and module interface.
 - **LocalizableMessageBlueprint** (Runtime) - Blueprint library exposing message creation and handling helpers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `FLocalizableMessage`
 - Role: Message payload carrying namespace/key and parameter data for localization.
 
@@ -22,10 +26,11 @@
 ### `ULocalizableMessageLibrary`
 - Role: Blueprint-accessible helpers for constructing and processing localizable messages.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Build `FLocalizableMessage` instances on the server with localization keys and parameter data; replicate to clients.
 - On clients, rely on `FLocalizableMessageProcessor` or the Blueprint library to resolve localized text for UI/logging.
 - Use in gameplay messaging systems that need localized, parameterized text across the network.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-only notes; functionality matches the implementation in this source tree.
+

@@ -6,7 +6,11 @@
 - Provides binding path parsing, bindable struct descriptors, and binding collection helpers.
 - Ships with editor extensions and a test suite for validating bindings.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developer-facing binding helpers (`FPropertyBindingPath`, `FPropertyBindingBindingCollection`, details panel extension) used to set up and evaluate property bindings.
+
+## 3. Key Modules
 
 - **PropertyBindingUtils** (Runtime)  
   - Role: Core binding data structures and helpers (paths, collections, data views).
@@ -16,7 +20,7 @@
 - **PropertyBindingUtilsTestSuite** (UncookedOnly)  
   - Role: Test types (`UPropertyBindingUtilsTest` variants) used to validate binding behaviors.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FPropertyBindingPath`
 
@@ -36,14 +40,15 @@
 
 - Role: Details panel extension enabling property-binding keywords/metadata in the editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Include the runtime module to parse and evaluate property bindings in C++ code.
 - Use `FPropertyBindingBindingCollection` to manage multiple bindings for an owner; update/resolve using the provided path and descriptor helpers.
 - In editor builds, the `PropertyBindingExtension` integrates with details panels to surface binding metadata.
 - The test suite module offers sample `UPropertyBindingUtilsTest` classes for automated validation.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Disabled by default.
 - No UE 5.7-specific changes or deprecations were noted.
+

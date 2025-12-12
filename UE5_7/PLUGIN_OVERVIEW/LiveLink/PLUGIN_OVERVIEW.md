@@ -6,7 +6,10 @@
 - Integrates with Sequencer/MovieScene for recording and playback, and offers editor UI to configure sources and subjects.
 - Supports Live Link Hub workflows, virtual subjects, and multi-user aware tooling.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor Live Link panels plus runtime components and Blueprint libraries for consuming/broadcasting subjects.
+
+## 3. Key Modules
 - **LiveLink** (Runtime)  
   - Core Live Link data model, sources, settings, Blueprint APIs, and broadcast support.  
   - Notable types: `ULiveLinkComponent`, `ULiveLinkBroadcastComponent`, `ULiveLinkBroadcastSubsystem`, `ULiveLinkBlueprintLibrary`, `ULiveLinkSettings`, `ULiveLinkBlueprintVirtualSubject`, `ULiveLinkHubSubjectSettings`.
@@ -24,7 +27,7 @@
 - **LiveLinkMultiUser** (UncookedOnly)  
   - Multi-user collaboration hooks for Live Link sessions.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `ULiveLinkComponent`
 - Role: Base component that receives Live Link subject data each tick; exposes transforms/curves to Blueprints.
@@ -47,12 +50,12 @@
 ### `ULiveLinkSettings` / `ULiveLinkEditorSettings`
 - Role: Developer settings for default subjects, timecode/synchronization, interpolation, and editor UI preferences.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable Live Link and add a Live Link source (Message Bus, UDP, device, etc.) in the editor Live Link panel.
 - Add `ULiveLinkComponent` or `ULiveLinkComponentController` to actors (e.g., cameras, skeletal meshes) and assign the desired subject; controllers map subject data to component properties.
 - Use Blueprint nodes from `LiveLinkBlueprintLibrary` to pull transforms/curves at runtime, or preview subjects with `ULiveLinkDataPreviewComponent`.
 - Record or play back Live Link data through Sequencer (LiveLinkMovieScene) and use virtual subjects for combining sources.
 - For hub workflows, configure hub subject settings and broadcast from in-editor sources via `ULiveLinkBroadcastComponent`.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

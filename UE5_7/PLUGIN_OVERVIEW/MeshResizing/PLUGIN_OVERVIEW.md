@@ -5,7 +5,11 @@
 - Provides runtime core math (constraints, interpolation), dataflow nodes, and editor tools for landmark-driven mesh wrapping.
 - Integrates with Dataflow graphs to automate resizing operations.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users build Dataflow graphs with Mesh Resizing nodes and use tools like `UMeshWrapLandmarkSelectionTool` to warp/resize meshes with constraints and UV alignment.
+
+## 3. Key Modules
 - **MeshResizingCore** (Runtime)
   - Role: Core algorithms and data structures for mesh resizing (constraints, RBF interpolation, region resizing).
   - Notable types: `FCustomRegionResizing`, `FMesh3DConstraints`, `FRBFInterpolation`, `FBaseBodyTools`.
@@ -18,7 +22,7 @@
 - **MeshResizingEngine** (Runtime)
   - Role: Engine integration scaffolding for resizing features (no public headers).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `FCustomRegionResizing` / `FMesh3DConstraints`
 - Role: Define constraint sets and region rules that drive how vertices are repositioned during resizing.
 
@@ -28,10 +32,11 @@
 ### `UMeshWrapLandmarkSelectionTool`
 - Role: Editor tool for selecting landmarks on meshes to guide wrap/resize operations.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the experimental plugin. Build a Dataflow graph using Mesh Resizing nodes to define warp/resize logic.
 - Use `UMeshWrapLandmarkSelectionTool` to author landmark sets, then run the graph to drive resizing with constraints and RBF interpolation.
 - Combine UV nodes to realign textures after geometric changes.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked as experimental and disabled by default. No additional UE 5.7-specific notes found.
+

@@ -7,21 +7,26 @@
 - Integrates with the editor UI to simplify mobile deployment setup.
 - Enabled by default to streamline mobile projects.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor wizard (`SProfileWizardUI` with Android/iOS steps) helps users create and run mobile packaging profiles.
+
+## 3. Key Modules
 
 - **MobileLauncherProfileWizard** (Editor) — editor UI, wizard logic, and platform-specific steps.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - `SProfileWizardUI` — main Slate UI for the wizard pages.
 - `FAndroidProfileWizard`, `FIOSProfileWizard` — platform-specific wizard steps and validation.
 - `IMobileLauncherProfileWizard` — module interface used to invoke the wizard from the editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - From the editor, launch the mobile packaging wizard to create or edit a profile with Android/iOS-specific options.
 - Use the wizard to drive packaging rather than configuring all settings manually in project configuration.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific flags observed; functionality matches the current editor-only implementation.
+

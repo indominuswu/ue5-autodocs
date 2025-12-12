@@ -6,13 +6,17 @@
 - Adds UI commands and styles for invoking the bake workflow directly from Sequencer.
 - Offers a details customization for configuring bake parameters.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Sequencer users run the “Bake to Geometry Cache” command and configure bake settings via the provided editor customization.
+
+## 3. Key Modules
 
 - **GeometryCacheLevelSequenceBaker** (Editor)  
   - Role: Editor-only baking workflow that converts Level Sequence animation into Geometry Cache data.  
   - Notable types: `FGeometryCacheLevelSequenceBaker`, `FGeometryCacheLevelSequenceBakerCommands`, `FGeometryCacheLevelSequenceBakerCustomization`, `FGeometryCacheLevelSequenceBakerStyle`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FGeometryCacheLevelSequenceBaker`
 
@@ -27,12 +31,13 @@
 
 - Role: Details customization for tuning bake parameters before running the conversion.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, open a Level Sequence containing animated Skeletal Mesh tracks, and trigger the “Bake to Geometry Cache” command (exposed by this plugin).
 - Adjust bake settings through the provided details customization, then run the baker to generate a new Geometry Cache asset.
 - Use the resulting Geometry Cache in Sequencer or as a runtime playback asset where skeletal animation is impractical.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

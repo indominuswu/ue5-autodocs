@@ -6,13 +6,17 @@
 - Integrates with the engine’s movie player pipeline to display loading videos before the main map loads.
 - Supplies reusable base classes for screens and modules to customize movie playback during early startup.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developer-facing loading-screen hook; projects derive from `FPreLoadMoviePlayerScreenBase`/module classes to play movies during the Pre-Load phase.
+
+## 3. Key Modules
 
 - **PreLoadScreenMoviePlayer** (RuntimeNoCommandlet)  
   - Role: Implements the Pre-Load screen movie player module and base classes.
   - Notable types: `FPreLoadMoviePlayerModule`, `FPreLoadMoviePlayerModuleBase`, `FPreLoadMoviePlayerScreenBase`, `FMoviePlayerAttributes`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FPreLoadMoviePlayerModule` / `FPreLoadMoviePlayerModuleBase`
 
@@ -28,13 +32,14 @@
 
 - Role: Data structure describing media URLs, playback flags, skippable behavior, and loading screen properties.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and configure a Pre-Load screen to use a movie-based implementation (e.g., via project settings or a custom module).
 - Derive from `FPreLoadMoviePlayerScreenBase` to implement custom playback rules, then register it through the module during startup.
 - Works in packaged builds to show a video before the main loading screen/map; no editor UI is provided.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Disabled by default; intended for projects that need a Pre-Load movie flow in UE 5.7.
 - No explicit UE 5.7-specific APIs or deprecations surfaced in the code reviewed.
+

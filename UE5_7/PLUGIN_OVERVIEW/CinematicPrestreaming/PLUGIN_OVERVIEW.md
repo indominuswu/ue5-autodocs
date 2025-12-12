@@ -6,7 +6,10 @@
 - Provides editor tooling to generate prestreaming assets from sequences and maps.
 - Integrates with Movie Pipeline to automate prestreaming asset creation.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor subsystem/UI to generate prestreaming assets and runtime playback support for cinematics.
+
+## 3. Key Modules
 
 - **CinematicPrestreaming** (Runtime)  
   - Role: Runtime support for recorded prestreaming playback during cinematics.
@@ -14,7 +17,7 @@
   - Role: Editor subsystem and UI for recording/creating prestreaming assets.
   - Notable types: `UCinePrestreamingEditorSubsystem`, `FCinePrestreamingGenerateAssetArgs`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UCinePrestreamingEditorSubsystem`
 - Role: Editor subsystem that drives generation of prestreaming assets via Movie Pipeline executors.
@@ -24,12 +27,12 @@
 ### `FCinePrestreamingGenerateAssetArgs`
 - Role: Arguments for creating prestreaming assets, including output path, target sequence, map, and resolution overrides.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, open the editor, and use the Cinematic Prestreaming subsystem to record streaming requests from a sequence.
 - Invoke `GeneratePrestreamingAsset` with the target sequence/map to run Movie Pipeline and emit prestreaming data.
 - Use `CreatePackagesFromGeneratedData` to package generated prestreaming assets for runtime playback.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

@@ -6,7 +6,10 @@
 - Provides spawning, simulation phases, movement/LOD, EQS integration, smart objects, replication, and visualization for Mass entities.
 - Includes editor/debug tooling for visualizing traits, processors, and agents.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime Mass simulation APIs plus editor/debug tooling for authoring and visualizing agents.
+
+## 3. Key Modules
 
 - **MassCommon** (Runtime): Core Mass data/helpers shared across modules.
 - **MassActors** (Runtime): Bridges Mass entities with actor components.
@@ -24,7 +27,7 @@
 - **MassGameplayExternalTraits** (Runtime): External/shared trait definitions.
 - **MassGameplayTestSuite** (UncookedOnly): Test coverage for Mass gameplay features.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMassSimulationSubsystem`
 
@@ -62,7 +65,7 @@
 
 - `UMassDebuggerSubsystem`, `UMassDebugEntitySubsystem`, and `UMassActorEditorSubsystem` provide debug and editor utilities for inspecting agents/traits.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable `MassGameplay` to access the full Mass runtime stack; author fragments/tags and processors in game modules.
 - Use `UMassSpawnerSubsystem` (Blueprint or C++) to spawn entities from templates; bind processors to phases via Mass configuration.
@@ -70,6 +73,6 @@
 - Integrate with Smart Objects and EQS using the dedicated Mass modules; subscribe to signals to decouple processors.
 - In the editor, use debug subsystems and visualization (MassGameplayDebug, MassMovementEditor) to inspect agents and pipelines during PIE.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - The plugin remains active (not marked deprecated). No additional UE 5.7-specific notes were found in source; functionality reflects the current Mass stack shipped with UE 5.7.

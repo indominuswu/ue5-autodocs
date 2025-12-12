@@ -7,7 +7,10 @@
 - Delivers Blueprint authoring support with dedicated graph schemas, compilers, and task libraries for constructing Scene State assets.
 - Includes extensive editor tooling (palette, debug view, graph customizations) to author, debug, and validate Scene State graphs.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime components/events/tasks plus Blueprint graph/editor tooling for Scene State authoring and debugging.
+
+## 3. Key Modules
 
 - **SceneState** (Runtime) – Core runtime data types for states, tasks, transitions, instances, execution scopes, and utilities.
 - **SceneStateBinding** (Runtime) – Binding collections and property references for connecting Scene State data to gameplay objects.
@@ -18,7 +21,7 @@
 - **SceneStateEventGraph**, **SceneStateMachineGraph**, **SceneStateTransitionGraph** (UncookedOnly) – Graph schemas/nodes for events, state machines, and transitions.
 - **SceneStateBlueprintEditor**, **SceneStateEditor**, **SceneStateEventEditor**, **SceneStateMachineEditor**, **SceneStateGameplayEditor** (Editor) – Authoring UI, asset definitions, compilers, details panels, debug tools, and sequencer schema hooks.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Runtime
 
@@ -35,7 +38,7 @@
 - Blueprint integration: K2 nodes for Scene State events (`K2Node_SceneStateBroadcastEvent`, `K2Node_SceneStatePushEvent`, etc.).
 - Editor tooling: custom editors (`FSceneStateBlueprintEditor`), asset definitions, graph compilers, debug controls (`SSceneStateDebugView`, `SceneStateDebugControlsTool`), and sequencer schema support (`SceneStateSequencerSchema`).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Author a Scene State Blueprint to define states, tasks, and transitions using the dedicated graph editor and palette.
 - Bind Scene State properties to gameplay data via binding collections and property reference utilities.
@@ -43,6 +46,6 @@
 - Use the event library to broadcast or query Scene State events; leverage the built-in tasks/functions for delays, conversions, and spawning.
 - In the editor, use the Scene State Blueprint Editor and debug tabs to inspect execution, view transition graphs, and validate bindings.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

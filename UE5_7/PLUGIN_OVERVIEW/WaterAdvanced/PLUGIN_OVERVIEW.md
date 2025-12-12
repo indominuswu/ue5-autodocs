@@ -7,12 +7,16 @@
 - Integrates with Water bodies to update materials, collision proxies, and render targets for surface interaction.
 - Marked experimental; intended for advanced water simulation experiments rather than production defaults.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Exposes shallow-water/ocean subsystems (`UShallowWaterSubsystem`, `UFFTOceanPatchSubsystem`), components, and settings that teams configure to run advanced water simulations.
+
+## 3. Key Modules
 
 - **WaterAdvanced** (Runtime)
   - Role: Runtime systems for FFT ocean patches, shallow water simulation management, and river helpers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UShallowWaterSubsystem` (Tickable world subsystem)
 - Role: Owns the active shallow water Niagara simulation, render targets, impact registration, and material parameter updates for water bodies.
@@ -40,7 +44,7 @@
 ### `UShallowWaterPhysicsAssetOverridesDataAsset`
 - Role: Data asset listing physics proxies used for collision interaction with the water grid (vehicles, skeletal meshes).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin along with `Niagara`, `NiagaraFluids`, and `Water` (dependencies are declared in the plugin). Configure defaults in Project Settings ? Water Advanced (`UShallowWaterSettings`).
 - Place water bodies (rivers/lakes/ocean). The `UShallowWaterSubsystem` initializes Niagara simulations using the configured templates and updates water material instances.
@@ -48,6 +52,7 @@
 - Access shared FFT ocean data via `UFFTOceanPatchSubsystem` (e.g., `GetOceanNormalRT`) to drive material inputs or Niagara data interfaces.
 - Use `RegisterImpact` on the subsystem to inject collisions (pawns, vehicles) into the simulation; physics proxy overrides come from the physics asset overrides data asset.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin is marked experimental and disabled by default. No additional UE 5.7-specific notes were found; overview reflects the current 5.7 source state.
+

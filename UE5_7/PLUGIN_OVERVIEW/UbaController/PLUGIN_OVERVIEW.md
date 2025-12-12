@@ -6,12 +6,16 @@
 - Provides an editor-time module to communicate with UBA and process jobs.
 - Enabled by default in the Build Distribution category.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Build distribution backend for shader compiles; operates behind the scenes once UBA endpoints are configured, with no gameplay/editor UI.
+
+## 3. Key Modules
 
 - **UbaController** (Editor)
   - Role: Earliest-load editor module that initializes UBA communication and job processing utilities.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FUbaControllerModule`
 
@@ -25,11 +29,12 @@
 
 - Role: String conversion helpers used by the controller and job processor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (on by default) and configure UBA as the shader compilation distribution backend.
 - The module loads early to hook into the shader compile pipeline; usage is transparent once UBA endpoints are configured.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

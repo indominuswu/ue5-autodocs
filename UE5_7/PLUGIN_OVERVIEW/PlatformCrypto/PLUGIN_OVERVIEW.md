@@ -6,7 +6,11 @@
 - Supports AES encryption/decryption contexts (ECB, CBC, GCM) for both engine runtime and standalone programs.
 - Ships common types/helpers for block alignment, padding, and secure context lifetime management.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Low-level AES backend for engine/tools with C++-only APIs; no editor workflows or gameplay/Blueprint-facing surfaces.
+
+## 3. Key Modules
 
 - **PlatformCrypto** (RuntimeAndProgram)  
   - Role: Module interface (`IPlatformCrypto`) and registration of platform crypto providers.
@@ -15,7 +19,7 @@
 - **PlatformCryptoContext** (RuntimeAndProgram)  
   - Role: OpenSSL-backed context implementations (`FEncryptionContextOpenSSL`, AES encryptor/decryptor variants) used when native platform APIs are unavailable.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IPlatformCrypto`
 
@@ -37,14 +41,15 @@
 - Role: Context factory that produces encryptors/decryptors backed by OpenSSL EVP APIs when no platform-native crypto is available.
 - Notes: Implements AES-256 ECB/CBC/GCM variants; manages EVP contexts with RAII helpers such as `FScopedEVPContext`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Link against `PlatformCrypto` and query the module for a context/encryptor matching your desired AES mode; feed data via `Update`/`Finalize`.
 - For game/runtime code, use the module as a drop-in replacement where you would otherwise call OpenSSL directly; the module chooses platform crypto when available.
 - For command-line tools (e.g., patchers, cookers), the same APIs are available because modules are marked `RuntimeAndProgram`.
 - No Blueprint-facing types; usage is C++ only.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Enabled by default in UE 5.7 for listed platforms; TVOS is explicitly denied in the module allow list.
 - No UE 5.7-specific deprecations were identified in source.
+

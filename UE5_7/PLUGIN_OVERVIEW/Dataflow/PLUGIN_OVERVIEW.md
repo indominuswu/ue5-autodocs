@@ -6,7 +6,10 @@
 - Provides editor tooling to author Dataflow assets, preview results, and render node outputs.
 - Includes runtime nodes and engine integration to execute Dataflow graphs outside the editor.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Offers an editor mode/UI for Dataflow assets plus runtime nodes/engine integration to execute graphs.
+
+## 3. Key Modules
 
 - **DataflowEditor** (Editor)  
   - Role: Editor mode, UI, rendering helpers, and customization panels for Dataflow assets.
@@ -18,7 +21,7 @@
 - **DataflowNodes** (Runtime)  
   - Role: Library of runtime Dataflow nodes and evaluators.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FDataflowEditorModeUILayer`
 - Role: Editor subsystem that manages the Dataflow editor mode UI.
@@ -31,12 +34,12 @@
 - Role: Blueprint function library for editor scripting around Dataflow assets (found in `DataflowEditorBlueprintLibrary.h`).
 - Key functions: Utility calls for creating or manipulating Dataflow assets from scripts.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin to work with Dataflow assets in the editor; use the Dataflow editor mode to build node graphs.
 - Author nodes using the provided node library (`DataflowNodes`) and preview results in the viewport with rendering helpers.
 - Use Dataflow runtime modules to execute graphs in tools or runtime contexts that rely on Dataflow-generated data.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Editor module is enabled by default; runtime modules ship with the experimental Dataflow system in UE 5.7. No explicit 5.7-only changes noted.

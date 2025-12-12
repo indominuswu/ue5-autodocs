@@ -5,11 +5,14 @@
 - Supports generating groom LOD meshes, converting grooms to meshes, and editing hair cards.
 - Provides editor command bindings and styling for the hair toolset.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor Modeling Mode tools for grooming workflows (LOD generation, groom-to-mesh, card editing).
+
+## 3. Key Modules
 - **HairModelingToolset** (Editor)  
   - Role: Hosts Modeling Mode hair tools, commands, styles, and tool registration.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Tool classes
 - `UGenerateLODMeshesTool`: Generates LOD meshes for groom assets.
@@ -20,10 +23,10 @@
 - `UHairModelingToolCommands` and `UHairModelingToolsStyle`: Provide editor command bindings and UI styling for the tools.
 - `FLODLevelGenerateSettings`: Struct capturing generation parameters for LOD creation.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (experimental) and open Modeling Mode; navigate to the Hair tools category.
 - Run `Generate LOD Meshes` or `Groom to Mesh` on selected groom assets to produce geometry variants.
 - Use the Groom Cards editor tool to adjust card layouts and export updated meshes or textures.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

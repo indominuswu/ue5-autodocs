@@ -6,13 +6,17 @@
 - Supplies base controller classes that can be extended to run boot/sanity checks against packaged builds or PIE sessions.
 - Integrates with Gauntlet tooling to orchestrate test sequences and report failures.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Automation engineers subclass `UGauntletTestController` (boot/error tests, custom controllers) to run Gauntlet-driven test scenarios on builds.
+
+## 3. Key Modules
 
 - **Gauntlet** (Runtime)  
   - Role: Defines the Gauntlet test controller API used by the automation runner.
   - Notable types: `UGauntletTestController`, `UGauntletTestControllerBootTest`, `UGauntletTestControllerErrorTest`, `FGauntletModule`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGauntletTestController`
 
@@ -31,12 +35,13 @@
 
 - Role: Registers the plugin with the automation framework and exposes module-level helpers.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin in automation builds; author new controllers by subclassing `UGauntletTestController`.
 - Register custom controllers so Gauntlet can launch and monitor sessions (PIE or packaged) and emit pass/fail results.
 - Use provided boot/error controllers as baselines for quick health checks of build stability.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

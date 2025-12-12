@@ -6,13 +6,17 @@
 - Helps organize complex delegate-driven tasks with branching, looping, and concurrent execution primitives.
 - Useful for tooling or gameplay code that benefits from declarative step queues instead of nested callbacks.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Runtime utility API (`FControlFlow`/branch/loop helpers, SupportedPrograms: LiveLinkHub) that developers call from gameplay/tools code to structure async/branching tasks.
+
+## 3. Key Modules
 
 - **ControlFlows** (Runtime)  
   - Role: Core control flow implementation, task nodes, and convenience helpers for building queued execution chains.
   - Notable types: `FControlFlow`, `FControlFlowNode`, `FControlFlowBranch`, `FConcurrentControlFlows`, `FConditionalLoop`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FControlFlow`
 - Role: Central object that queues steps and runs them in order, supporting synchronous (`QueueFunction`) and asynchronous (`QueueWait`) steps.
@@ -26,13 +30,14 @@
 - Role: Helper for looped steps with explicit continue/cancel semantics.
 - Key functions: Condition checks, loop control (`RunLoopFirst`, `CheckConditionFirst`), integration with queued steps.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Create a `FControlFlow` instance and chain `QueueStep` calls with member functions or lambdas to express the operation order.
 - Use `QueueWait`/`QueueStep` signatures that include a flow handle to pause until `ContinueFlow` is called (e.g., after async work).
 - Add `QueueControlFlowBranch` for branching logic and `QueueConcurrentFlows` when multiple flows can run in parallel.
 - Use `QueueConditionalLoop` to model repeated work without manual loop boilerplate.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-only behavior noted; the plugin is experimental utility code present in this source tree.
+

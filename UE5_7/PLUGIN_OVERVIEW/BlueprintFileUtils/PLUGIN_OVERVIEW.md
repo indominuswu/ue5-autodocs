@@ -7,13 +7,16 @@
 - Useful for tooling, debug utilities, or lightweight file management without writing C++.
 - Disabled by default; enable the plugin to access its Blueprint nodes.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Provides `UBlueprintFileUtilsBPLibrary` Blueprint nodes (FindFiles, Copy/Move/Delete, MakeDirectory, GetUserDirectory) for editor and runtime scripting.
+
+## 3. Key Modules
 
 - **BlueprintFileUtils** (Runtime, Default)  
   - Role: Provides the Blueprint function library backing all file operations via `IFileManager`/`FPlatformProcess`.
   - Notable types: `UBlueprintFileUtilsBPLibrary`, module shim `FBlueprintFileUtilsModule`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UBlueprintFileUtilsBPLibrary` (Blueprint function library)
 
@@ -31,13 +34,14 @@
 
 - Role: Module entry point; no additional runtime APIs beyond standard module lifetime.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then use the `FileUtils` Blueprint nodes in editor or at runtime to perform file operations with absolute paths (e.g., user documents, temp folders).
 - Use `FindFiles`/`FindRecursive` to gather file lists, `FileExists`/`DirectoryExists` for guards, and `CopyFile`/`MoveFile`/`DeleteFile` for maintenance tasks.
 - `MakeDirectory` can set up target folders before writing; `DeleteDirectory` supports recursive removal when `bDeleteRecursively` is true.
 - `GetUserDirectory` is convenient for locating a writable user area on each platform.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific changes or deprecations are noted; behavior matches the current source implementation.
+

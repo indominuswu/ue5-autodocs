@@ -6,12 +6,16 @@
 - Provides an editor-facing engine, settings, and UI helpers for connecting to a Shotgrid site.
 - Adds UI styling/hooks to surface production tracking features inside the editor.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor integration with settings/UI (`UShotgridSettings`, `UShotgridEngine`, UI manager/style) that teams use to connect to Flow Production Tracking.
+
+## 3. Key Modules
 
 - **Shotgrid** (Editor, Default)  
   - Role: Implements the Shotgrid engine integration, settings, and UI managers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UShotgridEngine`
 
@@ -25,11 +29,12 @@
 
 - Role: Registers UI elements and styling for Shotgrid controls within the editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then configure `UShotgridSettings` with your Shotgrid site details.
 - Use the editor UI provided by the plugin (via the UI manager/style) to access production tracking features exposed by `UShotgridEngine`.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

@@ -6,13 +6,17 @@
 - Supplies menu/toolbar commands and an editor extension to trigger GPU debugging flows from Unreal.
 - Disabled by default; for macOS developer workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor commands/styles that allow macOS developers to launch the Xcode GPU debugger from Unreal via the plugin’s toolbar/menu hooks.
+
+## 3. Key Modules
 
 - **XcodeGPUDebuggerPlugin** (DeveloperTool, PostConfigInit, Mac-only)  
   - Role: Registers GPU debugger commands, styles, and editor extension for Xcode integration.  
   - Notable types: `IXcodeGPUDebuggerPlugin`, `FXcodeGPUDebuggerPluginModule`, `FSXcodeGPUDebuggerPluginEditorExtension`, `FXcodeGPUDebuggerPluginCommands`, `FXcodeGPUDebuggerPluginStyle`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IXcodeGPUDebuggerPlugin`
 
@@ -30,11 +34,12 @@
 
 - Role: Define Slate commands and style assets used by the plugin UI.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - On macOS, enable the plugin, then use the provided toolbar/menu command to launch Xcode GPU debugger against the current session.  
 - Configure any required project settings in Xcode as needed for GPU capture/debugging.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific changes noted; current implementation reflects the 5.7 source.
+

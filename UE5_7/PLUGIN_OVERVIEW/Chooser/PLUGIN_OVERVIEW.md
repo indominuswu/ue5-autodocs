@@ -6,7 +6,10 @@
 - Integrates with animation (Chooser Player anim node) and Blueprint libraries for runtime evaluation.
 - Supplies editor UI for authoring chooser columns, outputs, and proxy mappings.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor table/proxy authoring tools plus runtime Blueprint libraries and anim graph nodes for chooser evaluation.
+
+## 3. Key Modules
 
 - **Chooser** (Runtime)  
   - Role: Runtime evaluation of chooser tables, columns, and output logic.
@@ -24,7 +27,7 @@
 - **ProxyTableEditor** (Editor)  
   - Role: Proxy table editors, factories, and asset definitions (`UProxyTableFactory`, `UAssetDefinition_ProxyTable`, `UAssetDefinition_ProxyAsset`).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UChooserFunctionLibrary`
 - Role: Blueprint-accessible functions to evaluate chooser tables, retrieve results, and interact with trace/debug helpers.
@@ -41,13 +44,13 @@
 ### Editor utilities
 - `UChooserEditorSettings`, `UChooserFactory`, `UProxyTableFactory`, `ChooserTableEditor`, `ProxyTableEditor`, and associated commands/styles provide authoring tools in the editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Create a Chooser Table asset in the editor and add columns (bool/enum/float/object/tag/etc.) plus output definitions (objects, enums, floats, structs).
 - Evaluate chooser tables via Blueprint using `UChooserFunctionLibrary` or through `Chooser Player` in an animation graph to select animations or assets dynamically.
 - Use Proxy Tables to map proxy assets/classes and evaluate them in Blueprint nodes for indirection or platform-specific asset selection.
 - Configure editor settings and use the table editors to preview, trace, and debug chooser decisions during development.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

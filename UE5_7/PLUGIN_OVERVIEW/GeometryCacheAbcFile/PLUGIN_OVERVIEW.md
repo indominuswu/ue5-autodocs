@@ -6,13 +6,17 @@
 - Provides actor/component wrappers for Alembic-backed cache playback and a stream interface to read Alembic samples.
 - Supplies editor integration to place Alembic Geometry Cache actors and customize component details.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users place `AGeometryCacheAbcFileActor`/`UGeometryCacheAbcFileComponent` and set Alembic paths to stream/play Geometry Cache data with editor customizations.
+
+## 3. Key Modules
 
 - **GeometryCacheAbcFile** (Editor)  
   - Role: Implements Alembic-backed Geometry Cache components, stream handling, and editor factories/customizations.  
   - Notable types: `UGeometryCacheAbcFileComponent`, `AGeometryCacheAbcFileActor`, `UGeometryCacheTrackAbcFile`, `UGeometryCacheAbcStream`, `FGeometryCacheAbcFileComponentCustomization`, `UActorFactoryGeometryCacheAbcFile`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGeometryCacheAbcFileComponent`
 
@@ -31,12 +35,13 @@
 
 - Role: Convenience actor that hosts the Alembic Geometry Cache component for easy placement in levels.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the experimental plugin, place an `AGeometryCacheAbcFileActor` (or add `UGeometryCacheAbcFileComponent` to an actor), and point it to an Alembic cache file.
 - Configure playback settings (looping, speed) on the component; use standard Geometry Cache controls to play/scrub.
 - In the editor, use the provided actor factory/customization to set up actors and component properties quickly.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental; no explicit UE 5.7-specific notes beyond the experimental status in the plugin descriptor.
+

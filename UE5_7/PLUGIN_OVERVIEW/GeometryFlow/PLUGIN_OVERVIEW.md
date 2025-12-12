@@ -6,7 +6,11 @@
 - Supplies core node types (math, switching, data transfer) plus a large library of mesh-processing nodes (simplify, normals/UVs, baking, collision) built on Dynamic Mesh utilities.
 - Adds editor-facing node registrations for convenience nodes such as automatic UV generation.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developers build GeometryFlow graphs with mesh-processing nodes (simplify, auto-UV, bake, collision) and use editor-registered nodes for tooling workflows.
+
+## 3. Key Modules
 
 - **GeometryFlowCore** (Runtime)  
   - Role: Core graph runtime, node registration, data containers, and generic nodes.  
@@ -20,7 +24,7 @@
   - Role: Editor module that registers editor-only mesh processing nodes/utilities (e.g., auto UV generation UI hooks).  
   - Notable types: `FGeometryFlowMeshProcessingEditorModule`, `MeshProcessingEditorNodeRegistration`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FGeometryFlowGraph` / `FGeometryFlowNode`
 
@@ -36,12 +40,13 @@
 
 - Role: Structured payloads for mesh geometry, collision primitives, index sets, baked images, and weight maps that flow between nodes.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and construct a `FGeometryFlowGraph` at runtime or in tooling, registering nodes from `GeometryFlowCore` and `GeometryFlowMeshProcessing`.
 - Compose graphs that ingest a dynamic mesh, run processing nodes (simplify, remesh, bake textures, generate collision), and output modified mesh data.
 - In the editor, leverage the mesh processing editor nodes (e.g., auto UV generation) where GeometryFlow-based tools expose them.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

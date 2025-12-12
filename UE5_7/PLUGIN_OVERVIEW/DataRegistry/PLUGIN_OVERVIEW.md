@@ -6,7 +6,11 @@
 - Exposes Blueprint and C++ APIs for synchronous and asynchronous lookup of registry items.
 - Includes optional editor support for customizing registry IDs and data sources.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users configure registries in project settings and call `UDataRegistrySubsystem` Blueprint/C++ APIs to fetch data at runtime.
+
+## 3. Key Modules
 
 - **DataRegistry** (Runtime)  
   - Role: Core registry system, settings, and runtime lookup logic.
@@ -15,7 +19,7 @@
   - Role: Editor customizations for registry IDs and settings.
   - Notable types: `FDataRegistryIdCustomization`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UDataRegistrySubsystem`
 - Role: Engine subsystem offering Blueprint-accessible registry lookups.
@@ -30,12 +34,13 @@
 - Role: Identifiers used to reference registry items and resolved lookup handles.
 - Key behavior: Support async resolve followed by cached retrieval.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and configure registries in project settings via `UDataRegistrySettings`.
 - Use Blueprint nodes from `UDataRegistrySubsystem` to fetch struct data by registry ID, optionally performing async acquire then cached lookup.
 - Customize registry identifiers in the editor using the provided ID customization to reduce errors.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific notes surfaced; plugin remains optional and disabled by default in this branch.
+

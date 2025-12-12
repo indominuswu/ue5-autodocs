@@ -5,21 +5,23 @@
 - Provides runtime and MetaSound-specific modules plus editor viewmodels for MetaSound editing workflows.
 - Depends on MetaSound and ModelViewViewModel modules.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - MVVM viewmodels and MetaSound editor integrations intended for tooling/UI bindings.
+
+## 3. Key Modules
 - **TechAudioTools** (Runtime, Experimental) – Core audio utilities and MVVM viewmodels (e.g., for `UAudioComponent`).
 - **TechAudioToolsMetaSound** (Runtime, Experimental) – MetaSound-specific viewmodels and literal interfaces.
 - **TechAudioToolsMetaSoundEditor** (Editor, Experimental) – Editor viewmodels and conversion helpers for MetaSound tooling.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `UAudioComponentViewModel` (MVVM viewmodel) – Wraps an `UAudioComponent`, exposes properties/actions to UI bindings; uses conversion helpers in `TechAudioToolsConversionFunctions`.
 - MetaSound viewmodels: `UMetaSoundViewModel`, `UMetaSoundLiteralViewModel`, and conversion helpers (`MetaSoundViewModelConversionFunctions`) for binding MetaSound data to UI.
 - Interfaces: `IMetaSoundLiteralInterface` for working with MetaSound literal values.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable alongside MetaSound to experiment with MVVM-driven audio/MetaSound editor tooling.
 - Bind UI (UMG/MVVM) to `UAudioComponentViewModel` to inspect/control audio components in tools.
 - Use MetaSound viewmodels in custom editor panels to surface graph data or literal parameters for debugging.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked beta/experimental; no explicit UE 5.7-specific behavior beyond current interfaces.
-

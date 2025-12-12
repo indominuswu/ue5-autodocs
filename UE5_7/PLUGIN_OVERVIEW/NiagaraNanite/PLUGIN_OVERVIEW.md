@@ -5,13 +5,17 @@
 - Adds a Nanite-based renderer for Niagara, enabling Nanite geometry to be drawn by Niagara systems.
 - Includes shader support and editor customizations for Nanite renderer properties.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Niagara authors add the “Nanite Renderer” (`UNiagaraNaniteRendererProperties`) in the Niagara editor to render Nanite meshes from particle data.
+
+## 3. Key Modules
 
 - **NiagaraNanite** (Runtime) – Nanite renderer implementation and supporting components.
 - **NiagaraNaniteShader** (Runtime) – Shader registration for Nanite Niagara rendering.
 - **NiagaraNaniteEditor** (Editor) – Details/customizations for Nanite renderer properties.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UNiagaraNaniteRendererProperties`
 
@@ -25,12 +29,12 @@
 
 - Helpers for binding component parameters to renderer data, with editor customizations for parameter selection.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - In the Niagara Editor, add a “Nanite Renderer” to an emitter, configure bound meshes/materials, and bind Niagara parameters via the parameter binding helpers.
 - Ensure Nanite is enabled in the project; the plugin handles renderer/shader registration so emitters render through the Nanite pipeline.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-only flags; functionality reflects the current Nanite renderer implementation for Niagara.
 

@@ -5,13 +5,16 @@
 - Exposes Blueprint-friendly async proxies for image conversion and resizing.
 - Includes an uncooked-only module for Blueprint support helpers.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Blueprint async proxies (`UAppleImageUtilsBaseAsyncTaskBlueprintProxy`) and runtime image conversion API for Apple platforms.
+
+## 3. Key Modules
 - **AppleImageUtils** (Runtime, Default)
   - Role: Core image utility implementations and platform bridges.
 - **AppleImageUtilsBlueprintSupport** (UncookedOnly, Default)
   - Role: Blueprint integration and helper classes for editor/testing.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `IAppleImageUtilsPlugin`
   - Role: Public interface for image conversion utilities.
 - `FAppleImageUtilsImageConversionRequest` / `FAppleImageUtilsImageConversionResult`
@@ -21,10 +24,11 @@
 - `AppleImageUtilsAvailability`
   - Role: Helper for checking platform support/version constraints.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (default on Apple platforms) and call Blueprint async nodes to convert textures/buffers to formats like PNG/JPEG/HEIF.
 - Use runtime API to operate on `CIImage`/`CVPixelBuffer`/`IOSurface` sources when integrating with camera or AR feeds.
 - Rely on BlueprintSupport module for editor-time testing; runtime module handles actual conversions on device.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

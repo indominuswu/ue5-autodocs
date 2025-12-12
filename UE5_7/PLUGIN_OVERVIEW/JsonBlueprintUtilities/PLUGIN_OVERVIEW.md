@@ -7,12 +7,16 @@
 - Includes an uncooked-only graph module for editor-time utilities (JsonBlueprintGraph).
 - Beta and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Blueprint nodes (`UJsonBlueprintFunctionLibrary`) let users parse/serialize JSON and map fields to structs directly in Blueprints.
+
+## 3. Key Modules
 
 - **JsonBlueprintUtilities** (Runtime, Default) — Blueprint function library and JSON/struct conversion helpers.
 - **JsonBlueprintGraph** (UncookedOnly, Default) — Editor-time graph utilities supporting the Blueprint JSON nodes.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UJsonBlueprintFunctionLibrary` (UBlueprintFunctionLibrary)
 
@@ -24,12 +28,12 @@
   - `StructToJsonString` — Serialize a struct to a JSON string (custom thunk).
   - `HasField`, `GetFieldNames` — Introspection helpers.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then use the Blueprint nodes from `UJsonBlueprintFunctionLibrary` to load/save JSON and to read/write fields into `FJsonObjectWrapper` variables.
 - Use custom thunk functions to map JSON data to user-defined structs or to write struct values back into JSON.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked beta in the descriptor; no additional UE 5.7-specific changes noted.
 

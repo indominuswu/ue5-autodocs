@@ -6,18 +6,23 @@
 - Manages task queues, named pipes, and controller lifecycle for shader compiler workers.
 - Enabled by default on Windows editor/uncooked targets; runs at the earliest loading phase.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Build distribution backend for shader compiles; operates automatically with no gameplay/editor surface beyond build configuration.
+
+## 3. Key Modules
 - **XGEController** (UncookedOnly, Win64): The sole module; wires into the distributed build interface used by the shader compiler.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `FXGEControllerModule` (`IDistributedBuildController`): Module singleton with `Get`; handles startup/shutdown, controller initialization, task enqueueing, and worker management.
 - Task management: maintains pending/dispatched task queues (`TQueue`, `TMap`), generates unique file/task IDs, and communicates with XGE via named pipes and background threads.
 - Provides `EnqueueTask`, `CreateUniqueFilePath`, and `SupportsLocalWorkers` overrides used by the engine’s shader compiler distribution path.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin on Win64 to allow shader compile distribution; the build system will call into `FXGEControllerModule` automatically.
 - The module spins up the XGE controller process, monitors events through read/write threads, and reports completion back to the engine.
 - No direct gameplay/runtime usage; intended for build acceleration.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Windows-only and non-shipping (UncookedOnly). No additional UE 5.7-specific changes noted.
+

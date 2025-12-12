@@ -6,10 +6,14 @@
 - Ships with sample disturbance annotations and Blueprint helpers; can contain content assets.
 - Experimental and disabled by default; depends on the ZoneGraph runtime.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - ZoneGraph extension with components/subsystem and Blueprint helpers (e.g., disturbance annotations) that users employ to add dynamic annotation tags to lanes.
+
+## 3. Key Modules
 - **ZoneGraphAnnotations** (Runtime): Annotation subsystem, components, tag types, and sample annotations.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `UZoneGraphAnnotationSubsystem` (TickableWorldSubsystem): Manages registered annotations, maintains per-`AZoneGraphData` tag masks, and exposes combined annotation tags.
 - `UZoneGraphAnnotationComponent`: Component that contributes annotation tag masks to the subsystem for associated zone data.
 - `FZoneGraphAnnotationTagContainer`: Aggregates per-data annotation tag masks and combined static tags.
@@ -19,11 +23,12 @@
   - `UZoneGraphDisturbanceAnnotationBPLibrary`: Blueprint helpers to work with disturbance annotations.
 - Module interface: `IZoneGraphAnnotationsModule` exposes standard module accessors.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable ZoneGraph and ZoneGraphAnnotations; place `UZoneGraphAnnotationComponent` on actors associated with `AZoneGraphData` to inject additional tag masks.
 - Access `UZoneGraphAnnotationSubsystem` to query combined annotation tags per lane/data handle.
 - Use disturbance annotation classes or extend your own to mark temporary influences on lanes (e.g., hazards, reservations).
 - For testing, use `UZoneGraphAnnotationTestingActor` and Blueprint library helpers to validate tag application.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked experimental; no additional UE 5.7-specific behavior noted in the source.
+

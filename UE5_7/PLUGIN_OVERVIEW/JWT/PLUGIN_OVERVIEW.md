@@ -5,10 +5,14 @@
 - Exposes JWT parsing, header/payload manipulation, and signing/verification helpers.
 - Ships with unit tests covering algorithms and parsing.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Runtime JWT API (`FJsonWebToken`/`IJwt`, `FJwtAlgorithms`) developers use to create, sign, and verify tokens.
+
+## 3. Key Modules
 - **JWT** (Runtime) - Core JWT API and tests.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `IJwt`
 - Role: Interface for encoding and decoding JWTs.
 
@@ -21,10 +25,11 @@
 ### `FJwtUtils`
 - Role: Utility helpers for base64url handling, claim extraction, and validation helpers.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and include the JWT module in your target.
 - Use `FJsonWebToken`/`IJwt` to parse tokens, set claims, and sign or verify using supported algorithms.
 - PlatformCrypto is required for cryptographic operations.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit 5.7-only changes; plugin remains experimental but functional in 5.7.
+

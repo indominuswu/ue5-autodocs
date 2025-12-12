@@ -6,13 +6,17 @@
 - Generates and opens solutions, jumps to files/lines, adds files to projects, and saves open documents through VS automation.
 - Provides user settings for selecting the preferred VS installation/format.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Source code accessor and settings (`UVisualStudioSourceCodeAccessSettings`) that users pick in Editor Preferences to open solutions/files in Visual Studio.
+
+## 3. Key Modules
 
 - **VisualStudioSourceCodeAccess** (UncookedOnly, Default, Win64, supports UnrealFrontend/UnrealInsights)  
   - Role: Visual Studio-backed `ISourceCodeAccessor`, automation wrapper, settings management.  
   - Notable types: `FVisualStudioSourceCodeAccessor`, `FVisualStudioSourceCodeAccessorWrapper`, `FVisualStudioSourceCodeAccessModule`, `UVisualStudioSourceCodeAccessSettings`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FVisualStudioSourceCodeAccessor`
 
@@ -31,11 +35,13 @@
 
 - Role: Registers the accessor/wrapper and settings on startup.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
-- Enable the plugin (default). In Editor Preferences → Source Code, choose Visual Studio and desired install/version.  
+- Enable the plugin (default). In Editor Preferences > Source Code, choose Visual Studio and desired install/version.  
 - Use editor actions to open the solution or navigate to specific source locations; VS is launched and focused accordingly.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific changes highlighted; integration matches the current 5.7 implementation.
+
+

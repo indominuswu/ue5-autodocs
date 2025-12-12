@@ -6,7 +6,10 @@
 - Provides runtime components/subsystems for cloner layouts, attachments, and effector-driven modifications.
 - Supplies editor tooling for authoring cloner/effectors, detail customizations, and mesh building utilities.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime cloner/effector components and subsystems plus editor factories/customizations for authoring setups.
+
+## 3. Key Modules
 
 - **ClonerEffector** (Runtime)  
   - Role: Core cloner/effectors runtime components and subsystems.
@@ -17,7 +20,7 @@
 - **ClonerEffectorMeshBuilder** (Runtime)  
   - Role: Mesh building support for cloner instances.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UCEClonerComponent`
 - Role: Niagara-derived component that spawns and manages clones; supports layouts, attachments, and mesh overrides.
@@ -35,12 +38,12 @@
 - `UCEClonerEffectorSettings`: Shared settings for cloner/effectors.
 - Editor customizations: Detail panels for cloner/effector components and throttle manager to manage Niagara updates in-editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and add a `UCEClonerComponent` to an actor to generate clones along a chosen layout; configure materials/mesh overrides and attachments.
 - Add `UCEEffectorComponent` instances to influence clones (position, rotation, scaling, weighting); manage them through the effector subsystem.
 - In the editor, use the actor factories to place cloner/effector actors and adjust settings through customized detail panels; rely on editor subsystems for preview and performance throttling.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

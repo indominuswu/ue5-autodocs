@@ -6,13 +6,17 @@
 - Serves as a lightweight template for creating object types without modifying engine code.
 - Enabled by default as an example module.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Example/template plugin showing how to declare custom `UObject`/`UStruct` types in a module (`UMyPluginObject`, `FMyPluginStruct`).
+
+## 3. Key Modules
 
 - **UObjectPlugin** (Runtime, Default)  
   - Role: Provides example object/struct types and standard module interface helpers.  
   - Notable types: `IUObjectPlugin`, `UMyPluginObject`, `FMyPluginStruct`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IUObjectPlugin`
 
@@ -27,11 +31,12 @@
 
 - Role: Simple struct with a `FString TestString` property, illustrating UStruct usage in a plugin module.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Use as a starting point for defining custom `UObject`/`UStruct` types within your own plugin module.
 - Duplicate/rename the module and extend the object/struct with project-specific properties and functions.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific behavior; example content reflects the current 5.7 source.
+

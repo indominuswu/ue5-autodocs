@@ -5,7 +5,11 @@
 - Supplies Control Rig units and solver APIs to drive multi-limb IK with joint constraints and debugging options.
 - Depends on Control Rig for integration with animation graphs and rigging workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Animators add the FullBodyIK/PBIK Control Rig units and configure constraints/effectors to drive character IK with debug visualizations.
+
+## 3. Key Modules
 - **FullBodyIK** (Runtime)
   - Role: Full-body IK solver implementation and Control Rig units.
   - Notable types: `FRigUnit_FullbodyIK`, `FBIKConstraint`, `FBIKConstraintOption`, `FBIKDebugOption`, `FBIKConstraintLib`, `FBIKUtil`.
@@ -13,7 +17,7 @@
   - Role: Position-Based IK solver variant and rig units.
   - Notable types: `FRigUnit_PBIK`, `FPBIKConstraint`, `FPBIKBody`, `FPBIKSolver`, `FPBIK_Shared`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FRigUnit_FullbodyIK`
 - Role: Control Rig unit that runs the full-body IK solver.
@@ -30,10 +34,11 @@
 ### Debug utilities
 - `FBIKDebugOption`/`PBIKDebug` headers expose draw/debug toggles for visualizing solver behavior.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and add the provided Control Rig units (`RigUnit_FullbodyIK`, `RigUnit_PBIK`) in Control Rig graphs or animation blueprints.
 - Configure constraints and effectors per limb using the constraint structs; tweak solver iteration counts and convergence settings for stability.
 - Use debug options to visualize chains and constraint behavior when tuning rigs.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes discovered; plugin ships enabled for 5.7 with both FullBodyIK and PBIK solvers.
+

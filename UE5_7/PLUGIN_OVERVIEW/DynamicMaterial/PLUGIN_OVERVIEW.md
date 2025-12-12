@@ -6,7 +6,10 @@
 - Includes editor tooling (Material Designer) with custom UI, content browser integration, and snapshot/build utilities.
 - Offers shader helpers and texture-set authoring to package inputs for dynamic materials.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Material Designer editor UI, factories, and runtime components/Blueprint libraries for dynamic materials.
+
+## 3. Key Modules
 - **DynamicMaterial** (RuntimeAndProgram)  
   - Role: Core runtime data model for dynamic material components, values, and build utilities.
 - **DynamicMaterialTextureSet** (RuntimeAndProgram)  
@@ -18,7 +21,7 @@
 - **DynamicMaterialTextureSetEditor** (Editor)  
   - Role: Editor widgets and factories for texture set assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Runtime components
 - `UDMMaterialComponent` / `UDMMaterialComponentDynamic` / `UDMMaterialLinkedComponent`: Components that own dynamic material graphs and manage value links to scene objects.
@@ -35,11 +38,11 @@
 - Blueprint libraries/utilities: `UDMMaterialFunctionLibrary`, `UDMMaterialInstanceFunctionLibrary`, `UDMMaterialSlotFunctionLibrary`, `UDMMaterialStageFunctionLibrary`, and texture-set helpers for scripting Material Designer tasks.
 - Numerous Slate widgets (`SDMMaterialEditor_*`, `SDMMaterialLayer*`, `SDMTextureSetBuilder*`) supply the dedicated editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (and optional texture-set/editor modules). In the editor, open the Material Designer UI to assemble layers, stages, and effects; save results as dynamic material assets or texture sets.
 - At runtime, add `UDMMaterialComponent` to actors or link to existing materials; drive exposed `UDMMaterialValue*` nodes to adjust parameters, textures, or render targets on the fly.
 - Use texture set assets to bundle baked textures and channel masks; apply via the component or Blueprint libraries.
 - Shader module activates automatically; no manual setup required beyond enabling the plugin.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - The plugin is marked for Virtual Production workflows and includes extensive editor-only tooling; no explicit 5.7-specific changelog entries were found.

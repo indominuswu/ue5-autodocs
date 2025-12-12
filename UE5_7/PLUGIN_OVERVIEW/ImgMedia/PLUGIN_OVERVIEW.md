@@ -7,7 +7,10 @@
 - Includes GPU-accelerated EXR reading on Win64 and platform-wrapped OpenEXR support.
 - Marked beta; the legacy playback component is deprecated in favor of Media Plate.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime image-sequence playback plus editor factories/settings; legacy playback component still present.
+
+## 3. Key Modules
 
 - **ImgMedia** (RuntimeNoCommandlet, Default) — Core image-sequence reader, caching, scheduling.
 - **ImgMediaEngine** (RuntimeNoCommandlet, PreDefault) — Playback helpers, deprecated component bridge to actors.
@@ -16,7 +19,7 @@
 - **OpenExrWrapper** (RuntimeNoCommandlet, PostEngineInit, Mac/Win64) — Platform OpenEXR wrapper.
 - **ExrReaderGpu** (Runtime, PostConfigInit, Win64) — GPU decoding path for EXR sequences.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UImgMediaSource`
 
@@ -37,14 +40,13 @@
 - `UImgMediaSourceFactory` / `UImgMediaSourceFactoryNew`: Editor factories that create `UImgMediaSource` assets and wire default options.
 - `UImgMediaProcessEXROptions`: Options object used by EXR import/processing tools in the editor module.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Editor: Create an **Img Media Source** asset, point it at a numbered EXR/PNG sequence, and reference it from a **Media Player** or **Media Plate**. Configure proxies and frame rates in the asset or via project settings.
 - Runtime: Play the source through a `UMediaPlayer` (or Media Plate) to drive a `UMediaTexture`. Global playback/cache tuning comes from `UImgMediaSettings`.
 - GPU EXR path: On Win64, enabling GPU decoding (`ExrReaderGpu`) improves throughput for large frames.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - `UDEPRECATED_ImgMediaPlaybackComponent` is still present but flagged deprecated (message references 5.3); Media Plate is recommended.
 - No other explicit UE 5.7-only notes found; overview reflects the current plugin state in this source tree.
-

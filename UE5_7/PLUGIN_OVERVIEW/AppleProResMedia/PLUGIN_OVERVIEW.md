@@ -5,11 +5,14 @@
 - Provides encoder and decoder integration, Movie Render Pipeline nodes, and media settings for ProRes workflows.
 - Supplies third-party ProRes toolbox headers for encoding/decoding.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Provides project settings (`UAppleProResMediaSettings`) and Movie Render Pipeline nodes (`UMoviePipelineAppleProResOutput`, `UMovieGraphAppleProResNode`) for authoring ProRes playback/export.
+
+## 3. Key Modules
 - **AppleProResMedia** (Runtime, PostEngineInit)
   - Role: Core ProRes media integration, encoder/decoder registration, and pipeline nodes.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `UAppleProResMediaSettings`
   - Role: Project settings for ProRes usage.
 - `FAppleProResEncoder`
@@ -23,10 +26,11 @@
 - Third-party headers (`ProResFileReader`, `ProResFileWriter`, etc.)
   - Role: Low-level codec support shipped with the plugin.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin on platforms where ProRes ingest/export is needed.
 - Configure `AppleProResMedia` settings; use Movie Render Pipeline ProRes output nodes for rendering sequences.
 - Play ProRes media through the Media Framework; the plugin registers ProRes codec support for playback and encoding.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

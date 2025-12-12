@@ -6,7 +6,10 @@
 - Supplies extensive editor UI for session discovery, connection, replication stream editing, and analytics.
 - Includes replication presets/assets to manage what data is synchronized between clients.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor UI for multi-user sessions plus runtime subsystem/Blueprint APIs and replication assets.
+
+## 3. Key Modules
 - **MultiUserClient** (UncookedOnly)
   - Role: Core editor app module, session browser/UX, replication control UI, and settings.
   - Notable types: replication UI controllers, transport/analytics helpers, client/session browser widgets, configuration structures.
@@ -19,7 +22,7 @@
 - **MultiUserReplicationEditor** (Editor)
   - Role: Asset definitions, factories, and editor UI for replication stream/preset assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMultiUserSubsystem`
 - Role: Engine subsystem for joining/leaving sessions, enumerating clients, and sending custom events.
@@ -39,11 +42,11 @@
 - Session browser, active session tabs, replication dashboards, authority/muting/stream views, and analytics/notification widgets.
 - Preset editor toolkit (`ReplicationSessionPresetEditorToolkit`) for authoring replication presets.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and use the Multi-User toolbar to discover and join sessions; the UI comes from the uncooked module.
 - In Blueprint or editor utilities, call `UMultiUserSubsystem` to join/leave sessions, send custom events, and query clients.
 - Create and edit `ReplicationStream`/preset assets via the editor asset definitions; apply them during sessions to control what replicates.
 - Extend replication via `IMultiUserReplicationRegistration` implementations to expose custom data streams.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; functionality aligns with the current source tree.

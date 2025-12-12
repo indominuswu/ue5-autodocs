@@ -5,7 +5,10 @@
 - Supplies base classes, subsystem support, and Blueprint types for creating and stacking modifiers.
 - Editor tooling for authoring modifier assets and profiling their execution.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Ships editor menus/profiler UI and runtime components/Blueprint base classes that teams use to build and tune actor modifier stacks.
+
+## 3. Key Modules
 - **ActorModifierCore** (Runtime)
   - Role: Core runtime types (components, stacks, shared objects) that apply modifier logic to actors.
 - **ActorModifierCoreBlueprint** (UncookedOnly)
@@ -13,7 +16,7 @@
 - **ActorModifierCoreEditor** (Editor)
   - Role: Editor menus, detail customizations, Blueprint factories, and profiler UI for modifier assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UActorModifierCoreComponent`
 - Role: Component that owns and executes modifier stacks on an actor.
@@ -37,10 +40,10 @@
 - Factories and asset definitions (e.g., `UActorModifierCoreBlueprintFactory`, `AssetDefinition_ActorModifierCoreBlueprint`) enable creating modifier assets.
 - Editor UI classes (`SActorModifierCoreEditorProfiler`, `UActorModifierCoreEditorSubsystem`) support profiling and customization.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Add an `UActorModifierCoreComponent` to actors that should host modifier stacks.
 - Create modifier assets (Blueprint or C++) deriving from `UActorModifierCoreBlueprintBase`, then assign them to stacks.
 - Use the Editor module tools to create, edit, and profile modifier setups; use shared objects/actors to pass data between modifiers.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

@@ -6,7 +6,10 @@
 - Integrates input abstraction through CommonInput for controller/keyboard/touch support and action routing.
 - Includes editor settings and tools for authoring Common UI assets.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Provides runtime widgets/subsystems and editor settings/tools for building Common UI screens.
+
+## 3. Key Modules
 - **CommonUI** (Runtime)  
   - Role: Core widgets, activatable screen stack, input routing, lazy loading, and subsystems for visibility/control.
 - **CommonUIEditor** (Editor)  
@@ -14,7 +17,7 @@
 - **CommonInput** (Runtime)  
   - Role: Input mapping/types used by Common UI action routing.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Core widgets
 - `UCommonActivatableWidget`, `UCommonActivatableWidgetContainer`: Screen/panel units with activation/deactivation lifecycle and animated transitions.
@@ -34,11 +37,10 @@
 ### Utilities
 - `UCommonUILibrary`, `UCommonUIUtils`, `UCommonUIRichTextData`: Blueprint helpers and styling data for Common UI content.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Editor/project setup: Enable CommonUI and CommonInput, configure `UCommonUISettings`/`UCommonUIInputSettings` in project settings (input data tables, platform mappings).
 - UI authoring: Build screens from `UCommonActivatableWidget` derivatives, use `UCommonButtonBase` and `UCommonActionWidget` for input-aware controls, and organize flows with activatable containers or carousels.
 - Runtime: Register actions through the action router, use lazy widgets for async loading, and manage visibility with `UCommonUIVisibilitySwitcher` or subsystem-driven rules.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific changes called out in the source; overview reflects the current plugin state.
-

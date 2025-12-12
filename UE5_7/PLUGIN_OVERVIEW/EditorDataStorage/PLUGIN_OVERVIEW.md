@@ -6,13 +6,17 @@
 - Includes a small UI toolkit (widgets, registration factory) to render and edit stored data.
 - Enabled by default for editor builds.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Internal Typed Elements data store for other editor systems; no standalone user workflow or gameplay API.
+
+## 3. Key Modules
 - **TedsCore** (EditorAndProgram)  
   - Role: Core Typed Elements Data Storage runtime, queries, processors, memento translators, and settings.
 - **TedsUI** (Editor)  
   - Role: Widgets and UI processors for presenting storage data in editor panels.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Core storage
 - `FTypedElementsDataStorage` (public API header `TypedElementsDataStorage.h`): Entry point for registering columns, querying, and processing stored data.
@@ -24,10 +28,11 @@
 - Widgets such as `FSlateColorWidget`, `FUrlWidget`, `FWorldWidget`, `FLabelWidget`, `FPackagePathWidget`, and `FGeneralWidgetRegistrationFactory` expose stored data in Slate.
 - `WidgetReferenceColumnUpdateProcessor` keeps UI column references in sync.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enabled automatically in editor. Editor systems can register columns and processors with `FTypedElementsDataStorage` to store per-element metadata.
 - Use query contexts and processors to read/write data for outliner, content browser, or custom tools.
 - UI module provides ready-made widgets to display common data types; register widgets via the general widget registration factory.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked experimental; no explicit UE 5.7-specific behavior documented beyond current source state.
+

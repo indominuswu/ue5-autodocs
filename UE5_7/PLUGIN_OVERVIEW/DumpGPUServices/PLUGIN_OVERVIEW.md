@@ -6,13 +6,17 @@
 - Automatically uploads dump output (optionally compressed) to an HTTP endpoint and can launch a browser to the uploaded location.
 - Experimental and enabled by default for non-server, non-shipping builds.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Augments the `DumpGPU` workflow by uploading dumps and showing progress/links for users running the command in editor/dev builds.
+
+## 3. Key Modules
 
 - **DumpGPUServices** (Runtime, Default; not for Server/Shipping)  
   - Role: Provides `IDumpGPUUploadServiceProvider` implementations, HTTP upload pipeline, and module registration.  
   - Notable types: `IDumpGPUServices`, `FDumpGPUServicesModule`, `FDumpGPUHTTPUploadProvider`, `FDumpGPUHTTPUpload`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IDumpGPUUploadServiceProvider`
 
@@ -28,11 +32,12 @@
 
 - Role: Registers the HTTP provider factory and ties into DumpGPU service discovery.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Run `DumpGPU` with upload enabled; the plugin will create an HTTP upload provider using the configured URL pattern and start uploading results.  
 - Monitor progress via editor notifications (when available); on completion, the plugin can open the uploaded location in a browser.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental in 5.7; restricted from Server and Shipping targets. No additional 5.7-specific changes called out.
+

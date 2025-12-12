@@ -5,12 +5,16 @@
 - Provides UI to inspect calibration imagery, compute errors, and visualize feature matching results.
 - Supplements the main MetaHuman calibration workflow with reporting/QA utilities.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - MetaHuman calibration users open the diagnostics window/image viewer to inspect feature matches and error metrics for their captures.
+
+## 3. Key Modules
 - **MetaHumanCalibrationDiagnostics** (Editor)
   - Role: Hosts the diagnostics window, image viewer widgets, commands, and error calculators.
   - Notable types: `SCalibrationDiagnosticsWindow`, `SCalibrationDiagnosticsImageViewer`, `FMetaHumanCalibrationDiagnosticsCommands`, `FMetaHumanCalibrationErrorCalculator`, `UMetaHumanRobustFeatureMatcher`, `FMetaHumanCalibrationDiagnosticsOptions`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `FMetaHumanCalibrationErrorCalculator`
 - Role: Computes error metrics across calibration frames to highlight problematic camera data.
 
@@ -20,10 +24,11 @@
 ### `SCalibrationDiagnosticsWindow` / `SCalibrationDiagnosticsImageViewer`
 - Role: Editor widgets that display calibration frames, overlays, and error results in a dedicated diagnostics window.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (Experimental/MetaHuman). Open the Calibration Diagnostics window from the MetaHuman calibration tools.
 - Load calibration captures; use the image viewer to inspect feature matches and review error metrics.
 - Adjust capture setup based on reported errors before running final calibration/solve.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked experimental; no additional UE 5.7-specific notes found in the source.
+

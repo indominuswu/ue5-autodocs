@@ -6,7 +6,10 @@
 - Built on top of Property Animator Core to supply ready-made animator presets for virtual production and sequencing.
 - Includes BlueprintType contexts and curve types to configure how properties are animated.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime animator presets/contexts and editor settings/Sequencer evaluators.
+
+## 3. Key Modules
 
 - **PropertyAnimator** (Runtime)  
   - Role: Runtime animators, value contexts, curves, and settings.
@@ -14,7 +17,7 @@
 - **PropertyAnimatorEditor** (Editor)  
   - Role: Editor integration for authoring animators and exposing settings (`UPropertyAnimatorSettings`), including Sequencer evaluators.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Context types (`UPropertyAnimatorFloatContext`, `UPropertyAnimatorVectorContext`, `UPropertyAnimatorRotatorContext`)
 
@@ -35,13 +38,13 @@
 
 - Role: Engine config object (Config=Engine) that exposes plugin-wide defaults for the animator system.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Add Property Animator components/behaviors via Property Animator Core, then instantiate specific animators (curve, time, wiggle, text) to drive chosen property contexts.
 - Configure curves (ease/wave) and contexts in the editor; at runtime the animators evaluate and update target properties.
 - Sequencer integration is provided through evaluator systems inside the editor module for timeline-driven control.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Part of the Virtual Production category; some animators (e.g., oscillate/pulse/bounce) are marked deprecated in source.
 - No explicit UE 5.7-only changes beyond the current feature set.

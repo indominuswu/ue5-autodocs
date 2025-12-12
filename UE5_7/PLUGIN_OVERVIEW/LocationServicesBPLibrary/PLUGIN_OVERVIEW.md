@@ -6,13 +6,17 @@
 - Defines the common data structures, delegates, and `ULocationServicesImpl` abstraction used by platform-specific plugins.
 - Provides static helper functions to start/stop services and fetch the last known location.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Blueprint/C++ API (`ULocationServices`, `OnLocationChanged` delegates) for apps to request/init/start/stop device location services.
+
+## 3. Key Modules
 
 - **LocationServicesBPLibrary** (Runtime)
   - Role: Core Blueprint library and base implementation used by platform backends.
   - Notable types: `ULocationServices`, `ULocationServicesImpl`, `FLocationServicesData`, `FLocationServicesData_OnLocationChanged`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FLocationServicesData`
 
@@ -30,12 +34,13 @@
 - Role: Base class for platform implementations.
 - Key overridable methods: `InitLocationServices`, `StartLocationService`, `StopLocationService`, `GetLastKnownLocation`, `IsLocationAccuracyAvailable`, `IsLocationServiceEnabled`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable this plugin plus a platform implementation (e.g., `LocationServicesAndroidImpl` or `LocationServicesIOSImpl`).
 - In Blueprint, call `InitLocationServices` then `StartLocationServices`, and bind to `OnLocationChanged` to receive updates.
 - Call `GetLastKnownLocation` for a cached fix; stop services when not needed to save battery.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

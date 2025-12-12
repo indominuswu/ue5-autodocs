@@ -6,11 +6,15 @@
 - Provides analyzers, data providers, and Slate widgets to inspect IoStore requests, timing, and bandwidth.
 - Targets the `UnrealInsights` program; not used in packaged games.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Insights users enable this to analyze IoStore traces via the IoStore analysis tab and associated widgets/providers.
+
+## 3. Key Modules
 
 - **IoStoreInsights** (EditorAndProgram, Default; program allow list: UnrealInsights) — Registers analyzers, providers, and UI tabs for IoStore data in Insights.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Analysis and providers
 
@@ -21,12 +25,12 @@
 
 - Slate widgets such as `SActivityTableTreeView`, `SIoStoreAnalysisTab`, and supporting view models (`FIoStoreActivityTable`, `FIoStoreActivityNode`, timing track/extender classes) expose IoStore timelines and tables inside Insights.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Run UnrealInsights with this plugin enabled; capture or load a trace containing IoStore events.
 - Use the IoStore analysis tab to filter read events, inspect request timelines, and analyze histogram data provided by the plugin’s widgets.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; functionality is scoped to the UnrealInsights program module.
 

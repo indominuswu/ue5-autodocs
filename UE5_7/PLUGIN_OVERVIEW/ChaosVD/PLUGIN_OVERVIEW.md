@@ -6,7 +6,10 @@
 - Provides editor/program tooling for exploring particle, constraint, collision, and scene query data.
 - Includes Blueprint-accessible extensions and built-in visualization settings for multiple Chaos data types.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Offers an editor mode/panels for Chaos debug capture playback plus Blueprint hooks for tooling integration.
+
+## 3. Key Modules
 
 - **ChaosVD** (EditorAndProgram)  
   - Role: Core visual debugger runtime/editor tooling, UI, and data capture/playback pipeline.
@@ -16,7 +19,7 @@
 - **ChaosVDBuiltInExtensions** (EditorAndProgram)  
   - Role: Built-in extensions and component visualizers for common Chaos data sets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Settings and managers
 - `UChaosVDCoreSettings`, `UChaosVDGeneralSettings`, `UChaosVDMiscSettings`: configure capture/playback, storage, and visualization defaults.
@@ -32,13 +35,13 @@
 - `UChaosVDEditorMode` and `UChaosVDEditorModeTools`: editor mode for inspecting captures.
 - Customizations/factories: `FChaosVDGeometryComponentCustomization`, `FChaosVDCustomIconDataStorageFactory`, `FChaosVDParentDataStorageFactory`, `FChaosVDParticleEditorDataFactory`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable Chaos Visual Debugger to capture Chaos simulation data during PIE or runtime, then open captures in the editor mode.
 - Adjust visualization settings (collision, joint constraints, particles, acceleration structures) to inspect specific simulation aspects.
 - Use the trace manager and extensions to record solver events; view data through provided component visualizers and instanced mesh representations.
 - Leverage Blueprint hooks from `ChaosVDBlueprint` for integrating capture triggers or playback controls in tools.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

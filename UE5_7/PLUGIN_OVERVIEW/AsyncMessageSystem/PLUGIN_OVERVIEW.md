@@ -7,12 +7,15 @@
 - Supplies a world subsystem and optional binding component to manage message lifetimes.
 - Configurable developer settings for message handling.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime subsystem/component plus Blueprint nodes (`UAsyncMessageSystemBlueprintLibrary`, `UAsyncAction_ListenForAsyncMessage`) for gameplay teams to publish/receive async messages.
+
+## 3. Key Modules
 
 - **AsyncMessageSystem** (Runtime)  
   - Role: Core async message routing, Blueprint helpers, and world subsystem.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UAsyncMessageWorldSubsystem`
 
@@ -38,14 +41,15 @@
 
 - Role: Project-level developer settings to configure async message system defaults (e.g., whether to reuse shared systems, debug flags).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (experimental) in the project.
 - Add `UAsyncMessageBindingComponent` to actors that should register message handlers or endpoints.
 - In Blueprints, use `Async Action Listen For Async Message` to subscribe to a message key; handle the completion pin when a message is received.
 - Use `AsyncMessageSystemBlueprintLibrary` helpers to publish messages to the current world’s `UAsyncMessageWorldSubsystem`.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked as experimental in the `.uplugin`.
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

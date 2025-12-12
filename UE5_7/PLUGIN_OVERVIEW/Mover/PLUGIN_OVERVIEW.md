@@ -8,14 +8,17 @@
 - Includes Chaos Visual Debugger (CVD) data hooks and developer settings for tuning/debugging.
 - Experimental and off by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime movement components/backends with optional editor helpers and CVD visualization hooks.
+
+## 3. Key Modules
 
 - **Mover** (Runtime) — core movement component, movement modes, layered move system, network/physics backends, and developer settings.
 - **MoverCVDData** (Runtime) — runtime data structures for Chaos Visual Debugger integration.
 - **MoverEditor** (UncookedOnly) — editor-side helpers for authoring Mover assets and settings.
 - **MoverCVDEditor** (UncookedOnly) — Chaos Visual Debugger extensions for visualizing Mover simulation data.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - `UMoverComponent` — central actor component implementing movement simulation and rollback support; owns moves, modes, and backend coordination.
 - Default movement set components:
@@ -34,14 +37,13 @@
   - `UMoverDeveloperSettings` — developer settings backed by CVars for tuning.
   - CVD helpers: `UMoverCVDSimDataComponent`, `UMoverPoseSearchTrajectoryPredictor`, `UPathedPhysicsDebugDrawComponent`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and attach `UMoverComponent` (or a derived component such as `UCharacterMoverComponent`/`UNavMoverComponent`) to actors that need rollback-capable movement.
 - Choose a backend liaison component (standalone, network prediction, or network physics) appropriate to your project and register it with the mover component.
 - Configure movement modes and layered moves in code/data to model walking, flying, falling, pathed motion, or custom behaviors; use movement modifier structs to tweak stance and acceleration.
 - Use the debug component and CVD integration to inspect simulations, network traces, and pathed physics data during iteration.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin is experimental in 5.7; no additional version-specific flags beyond the current module layout.
-

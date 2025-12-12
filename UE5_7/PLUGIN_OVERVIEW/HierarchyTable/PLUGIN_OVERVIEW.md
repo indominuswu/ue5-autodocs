@@ -5,11 +5,15 @@
 - Runtime module manages data access; editor module supplies asset types, factories, and Slate views.
 - Experimental plugin enabled when authoring Hierarchy Table assets.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users create/edit Hierarchy Table assets via the provided factory/editor Slate widgets for hierarchical animation data.
+
+## 3. Key Modules
 - **HierarchyTableRuntime** (Runtime) - Core table structures and default type definitions.
 - **HierarchyTableEditor** (UncookedOnly) - Asset definition, factory, editors, and Slate widgets for Hierarchy Tables.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `FHierarchyTable`
 - Role: Core data structure representing the hierarchical table; supports default type registration.
 
@@ -25,10 +29,11 @@
 ### `SHierarchyTable` / `SHierarchyTableRow`
 - Role: Slate widgets that render and edit hierarchy table rows in the editor toolkit.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and create a new Hierarchy Table asset via the content browser.
 - Use the Hierarchy Table editor to add rows/columns using default type handlers or custom ones.
 - Integrate runtime `FHierarchyTable` data into systems that need hierarchical lookups (e.g., animation data tables).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Experimental flag in 5.7; no additional version-locked APIs noted.
+

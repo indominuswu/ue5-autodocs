@@ -6,13 +6,16 @@
 - Provides asset types, factories, and an editor subsystem to register toolbox tabs, track icons, and generate UI from Blueprint-defined templates.
 - Intended to be extended by command packs such as UserToolBoxBasicCommand.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor toolbox subsystem, tabs, and command assets for custom tooling UI.
+
+## 3. Key Modules
 
 - **UserToolBoxCore** (Editor)  
   - Role: Defines the subsystem, base command/tab classes, factories, and utilities that drive the UserToolBox workflow.  
   - Notable types: `UUserToolboxSubsystem`, `UUTBBaseCommand`, `UUserToolBoxBaseTab`/`UUTBBaseUITab`, `UUTBBaseUICommand`, `UUTBFactory`, `UUserToolBoxBaseBlueprint`, `UIconTracker`, `UUserToolBoxDefaultUITemplate`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UUserToolboxSubsystem`
 
@@ -31,13 +34,13 @@
 - `UUserToolBoxBaseBlueprint` for authoring toolbox logic in Blueprint.
 - `UIconsTracker` caches icon options exposed via the subsystem’s icon picker.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable UserToolBoxCore, then create toolbox tab assets (via the provided factories) and commands (custom or from UserToolBoxBasicCommand).
 - Use `UUserToolboxSubsystem` to register tabs and generate UI in level viewport overlays or custom drawers; bind to `OnTabChanged` to respond to user switching tabs.
 - Extend `UUTBBaseCommand`/`UUTBBaseUITab` in Blueprint to build bespoke editor tools without C++.
 - Use the icon picker (`PickAnIcon`) and templates to style toolbox UI quickly.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

@@ -6,12 +6,16 @@
 - Editor-only module that plugs into Interchange import flows to parse volume data.
 - Experimental, hidden, and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Interchange users enable this translator to import `.vdb` volume data and adjust volume translator settings during import.
+
+## 3. Key Modules
 
 - **InterchangeOpenVDBImport** (Editor, Default) — Implements the OpenVDB translator and hooks into Interchange pipelines.
 - Dependency: `Interchange` runtime framework.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UInterchangeOpenVDBTranslator`
 
@@ -22,12 +26,12 @@
 
 - Role: Shared volume translator settings object (defined in the Interchange runtime) used here to configure import options for VDB data.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin in editor builds alongside Interchange. Choose the OpenVDB translator when importing volume data; adjust volume translator settings as needed.
 - Imported volumes are translated into Interchange node containers for downstream pipelines to convert into engine assets.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental/hidden; no additional UE 5.7-specific changes are called out in the source.
 

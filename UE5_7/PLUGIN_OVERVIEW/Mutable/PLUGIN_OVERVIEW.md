@@ -5,7 +5,10 @@
 - Supplies editor tools for authoring customizable objects and validation.
 - Integrates runtime components for applying customizable object instances to skeletal meshes.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor authoring/validation plus runtime components/instances for customizable objects.
+
+## 3. Key Modules
 - **MutableRuntime** (Runtime)
   - Role: Core mutable runtime execution.
 - **CustomizableObject** (Runtime)
@@ -18,7 +21,7 @@
 - **CustomizableObjectEditor** (UncookedOnly)
   - Role: Main editor UI, factories, and asset management for customizable objects.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UCustomizableObject`
 - Role: Defines a customizable asset (parameters, mesh/material variants) authored in the editor.
@@ -36,11 +39,11 @@
 ### Module interfaces
 - `ICustomizableObjectModule` and `IMutableClothingModule` provide extension points for other plugins (e.g., clothing integration).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin, author `CustomizableObject` assets in the editor, and generate instances at runtime.
 - Create `UCustomizableObjectInstance`, set parameter values (materials, meshes, floats/bools), and assign it to a `UCustomizableSkeletalComponent` or actor to build the resulting mesh.
 - Use `UCustomizableObjectSystem` for global compile/streaming control and LOD/mip management.
 - Validate assets in the editor using MutableValidation tools; leverage MutableTools/CustomizableObjectEditor for authoring workflows.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; the plugin is present as in-source mutable integration.

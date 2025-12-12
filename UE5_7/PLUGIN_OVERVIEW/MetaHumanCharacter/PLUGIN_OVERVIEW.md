@@ -5,7 +5,10 @@
 - Provides runtime asset definitions plus editor palettes, migration helpers, and default pipelines for generated assets.
 - Integrates with MetaHuman Creator import flows and supports palette-based component management.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor asset/palette UI and pipelines for MetaHuman character assembly plus runtime character assets.
+
+## 3. Key Modules
 - **MetaHumanCharacter** (Runtime)
   - Role: Core MetaHuman character data, component definitions, and runtime defaults.
   - Notable types: `UMetaHumanCharacter`, `FMetaHumanCharacterEyes`, `FMetaHumanCharacterSkin`, `FMetaHumanCharacterTeeth`, `FMetaHumanCharacterMakeup`, `FMetaHumanCharacterMaterialSet`, `FMetaHumanCharacterGeneratedAssets`.
@@ -17,7 +20,7 @@
 - **MetaHumanDefaultPipeline** (Runtime) / **MetaHumanDefaultEditorPipeline** (Editor)
   - Role: Default pipelines for generating and editing MetaHuman character assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `UMetaHumanCharacter`
 - Role: Central MetaHuman character asset storing component selections, material sets, and generated asset references.
 - Key properties: assembly settings (`FMetaHumanCharacterAssemblySettings`), skin/eye/teeth/makeup options, viewport settings (`FMetaHumanCharacterViewport`).
@@ -29,10 +32,10 @@
 ### Migration/editor utilities
 - Editor module includes migration support (`MetaHumanCharacterMigrationEditor`) for updating existing MetaHuman assets to new formats.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin. Create or import a MetaHuman Character asset and open it in the MetaHuman character editor.
 - Use the palette UI to pick components (skin, eyes, teeth, makeup) and adjust assembly settings.
 - Run the default pipeline to generate/update associated assets; use migration tools when upgrading older MetaHumans.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; plugin is disabled by default in this release.

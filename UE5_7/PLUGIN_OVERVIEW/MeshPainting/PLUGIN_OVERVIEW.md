@@ -5,7 +5,10 @@
 - Provides tools for static meshes, skeletal meshes, spline meshes, and geometry collections via adapter interfaces.
 - Includes import options, brush settings customizations, and specialized selection helpers for paint workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor Mesh Paint mode UI/tools and adapters for vertex/texture painting.
+
+## 3. Key Modules
 - **MeshPaintEditorMode** (Editor)
   - Role: Editor mode implementation, commands, toolkit, and settings UI for Mesh Paint mode.
   - Notable types: `UMeshPaintEditorMode`, `FMeshPaintModeCommands`, `FMeshPaintModeToolkit`, `UMeshPaintModeSettings`.
@@ -13,7 +16,7 @@
   - Role: Core painting tool implementations and adapters for different mesh types.
   - Notable types: `UMeshVertexPaintingTool`, `UMeshTexturePaintingTool`, `UMeshPaintComponentAdapter` (and static/skeletal/spline/geometry collection adapters), `FMeshPaintGeometryCollectionAdapter`, `UMeshPaintHelpers`, `UMeshSelect`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `UMeshPaintEditorMode`
 - Role: Activates Mesh Paint mode, registers commands, and hosts the brush/paint settings UI.
 - Key properties: brush radius/strength, paint vs. erase, channel toggles, fill/gradient options.
@@ -26,11 +29,11 @@
 - Role: Adapter interface and implementations that expose mesh data (vertices/UVs) for painting across mesh types.
 - Examples: `UMeshPaintStaticMeshAdapter`, `UMeshPaintSkeletalMeshAdapter`, `UMeshPaintSplineMeshAdapter`, `FMeshPaintGeometryCollectionAdapter`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (Editor). Enter Mesh Paint mode from the toolbar.
 - Select a mesh actor; choose Vertex or Texture painting. Adjust brush settings and paint directly in the viewport.
 - Use adapters to paint on different component types; import/export vertex colors via the provided import options panel.
 - Leverage selection helpers (`UMeshSelect`, octree support) for isolating paint regions.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; Mesh Paint mode matches the UE 5.7 implementation.

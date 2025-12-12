@@ -6,7 +6,10 @@
 - Includes an Interchange translator for DNA assets used by MetaHuman content.
 - Enabled by default in UE 5.7 source.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime MetaHuman components plus editor import/verification UI and cloud service tooling.
+
+## 3. Key Modules
 - **MetaHumanSDKRuntime** (Runtime)
   - Role: Runtime MetaHuman component base classes and shared types.
   - Notable types: `UMetaHumanComponentBase`, `UMetaHumanComponentUE`, `FMetaHumanTypes`, `FMetaHumanBodyType`.
@@ -20,7 +23,7 @@
   - Role: Interchange translator for DNA assets used by MetaHuman characters.
   - Notable types: `FInterchangeDNAModule`, `UMetaHumanInterchangeDnaTranslator`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### Runtime
 - `UMetaHumanComponentBase` / `UMetaHumanComponentUE`: Base components for MetaHuman actors, providing runtime hooks for MetaHuman data.
 - `FMetaHumanTypes` / `FMetaHumanBodyType`: Shared type definitions used across runtime/editor code.
@@ -33,11 +36,11 @@
 ### Cloud/service integration
 - Authentication and request helpers (`FMetaHumanCloudAuthentication`, `FMetaHumanServiceRequest` family) connect to MetaHuman cloud services for texture synthesis, AR processing, and package downloads.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable MetaHumanSDK (default). Use the MetaHuman Manager/Importer UI to bring in MetaHuman packages or update existing assets.
 - Run verification tests to ensure assets meet MetaHuman standards before packaging.
 - Use the Interchange DNA translator when importing DNA files for MetaHuman rigs.
 - Configure cloud settings (`UMetaHumanSDKSettings`) to authenticate and request services such as texture synthesis.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Enabled by default. MetaHumanRuntime is deprecated in favor of this SDK; no other UE 5.7-specific changes are flagged in code comments.

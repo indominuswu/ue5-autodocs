@@ -6,12 +6,16 @@
 - Manages speech channels that can speak, stop, mute, and control audio parameters per channel.
 - Ships with platform factories (Android, Apple, Linux, Mac, Windows) and a built-in Flite fallback.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Blueprint-accessible subsystem (`UTextToSpeechEngineSubsystem`) with channel controls and platform/fallback factories for adding TTS to projects.
+
+## 3. Key Modules
 
 - **TextToSpeech** (Runtime)
   - Role: Implements the speech engine subsystem, platform factories, and Flite integration.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UTextToSpeechEngineSubsystem`
 
@@ -26,12 +30,13 @@
 
 - Role: `FFliteTextToSpeech`, `FFliteAdapter`, and related data structures provide an embedded synthesis backend when no platform service is present.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then access `TextToSpeechEngineSubsystem` from Blueprints or C++.
 - Add or activate a channel (e.g., default channel) before invoking `SpeakOnChannel`; adjust volume/rate or mute as needed.
 - Use platform-specific factories automatically via the subsystem; Flite provides fallback voices where platform APIs are unavailable.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

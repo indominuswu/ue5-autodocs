@@ -7,7 +7,11 @@
 - Includes config settings for endpoints/ports and a test suite for validating transport behavior.
 - Experimental; disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Transport-layer backend for the messaging framework; only configured via ini settings, with no editor/gameplay/UI surfaces.
+
+## 3. Key Modules
 
 - **QuicMessaging** (RuntimeAndProgram)  
   - Role: Messaging layer integration, settings, serialization tasks, and tests.
@@ -16,7 +20,7 @@
   - Role: Low-level QUIC endpoint/client/server implementation used by the messaging layer.
   - Notable types: `FQuicClient`, `FQuicServer`, `FQuicEndpoint`, `FQuicEndpointManager`, `FQuicQueues`, `FQuicCertificate`, `FQuicFlags`, configuration struct `FQuicEndpointConfig`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UQuicMessagingSettings`
 
@@ -33,14 +37,15 @@
 - Role: Manage QUIC sockets/endpoints, including client/server creation, handshake, and queueing.
 - Key behavior: Certificate handling (`FQuicCertificate`), connection bookkeeping, and thread-safe send queues (`FQuicQueues`).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and configure `QuicMessaging` settings (endpoint address/port, certificates) in `DefaultEngine.ini`.
 - The messaging framework can then select the QUIC transport (instead of UDP/other) for inter-editor or networked messaging.
 - Use for lower-latency/reliable messaging scenarios where QUIC’s congestion control and TLS are desired.
 - Includes automated tests (`QuicMessageTransportTest`) to validate connectivity and serialization.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Experimental and off by default in UE 5.7.
 - No explicit UE 5.7-specific deprecations noted in source; transport relies on the current MsQuic integration.
+

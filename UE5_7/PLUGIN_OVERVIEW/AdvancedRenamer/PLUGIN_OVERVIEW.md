@@ -5,11 +5,14 @@
 - Integrates into Content Browser and Level Editor for quick renaming workflows.
 - Provides modular renamer sections users can combine in the UI.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - editor tool with UI (`SAdvancedRenamerPanel`) and commands for renaming actors/assets via configurable sections.
+
+## 3. Key Modules
 - **AdvancedRenamer** (Editor)
   - Role: Slate UI, command bindings, and provider interfaces for renaming actors/assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Renamer sections and providers
 - Section types: `UAdvancedRenamerAddPrefixSuffixSection`, `UAdvancedRenamerRemovePrefixSection`, `UAdvancedRenamerRemoveSuffixSection`, `UAdvancedRenamerSearchAndReplaceSection`, `UAdvancedRenamerNumberingSection`, `UAdvancedRenamerChangeCaseSection` implement specific rename steps.
@@ -19,10 +22,10 @@
 ### UI and commands
 - `SAdvancedRenamerPanel`, `FAdvancedRenamerCommands`, `FAdvancedRenamerStyle` deliver the editor panel and shortcuts.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Select actors/assets, open the Batch Renamer panel (menu/toolbar command).
 - Add rename sections (prefix/suffix, numbering, search/replace, etc.) and preview results in the panel.
 - Apply changes to commit the batch rename; integrations exist for Content Browser and Level Editor selections.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

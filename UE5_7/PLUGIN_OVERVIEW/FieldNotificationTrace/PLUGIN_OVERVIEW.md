@@ -6,7 +6,11 @@
 - Provides runtime tracing hooks and an editor-side analyzer/provider to visualize field notifications in trace tools (Gameplay Insights/Trace).
 - Disabled by default; beta status.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developers enable tracing macros (`UE_TRACE_FIELDNOTIFICATION_*`) and use the provided analyzer/provider to inspect field notifications in Gameplay Insights/Rewind Debugger.
+
+## 3. Key Modules
 
 - **FieldNotificationTrace** (Runtime, Default)  
   - Role: Emits trace events for field notification lifetimes and updates when tracing is enabled.  
@@ -16,7 +20,7 @@
   - Role: Trace analyzer/provider and editor integration for viewing field notifications in trace/rewind tools.  
   - Notable types: `FFieldNotificationTraceEditorModule`, `FFieldNotificationTraceAnalyzer`, `FFieldNotificationTraceProvider`, `FFieldNotificationTraceServices`, `FFieldNotificationTrack`, `FFieldNotificationRewindDebugger`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UE::FieldNotification::FTrace` (runtime)
 
@@ -32,11 +36,12 @@
 - `FFieldNotificationTrack`: Track rendering for trace viewers.  
 - `FFieldNotificationRewindDebugger`: Integration with rewind debugger UI.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and tracing; instrumented field-notification objects emit events via the provided macros.  
 - Use Gameplay Insights/Trace tools to analyze field notifications with the analyzer/provider and visualize tracks or rewind debugger data.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked Beta and off by default. No explicit UE 5.7-only changes noted; overview reflects the 5.7 source.
+

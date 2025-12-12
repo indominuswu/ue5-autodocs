@@ -5,7 +5,11 @@
 - Provides UI, settings, and messaging support for configuring hub sessions, recording, and timecode/synchronization.
 - Adds runtime messaging module to publish hub data over the message bus for connected editors/clients.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users run the Live Link Hub app/editor module, configure hub/timecode/messaging settings, and use message bus sources to stream/record Live Link subjects.
+
+## 3. Key Modules
 - **LiveLinkHub** (EditorAndProgram)  
   - Core hub app logic, components, settings, and recording/playback helpers.  
   - Notable types: `ILiveLinkHubComponent`, `LiveLinkHubSettings`, `LiveLinkHubTimeAndSyncSettings`, `LiveLinkHubCustomTimeStepSettings`, `SLiveLinkHubSettings`.
@@ -15,7 +19,7 @@
   - Message bus source support for hub sessions.  
   - Notable types: `LiveLinkHubMessageBusSourceSettings`, `LiveLinkHubMessagingSettings`, `LiveLinkHubMessageBusSourceFactory`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `ILiveLinkHubComponent`
 - Role: Interface implemented by hub components so they can be discovered/managed by the hub application.
@@ -29,11 +33,12 @@
 ### `LiveLinkHubMessageBusSourceSettings` / `LiveLinkHubMessagingSettings`
 - Role: Configure how the hub publishes/consumes subjects over the message bus to connected Unreal clients.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Run the Live Link Hub program (or enable the plugin inside the editor) to manage devices and stream subjects to Unreal/UEFN.
 - Configure recording/output folders, timecode providers, and synchronization via the hub settings panels (`SLiveLinkHubSettings`).
 - Add message bus sources for publishing data to connected editors; adjust messaging settings for network reachability.
 - Use playback source factories to replay recorded sessions for validation.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

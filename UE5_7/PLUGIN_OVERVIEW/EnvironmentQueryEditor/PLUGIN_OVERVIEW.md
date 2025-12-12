@@ -7,13 +7,16 @@
 - Supplies asset/actor factories and asset definitions so EQS assets integrate with the content browser and can be spawned in levels.
 - Registers details customizations for EQS data types (directions, trace data, tests) to streamline property editing.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - EQS editor graphs/profiler/customizations with asset/actor factories (editor-only).
+
+## 3. Key Modules
 
 - **EnvironmentQueryEditor** (UncookedOnly, PreDefault)  
   - Role: Entire editor-side toolset for EQS assets—graph schema, node visual factory, details customizations, asset editor toolkit, profiler UI, asset/actor factories, and menu/toolbar extensibility.  
   - Notable types: `FEnvironmentQueryEditorModule`, `FEnvironmentQueryEditor`, `UEnvironmentQueryGraph`, `UEnvironmentQueryGraphNode_*` (Root/Option/Test), `EdGraphSchema_EnvironmentQuery`, `SEnvQueryProfiler`, `SGraphNode_EnvironmentQuery`, `FEnvDirectionCustomization`, `FEnvTraceDataCustomization`, `FEnvQueryTestDetails`, `UEnvironmentQueryFactory`, `UActorFactoryEnvironmentQuery`, `UAssetDefinition_EnvironmentQuery`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FEnvironmentQueryEditorModule`
 
@@ -51,7 +54,7 @@
 - `UAssetDefinition_EnvironmentQuery`: Registers asset type metadata/actions.
 - `UActorFactoryEnvironmentQuery`: Allows placing EQS assets into the level via actor factory.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (on by default). Create or open an `Environment Query` asset from the content browser.
 - Author the query in the graph tab: root node → options (generators) → tests; context menus on option nodes let you add tests.
@@ -59,6 +62,6 @@
 - Use the Profiler tab to load `.ue_eqs` stats captured during gameplay (via the EQS debugger) and visualize performance/weights; save profiler data back to disk if needed.
 - Leverage content browser integration (asset definition/factory) and place queries in levels using the actor factory when building AI debugging scenarios.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Module remains editor-only (`UncookedOnly`); no explicit UE 5.7-specific changes or deprecations are indicated in the code. This overview reflects the current 5.7 source state.

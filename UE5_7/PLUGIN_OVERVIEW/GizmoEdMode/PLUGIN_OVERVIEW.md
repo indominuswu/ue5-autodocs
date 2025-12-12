@@ -6,7 +6,10 @@
 - Provides gizmo factories and default implementations for transform gizmos used in custom asset editors.
 - Includes light-specific gizmos (directional, point, spot) and supporting proxies for sub-transform control.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor-only gizmo mode/factories, including light gizmos for asset editors.
+
+## 3. Key Modules
 
 - **GizmoEdMode** (Editor)  
   - Role: Editor mode registration and default asset editor gizmo factories.  
@@ -16,7 +19,7 @@
   - Role: Specialized gizmos for light actors with scalable cone/arrow visualization.  
   - Notable types: `FDirectionalLightGizmo`, `FPointLightGizmo`, `FSpotLightGizmo`, `FScalableConeGizmo`, factories for each light type, `FSubTransformProxy`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FGizmoEdMode`
 
@@ -32,12 +35,12 @@
 
 - Role: `FAssetEditorGizmoFactory` and `FDefaultAssetEditorGizmoFactory` create gizmos for asset editors or specific actor types; factories can be extended to plug in custom gizmo styles.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the experimental plugin and activate the Gizmo editor mode inside custom asset editors to use the new TRS gizmos.
 - Extend or replace `FAssetEditorGizmoFactory` to provide bespoke gizmos for proprietary asset types.
 - Use built-in light gizmo factories when editing light actors to get visual, direct-manipulation handles.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin marked experimental; no additional UE 5.7-specific notes found.

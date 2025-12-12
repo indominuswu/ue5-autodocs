@@ -5,7 +5,11 @@
 - Supplies runtime libraries for platform/config data plus editor modules for viewing image data and pipeline integration.
 - Forms a dependency for other MetaHuman plugins (Animator, Creator, SDK).
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Shared infrastructure/data types for other MetaHuman plugins; no standalone editor tools or gameplay APIs intended for direct user use.
+
+## 3. Key Modules
 - **MetaHumanCoreTechLib** (Editor)
   - Role: Editor-side library and integration glue for MetaHuman core tech; exposes shared headers and utilities.
 - **MetaHumanCoreTech** (Runtime)
@@ -19,7 +23,7 @@
   - Role: Editor integration for pipeline utilities built on the core tech.
 - **MetaHumanCoreTechLib** (Editor module listed in `.uplugin` as well): Provides the editor side for the runtime library.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### Core data types
 - `FFrameAnimationData`, `FFrameTrackingContourData`, `FFrameTrackingConfidenceData`: Structures describing frame-level tracking and animation data.
 - `FMetaHumanHeadTransform`, `FMetaHumanMeshData`: Shared structs used when transferring solved data between modules.
@@ -28,9 +32,10 @@
 ### Utilities
 - `MetaHumanCommonDataUtils` and `CoreUtils` provide helpers for converting GUI controls to raw controls, managing mesh data, and diagnostics (`FDepthMapDiagnosticsResult`).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable as a dependency of other MetaHuman plugins; it is not typically used directly by end users.
 - Other MetaHuman modules consume the data structs and utilities during capture, solving, and asset generation.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; the plugin is disabled by default and serves as shared infrastructure.
+

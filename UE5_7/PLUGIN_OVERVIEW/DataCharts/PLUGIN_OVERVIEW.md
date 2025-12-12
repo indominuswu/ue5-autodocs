@@ -6,7 +6,10 @@
 - Provides runtime module glue and editor helpers for placing and styling chart actors or widgets.
 - Designed for editorial workflows rather than gameplay systems.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor placement/style helpers and runtime chart module for data table-driven visualizations.
+
+## 3. Key Modules
 
 - **DataCharts** (Runtime)  
   - Role: Core chart generation support and module bootstrap.
@@ -14,7 +17,7 @@
   - Role: Editor utilities for chart placement, styling, and asset integration.
   - Notable types: editor classes in `DataChartsEditor.h`, `DataChartsPlacement`, `DataChartsStyle`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FDataChartsModule`
 - Role: Module interface used to bootstrap chart functionality at startup.
@@ -23,12 +26,12 @@
 - Role: Provide placement tools and styling hooks for charts inside the editor.
 - Key behavior: Manage chart appearance and spawning from data tables.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin in editor builds when charts are needed for dashboards or visualization.
 - Use the editor placement tools to spawn charts tied to data tables; adjust styles via the editor module classes.
 - Consume the runtime module to ensure chart actors/widgets are available at runtime if needed.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; plugin is neutral within this branch.

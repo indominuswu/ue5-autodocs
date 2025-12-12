@@ -6,13 +6,16 @@
 - Provides a content browser filter to show/hide placeholder assets.
 - Includes a factory and asset definition for creating placeholders directly in the editor.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor-only placeholder asset type with content browser filter, factory, and settings.
+
+## 3. Key Modules
 
 - **DirectoryPlaceholder** (Editor, Default, Experimental)  
   - Role: Editor support for placeholder assets, content browser filtering, settings, and utilities.  
   - Notable types: `UDirectoryPlaceholder`, `UDirectoryPlaceholderSearchFilter`, `FDirectoryPlaceholderModule`, `UDirectoryPlaceholderFactory`, `DirectoryPlaceholderSettings`, `DirectoryPlaceholderUtils`, `UAssetDefinition_DirectoryPlaceholder`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UDirectoryPlaceholder`
 
@@ -29,12 +32,12 @@
 - `DirectoryPlaceholderSettings`: Plugin settings (see config) controlling visibility/behavior.  
 - `DirectoryPlaceholderUtils`: Helper functions for placeholder creation and discovery.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (experimental). Create a Directory Placeholder asset inside an otherwise empty folder to ensure the folder is tracked by source control.
 - Use the content browser filter to show or hide placeholder assets while browsing.
 - Configure plugin settings if needed to adjust default behavior or visibility.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental in the 5.7 source; no additional UE 5.7-specific changes noted.

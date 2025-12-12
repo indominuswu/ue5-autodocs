@@ -6,7 +6,11 @@
 - Provides AR session configuration/types, Blueprint-accessible utilities, and XR tracking system integration.
 - Supplies rendering support for ARCore camera passthrough and YCbCr conversion.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Android AR developers create `UGoogleARCoreSessionConfig` assets and use `UGoogleARCoreFunctionLibrary` plus camera passthrough helpers to run ARCore sessions (planes/images/faces).
+
+## 3. Key Modules
 
 - **GoogleARCoreBase** (Runtime)  
   - Role: Core ARCore device/session integration, NDK bindings, session config, and Blueprint helpers.  
@@ -16,7 +20,7 @@
   - Role: Rendering utilities for camera passthrough textures and material expressions.  
   - Notable types: `FGoogleARCorePassthroughCameraRenderer`, `UMaterialExpressionGoogleARCorePassthroughCamera`, `FGoogleARCoreYCbCrConversion`, `FGoogleARCorePassthroughCameraExternalTextureGuid`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGoogleARCoreSessionConfig`
 
@@ -38,12 +42,13 @@
 
 - `FGoogleARCorePassthroughCameraRenderer` and `UMaterialExpressionGoogleARCorePassthroughCamera` expose the camera texture to materials; `FGoogleARCoreYCbCrConversion` handles format conversion.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin for Android builds; create a `UGoogleARCoreSessionConfig` asset and assign it to your AR session.
 - In Blueprint or C++, start the AR session with the ARCore config, then use `UGoogleARCoreFunctionLibrary` to query tracking data (planes, images, faces) and camera information.
 - Use material expressions and renderer helpers to display the ARCore camera feed; leverage augmented image/face support where required.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

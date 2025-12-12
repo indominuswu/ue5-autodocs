@@ -6,7 +6,11 @@
 - Provides a runtime API, world subsystem, and view extensions to expose shared resources; integrates with nDisplay/DisplayCluster workflows.
 - Includes a core layer handling interprocess communication and resource caching for D3D11/D3D12/Vulkan.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developer-facing TextureShare API/subsystem (`ITextureShare`, `UTextureShareWorldSubsystem`, settings, DisplayCluster policies) for cross-process texture sharing.
+
+## 3. Key Modules
 
 - **TextureShareCore** (Runtime)
   - Role: Implements core containers, IPC, resource caches, and serialization for cross-process texture sharing.
@@ -15,7 +19,7 @@
 - **TextureShareDisplayCluster** (Runtime)
   - Role: DisplayCluster integration with projection policies and postprocess hooks for shared views.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `ITextureShare` / `ITextureShareAPI` / `ITextureShareObject`
 
@@ -37,12 +41,13 @@
 
 - Role: Projection/postprocess classes allowing nDisplay view pipelines to participate in TextureShare sessions.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and create or access a texture share object via C++ interfaces; register textures to share and call sync steps each frame.
 - In game worlds, rely on `UTextureShareWorldSubsystem` to initialize contexts and drive view extensions.
 - For DisplayCluster, configure projection/postprocess policies to publish or consume shared resources across nodes.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

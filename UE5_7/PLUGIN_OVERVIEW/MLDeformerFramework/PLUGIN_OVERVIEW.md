@@ -5,7 +5,10 @@
 - Supports authoring ML Deformer assets and running runtime inference to improve mesh fidelity beyond skinning.
 - Includes editor tooling for training data setup, visualization, and asset creation.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor ML Deformer asset/training tools plus runtime component/Blueprint APIs for inference.
+
+## 3. Key Modules
 - **MLDeformerFramework** (Runtime)  
   - Runtime inference and component integration.  
   - Notable types: `UMLDeformerComponent`, `UMLDeformerModelInstance`, `UMLDeformerAsset`, visualization settings (`UMLDeformerVizSettings`, `UMLDeformerGeomCacheVizSettings`, `UMLDeformerMorphModelVizSettings`), `UMLDeformerTrainingDataProcessorSettings`.
@@ -13,7 +16,7 @@
   - Asset factories and editor modes for training/preview.  
   - Notable types: `UMLDeformerAssetFactory`, `UMLDeformerEditorMode`, `UMLDeformerEditorModel`, viz settings detail customizations, training data processor settings customization.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMLDeformerComponent`
 - Role: Actor component that runs ML deformer inference against a target `USkeletalMeshComponent`.
@@ -31,12 +34,12 @@
 ### Editor types (`UMLDeformerEditorMode`, `UMLDeformerEditorModel`, `UMLDeformerGeomCacheEditorModel`)
 - Role: Editor-only views and tooling for training, previewing, and inspecting ML deformers inside their dedicated editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and create an ML Deformer Asset via the Content Browser (factory supplied by the editor module).
 - Train/configure the deformer in the ML Deformer editor mode; adjust viz settings to inspect geometry cache outputs or morph influences.
 - Add `UMLDeformerComponent` to an actor with a compatible skeletal mesh; call `SetupComponent` and adjust `Weight` to blend the ML deformation at runtime.
 - Use developer settings and viz panels during PIE to profile (`GetTickPerfCounter` in editor) and validate deformation output.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Deprecated quality-level APIs remain marked for removal (deprecated since 5.4) but still present for compatibility.
 - No other explicit UE 5.7-specific notes found; overview reflects the current plugin state in the UE 5.7 source tree.

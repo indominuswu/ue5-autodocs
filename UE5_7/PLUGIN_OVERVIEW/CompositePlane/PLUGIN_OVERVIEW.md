@@ -4,11 +4,15 @@
 - Provides a cine-camera-aligned composite plane actor for projecting textures or video into a scene.
 - Includes placement utilities for aligning the plane relative to cameras for in-camera VFX or virtual production.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor module exposes a composite plane actor and placement helper users align to cine cameras for projecting textures/video in virtual production shots.
+
+## 3. Key Modules
 - **CompositePlane** (Editor)  
   - Role: Module entry that registers the composite plane actor/placement helpers for editor use.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FCompositePlaneModule`
 - Role: Module that starts/shuts down the composite plane tools.
@@ -16,10 +20,10 @@
 ### Placement helpers
 - `FCompositePlanePlacement`: Utility for spawning/positioning the plane relative to a camera. (Implementation in `CompositePlanePlacement.cpp`.)
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Editor: Enable the plugin, then add the composite plane actor through placement utilities to project reference plates or video near a cine camera.
 - Runtime: The actor behaves as a textured plane aligned to camera framing; tweak transforms/materials per shot.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No UE 5.7-specific behavior is explicitly noted; plugin is minimal and editor-focused.
 

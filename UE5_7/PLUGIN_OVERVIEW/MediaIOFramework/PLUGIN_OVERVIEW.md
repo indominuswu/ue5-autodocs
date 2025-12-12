@@ -6,7 +6,11 @@
 - Supplies media capture/output base classes, device provider interfaces, and sampling utilities.
 - Includes editor integration for configuring devices and GPU texture transfer helpers for high-performance ingest/egress.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users create `UMediaOutput`/`UMediaCapture` assets, configure capture card media sources, and rely on the editor tooling/GPU texture transfer utilities for VP ingest/egress.
+
+## 3. Key Modules
 
 - **MediaIOCore** (Runtime)
   - Role: Core media IO runtime types, capture/output base classes, and device/provider interfaces.
@@ -17,7 +21,7 @@
   - Role: Low-level GPU texture transfer utilities for DMA-like transfers across APIs.
   - Notable types: `UE::GPUTextureTransfer::FInitializeDMAArgs`, enums for `ERHI`/`EPixelFormat`, and associated module interface defined in `GPUTextureTransferModule.h`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMediaCapture` / `UMediaOutput`
 
@@ -39,13 +43,14 @@
 
 - Role: Structures and enums to initialize and perform GPU texture transfers across D3D11/D3D12/Vulkan; accepts RHI device/queue handles and pixel format descriptors.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Create a `UMediaOutput` (e.g., file or device-specific output) and use `UMediaCapture` to start capturing a viewport or render target.
 - Configure `UCaptureCardMediaSource` assets for ingest workflows and pair them with media players or custom pipelines.
 - In performance-critical pipelines, use GPUTextureTransfer facilities (where supported) to move textures between devices/APIs with minimal CPU overhead.
 - Use the editor module to select devices, routes, and formats when authoring Media IO assets.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

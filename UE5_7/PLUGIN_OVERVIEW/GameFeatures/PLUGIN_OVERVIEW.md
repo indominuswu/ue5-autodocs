@@ -5,7 +5,10 @@
 - Supplies data assets and actions (`UGameFeatureData`, `UGameFeatureAction*`) to register components, data registries, cheats, world partition content, and more.
 - Includes an editor module for managing Game Feature plugins and validation within the editor.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime subsystem/actions for game feature activation plus editor tooling for authoring/validation.
+
+## 3. Key Modules
 - **GameFeatures** (Runtime)
   - Role: Core runtime for Game Feature plugin lifecycle, state machines, optional content installation, and gameplay injection hooks.
   - Notable types: `UGameFeaturesSubsystem`, `UGameFeatureData`, `UGameFeatureAction` family, `UGameFeaturesProjectPolicies`, `UGameFeatureStateChangeObserver`, `UGameFeaturePluginOperationResult`, `UGameFeatureOptionalContentInstaller`.
@@ -13,7 +16,7 @@
   - Role: Editor tooling for authoring Game Feature plugins, verification, and commandlets (e.g., verse path mapper).
   - Notable types: `UGameFeaturePluginOperationResult` (shared), `UGameFeatureVersePathMapperCommandlet`, editor policy helpers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGameFeaturesSubsystem`
 - Role: Engine subsystem managing discovery, install, load, and activation of Game Feature plugins.
@@ -33,11 +36,11 @@
 ### `UGameFeatureStateChangeObserver`
 - Role: Observer interface to receive callbacks when Game Feature plugins transition states.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and create Game Feature plugins from the editor. Author a `UGameFeatureData` asset inside each Game Feature to declare actions and metadata.
 - In code or Blueprints, request activation through `UGameFeaturesSubsystem`, which loads/mounts the plugin and executes configured actions.
 - Use actions like `UGameFeatureAction_AddComponents` to inject components onto actors (via tags/filters) or `UGameFeatureAction_AddWorldPartitionContent` to stream feature-specific content.
 - For projects with downloadable content, use `UGameFeatureOptionalContentInstaller` and chunk override actions to manage installs.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Plugin marked beta in 5.7; no additional 5.7-only APIs noted. Actions and subsystem types are based on the 5.7 source tree.

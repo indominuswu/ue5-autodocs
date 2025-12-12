@@ -7,13 +7,16 @@
 - Supplies components and schemas that bind StateTree execution to actors and AI controllers.
 - Blueprint helpers expose lightweight StateTree utility functions to scripting.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime StateTree components/BT tasks and Blueprint helpers for gameplay/AI integration.
+
+## 3. Key Modules
 
 - **GameplayStateTreeModule** (Runtime)  
   - Role: Hosts the runtime execution path for StateTree assets and integrates with AI Behavior Trees.
   - Notable types: `UStateTreeComponent`, `UStateTreeAIComponent`, `UStateTreeComponentSchema`, `UStateTreeAIComponentSchema`, `UGameplayStateTreeBlueprintFunctionLibrary`, `UBTTask_RunStateTree`, `UBTTask_RunDynamicStateTree`, `UStateTreeAITask`, `UStateTreeMoveToTask`, `UStateTreeRunEnvQueryTask`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UStateTreeComponent`
 
@@ -40,13 +43,13 @@
 
 - Role: Helper Blueprint nodes for interacting with StateTree assets at runtime (e.g., setting parameters, restarting logic).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and create/configure a StateTree asset in the editor (via the core StateTree tooling shipped with the engine).
 - Add `UStateTreeComponent` (or `UStateTreeAIComponent` for AI controllers) to an actor, assign the StateTree asset, and optionally set `bStartLogicAutomatically` to begin on BeginPlay.
 - From AI Behavior Trees, use `Run StateTree` Behavior Tree tasks to delegate sub-behaviors to a StateTree; configure StateTree asset/reference on the node.
 - Use the provided tasks (`MoveTo`, `RunEnvQuery`) inside StateTrees to drive navigation and EQS-based goals without leaving the StateTree graph.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

@@ -6,7 +6,10 @@
 - Supplies UI panels and Multi-User support for authoring presets and protocol bindings in the editor.
 - Abstracts control protocols (e.g., DMX, MIDI, OSC) via a protocol layer with editor widgets for binding.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor panels/preset toolkit and runtime HTTP/WS servers plus protocol bindings.
+
+## 3. Key Modules
 - **RemoteControl** (Runtime)  
   - Core preset asset, exposure logic, and controllers; `URemoteControlPreset` authoring/runtime APIs.
 - **RemoteControlLogic** (Runtime)  
@@ -24,7 +27,7 @@
 - **RemoteControlMultiUser** (UncookedOnly)  
   - Multi-User collaboration hooks for presets and protocol transactions.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `URemoteControlPreset`
 - Role: Asset containing exposed actors/properties/functions and associated controllers; supports grouping, rebinding, and delegation events.
 - Key functions: `ExposeActor`, `ExposeProperty`, `ExposeFunction`, transient preset creation/destruction, controller add/remove/rename events, GUID renewal guards, and change delegates (`OnEntityExposed`, `OnEntitiesUpdated`, etc.).
@@ -45,13 +48,12 @@
 - `IRemoteControlProtocolModule` / `IRemoteControlProtocol` interfaces: apply/unapply bindings for presets and create protocol entities.
 - Web preprocessors (in WebRemoteControl) enforce `URemoteControlSettings` security before servicing requests.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Editor: enable the plugin, open the Remote Control Panel, create a `Remote Control Preset`, expose actors/properties/functions, group them, and save the asset. Configure security and server ports in Project Settings → Plugins → Remote Control.
 - Runtime/control: start WebRemoteControl servers (auto-start via settings), query presets over HTTP/WS, and set controller values. Use `ARemoteControlPresetActor` to host presets in a world.
 - Protocol bindings: install protocol plugins (DMX/MIDI/OSC, etc.), open the binding tab, and map incoming protocol channels to exposed entities. Use protocol widgets to configure device/patch settings.
 - Multi-user workflows: enable `RemoteControlMultiUser` so preset edits and protocol transactions replicate in Multi-User sessions.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Deprecated flag `bProtocolsGenerateTransactions_DEPRECATED` (noted in `URemoteControlSettings`) indicates per-preset protocol transaction control supersedes the old global toggle.
 - No additional UE 5.7-specific behaviors surfaced; overview reflects the current source.
-

@@ -6,22 +6,26 @@
 - Targets playback scenarios where Electra needs to decode DNx media streams.
 - Runtime-only; no editor UI or content.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: No - Backend Electra decoder registration for DNxHD/DNxHR; no direct editor or Blueprint surfaces.
+
+## 3. Key Modules
 
 - **AvidDNxHDDecoderElectra** (Runtime)  
   - Role: Registers a DNx decoder implementation with Electra.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - `FAvidDNxHDDecoderElectraModule`: Module entry registering the decoder with Electra.
 - `FElectraMediaAvidDNxHDDecoder`: Decoder class used by Electra to handle DNxHD/DNxHR bitstreams.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin when Electra playback of DNxHD/DNxHR sources is required.
 - Media playback automatically selects the decoder when encountering DNx streams; no Blueprint or editor interaction is needed.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Disabled by default; intended for projects needing DNx decoding.
 - No explicit UE 5.7-specific notes found; overview reflects the current implementation.
+

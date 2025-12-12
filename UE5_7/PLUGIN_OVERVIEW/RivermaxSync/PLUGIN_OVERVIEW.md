@@ -6,14 +6,18 @@
 - Provides logic to detect and report PTP drift between nodes during synchronized capture.
 - Supplies an editor factory to expose the Rivermax synchronization policy as an asset choice in media output settings.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - nDisplay users select the Rivermax PTP sync policy asset (`UMediaOutputSynchronizationPolicyRivermax`) to align media capture across nodes and monitor PTP drift events.
+
+## 3. Key Modules
 
 - **RivermaxSync** (Runtime)  
   - Role: Implements the Rivermax-specific media output synchronization policy and PTP barrier handling for DisplayCluster capture.
 - **RivermaxSyncEditor** (Editor)  
   - Role: Registers the Rivermax synchronization policy asset/factory for use in the editor UI.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMediaOutputSynchronizationPolicyRivermax`
 
@@ -35,12 +39,13 @@
 
 - Role: Editor factory for creating Rivermax synchronization policy assets.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then select the Rivermax (PTP) synchronization policy on DisplayCluster media outputs when using NVIDIA Rivermax hardware.
 - Configure the `MarginMs` setting on the policy asset to control the allowed timing window around the sync point.
 - In clustered sessions, monitor Stage Monitor events (`FRivermaxClusterPtpUnsyncEvent`) for PTP drift diagnostics.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

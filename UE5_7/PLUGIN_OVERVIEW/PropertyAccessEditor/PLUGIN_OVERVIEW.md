@@ -6,13 +6,16 @@
 - Provides Slate tooling for inspecting and configuring property bindings.
 - Ships as an uncooked-only module; no runtime code.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor-only property binding UI and widgets (uncooked-only).
+
+## 3. Key Modules
 
 - **PropertyAccessEditor** (UncookedOnly)  
   - Role: Registers the editor module and Slate widgets for property binding UI.
   - Notable types: `FPropertyAccessEditorModule`, `SPropertyBinding`, editor helpers in `PropertyAccessEditor.cpp`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FPropertyAccessEditorModule`
 
@@ -24,13 +27,13 @@
 - Role: Slate widget used to configure and visualize property bindings.
 - Key behavior: Presents binding sources/targets, supports editing and validation.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - The module is loaded automatically when systems needing property binding (e.g., UMG/animation) are active in the editor.
 - Use the binding UI within those systems to map source properties to target widgets/objects; the plugin supplies the backing widgets and logic.
 - No runtime or Blueprint API; it only affects editor tooling.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Enabled by default in UE 5.7; uncooked-only so it does not ship in builds.
 - No explicit 5.7-specific changes noted.

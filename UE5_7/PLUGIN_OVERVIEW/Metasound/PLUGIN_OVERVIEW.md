@@ -6,7 +6,10 @@
 - Includes editor-only testing and node registration utilities.
 - Enabled by default in UE 5.7.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime MetaSound graph/audio assets plus editor graph UI and node tools.
+
+## 3. Key Modules
 - **MetasoundGraphCore** (Runtime, PreDefault)
   - Role: Core graph representation, literals, and data types for MetaSound documents.
 - **MetasoundGenerator** (Runtime, PreDefault)
@@ -23,7 +26,7 @@
 - **MetasoundEditor** (UncookedOnly, PreDefault)
   - Role: Editor asset editors, graph UI, and node registration tools.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `UMetaSoundSource` / `UMetaSoundPatch` / `UMetaSoundWave`
 - Role: Asset types representing MetaSound graphs used as sources, reusable patches, or baked waves.
 - Key properties: referenced frontend document, graph inputs/outputs, and referenced standard/custom nodes.
@@ -38,11 +41,11 @@
 ### `UMetasoundSettings`
 - Role: Project settings controlling enabling/disabling MetaSound, performance options, and experimental features.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Create MetaSound Source or Patch assets and edit them in the MetaSound editor (graph UI from `MetasoundEditor`).
 - Reference MetaSound Sources in sound cues or directly on audio components to drive sample-accurate DSP graphs.
 - Use Blueprint or C++ via `UMetaSoundBuilderSubsystem` to programmatically assemble graphs or modify parameters at runtime.
 - Register custom nodes through the frontend APIs and include them in assets alongside `MetasoundStandardNodes`.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; plugin is enabled by default and corresponds to the UE 5.7 implementation.

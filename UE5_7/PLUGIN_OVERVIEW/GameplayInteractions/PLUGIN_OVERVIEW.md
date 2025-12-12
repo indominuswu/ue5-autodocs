@@ -5,13 +5,17 @@
 - Provides interaction context data, Smart Object behavior definitions, and StateTree tasks/conditions for contextual animation and slot management.
 - Supplies AI task helpers to reserve and execute gameplay interactions.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Interaction authors use the provided Smart Object behavior definition, StateTree tasks, and `UAITask_UseGameplayInteraction` to orchestrate Smart Object-driven interactions with contextual animation.
+
+## 3. Key Modules
 - **GameplayInteractionsModule** (Runtime)
   - Role: Core interaction runtime integrating Smart Objects, StateTree, and contextual animation.
   - Notable types: `FGameplayInteractionContext`, `UGameplayInteractionSmartObjectBehaviorDefinition`, `UGameplayInteractionsModule`, `UGameplayInteractionStateTreeSchema`, `UGameplayInteractionConditions`.
   - StateTree/AI helpers: `UAITask_UseGameplayInteraction`, `UStateTreeTask_PlayContextualAnim`, `UStateTreeTask_FindSlotEntranceLocation`, `UStateTreeTask_GetSlotEntranceTags`, `UStateTreeTask_PlayMontage`, `UGameplayInteractionFindSlotTask`, `UGameplayInteractionSendSlotEventTask`, `UGameplayInteractionSetSlotEnabledTask`, `UGameplayInteractionSyncSlotTagStateTask`, `UGameplayInteractionSyncSlotTagTransition`, `UGameplayInteractionListenSlotEventsTask`, `UGameplayInteractionModifySlotTagTask`, `UGameplayInteractionGetSlotActorTask`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FGameplayInteractionContext`
 - Role: Struct carrying actor/slot/contextual animation references for an interaction.
@@ -27,10 +31,11 @@
 ### `UGameplayInteractionStateTreeSchema`
 - Role: StateTree schema that exposes gameplay-interaction-specific events and context to StateTree authored behaviors.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin alongside SmartObjects, StateTree, ContextualAnimation, GameplayStateTree, and NavCorridor (declared dependencies).
 - Define Smart Object behavior definitions using `UGameplayInteractionSmartObjectBehaviorDefinition` and author StateTree assets that use the provided tasks.
 - From AI or scripted logic, start interactions via `UAITask_UseGameplayInteraction`; StateTree tasks manage slot reservation, tag state, and animation playback.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Plugin is experimental in 5.7. No further 5.7-specific notes were found in the current source.
+

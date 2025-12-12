@@ -7,13 +7,17 @@
 - Supplies project-wide NDI settings plus Blueprint-friendly assets for ingest and playout.
 - Includes editor factories/customizations for creating NDI media assets.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Media teams create `NDI Media Source`/`NDI Media Output` assets, set project NDI settings/timecode provider, and use the editor factories to ingest and play out NDI streams.
+
+## 3. Key Modules
 
 - **NDIMedia** (Runtime) – Core NDI media source/output, receiver management, capture/timecode provider support.
 - **NDIMediaRendering** (Runtime) – Shader/conversion support for NDI texture samples and GPU paths.
 - **NDIMediaEditor** (Editor) – Asset factories, asset definitions, and settings customization for NDI sources/outputs.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UNDIMediaSource`
 
@@ -37,14 +41,14 @@
 
 - Timecode provider that reads NDI timecode from an input stream for engine synchronization.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then create `NDI Media Source` assets (factory in the Media section) to describe inbound streams; set bandwidth and capture toggles per source.
 - Use a `Media Player` + `Media Texture/Media Sound` with an `UNDIMediaSource` to preview NDI inputs; optional `UNDIMediaTimecodeProvider` can drive the engine timecode.
 - For output, create an `NDI Media Output` asset and assign it to a `Media Capture` component or viewport capture; configure ancillary/audio/video buffers as needed.
 - Editor integration exposes NDI settings in Project Settings and provides asset actions/factories for sources and outputs.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
 

@@ -5,7 +5,10 @@
 - Provides gameplay cues for visual/audio feedback tied to effects, plus extensive Blueprint and C++ APIs for ability logic.
 - Includes editor-side helpers for authoring abilities, tags, and debugging.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime ability system components/effects/cues plus editor/uncooked helpers and debugging.
+
+## 3. Key Modules
 - **GameplayAbilities** (Runtime)
   - Role: Core ability system runtime (components, effects, cues, attribute sets, tasks).
   - Notable types: `UAbilitySystemComponent`, `UGameplayAbility`, `UGameplayEffect`, `UAttributeSet`, `UAbilitySystemGlobals`, `UAbilitySystemBlueprintLibrary`, `UGameplayCueManager`, `UGameplayAbilitiesDeveloperSettings`.
@@ -13,7 +16,7 @@
   - Role: Editor/uncooked helpers for asset types, debugging HUDs, and validation.
   - Notable types: `AGameplayAbilityWorld`, debug HUD support, editor registration (module boilerplate).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UAbilitySystemComponent`
 - Role: Attachable component that owns abilities, attributes, and gameplay effects for an actor.
@@ -36,11 +39,11 @@
 - Blueprint helpers via `UAbilitySystemBlueprintLibrary` for effect application, tag queries, and prediction.
 - Debugging: `UAbilitySystemDebugHUD`, `FGameplayDebuggerCategory_Abilities` expose runtime info.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and add `UAbilitySystemComponent` to player/NPC actors. Define one or more `UAttributeSet` subclasses to hold stats.
 - Create `UGameplayAbility` assets (Blueprint or C++) and grant them to the ability system component; bind input to trigger activations.
 - Author `UGameplayEffect` assets to apply buffs/debuffs; invoke via ability tasks or blueprint library helpers.
 - Implement gameplay cues (Blueprint or C++) to drive VFX/SFX when effects trigger. Use developer settings and debug HUD to inspect runtime state.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific changes surfaced; overview reflects the current 5.7 implementation of GAS.

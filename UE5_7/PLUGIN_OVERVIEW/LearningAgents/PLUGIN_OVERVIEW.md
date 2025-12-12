@@ -7,7 +7,10 @@
 - Includes training, recording, replay, and editor visualization modules to build and debug ML-driven agents.
 - Ships with Python/NN dependencies (see descriptor `PythonRequirements`) and optional NN runtime plugins (e.g., `NNERuntimeBasicCpu`).
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime agent/policy/training components and Blueprint libraries plus editor visualization/tools for training sessions.
+
+## 3. Key Modules
 
 - **Learning** (Runtime, Default) — Core ML primitives (neural network data, tensors, shared memory helpers).
 - **LearningTraining** (Runtime, Default) — Training infrastructure (shared memory training, optimizers).
@@ -17,7 +20,7 @@
 - **LearningAgentsReplay** (Runtime, Default) — Replay query/async helpers and replay asset handling.
 - Plugin dependencies: `PythonMLPackages`, `NNERuntimeBasicCpu` (enabled), plus optional additional NN runtimes.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Agent management and schemas
 
@@ -49,14 +52,13 @@
 
 - `ULearningNeuralNetworkData` — Stores network weights and metadata; supports initialization and cloning between networks.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and required dependencies. Add a `ULearningAgentsManager` component to actors representing agent groups; create schemas (actions/observations) via the Blueprint libraries.
 - Use `ULearningAgentsInteractor` to connect agents to game data, policies to decide actions (`ULearningAgentsPolicy`), and `ULearningAgentsRewards` to compute reward signals.
 - For training, set up a `ULearningAgentsTrainingEnvironment` and `ULearningAgentsTrainer`; use recording/replay assets (`ULearningAgentsRecording`, `ULearningAgentsReplayList`) to store and inspect sessions.
 - In editor, leverage depth map visualizer components to debug observation inputs; Python/NN requirements from the descriptor must be satisfied when running training that depends on them.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Marked experimental; descriptor lists Python package hashes and enables `NNERuntimeBasicCpu` by default. No additional UE 5.7-specific deprecations were found.
-

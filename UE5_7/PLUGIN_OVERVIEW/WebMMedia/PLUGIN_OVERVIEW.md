@@ -6,7 +6,11 @@
 - Provides audio/video decoders, container parsing, and media samples for playback.
 - Supplies editor/import factory support for creating WebM media sources.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Media Framework integration for WebM with decoders and editor/import factories so users can create/play WebM media sources.
+
+## 3. Key Modules
 
 - **WebMMedia** (RuntimeNoCommandlet)
   - Role: Core playback implementation, container parsing, and sample sinks for WebM on Win64/Linux/Mac.
@@ -15,7 +19,7 @@
 - **WebMMediaFactory** (RuntimeNoCommandlet + Editor)
   - Role: Factory classes to import/create WebM media sources; runtime support registers factories on allowed platforms.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IWebMMediaModule`
 - Role: Module interface for WebM playback initialization.
@@ -32,12 +36,13 @@
 ### `FWebMSamplesSink`
 - Role: Receives decoded frames and feeds them into the media player pipeline.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (desktop platforms). Import or reference a WebM media file; the factory registers the source for media playback.
 - Use standard Media Framework components (MediaPlayer/MediaTexture) to play WebM sources; decoding is handled by `WebMMedia`.
 - In the editor, use WebM-specific factories to create assets and preview playback; runtime module supplies decoding.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin is flagged beta. No additional UE 5.7-specific changes were identified.
+

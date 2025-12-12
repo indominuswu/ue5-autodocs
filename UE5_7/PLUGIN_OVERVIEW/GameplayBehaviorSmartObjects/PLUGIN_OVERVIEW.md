@@ -5,12 +5,16 @@
 - Adds behavior definitions, AI tasks, and Blueprint helpers tailored to Smart Object usage.
 - Relies on the GameplayBehaviors and SmartObjects plugins.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - AI/Blueprint helpers (`UAITask_UseGameplayBehaviorSmartObject`, `UBTTask_FindAndUseGameplayBehaviorSmartObject`, behavior definitions) are used by designers to drive Smart Object interactions via gameplay behaviors.
+
+## 3. Key Modules
 - **GameplayBehaviorSmartObjectsModule** (Runtime)
   - Role: Registers Smart Object behavior definitions, AI/BT tasks, and blueprint helpers to drive behaviors through Smart Objects.
   - Notable types: `UGameplayBehaviorSmartObjectBehaviorDefinition`, `UGameplayBehaviorSmartObjectsBlueprintFunctionLibrary`, `UAITask_UseGameplayBehaviorSmartObject`, `UBTTask_FindAndUseGameplayBehaviorSmartObject`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGameplayBehaviorSmartObjectBehaviorDefinition`
 - Role: Smart Object behavior definition that wraps a `UGameplayBehavior` to run when the Smart Object is used.
@@ -25,10 +29,11 @@
 ### `UGameplayBehaviorSmartObjectsBlueprintFunctionLibrary`
 - Role: Blueprint helpers for issuing Smart Object use requests backed by gameplay behaviors.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable GameplayBehaviors, SmartObjects, and this plugin.
 - Author Smart Object definitions that reference `UGameplayBehaviorSmartObjectBehaviorDefinition` to map to a specific gameplay behavior asset.
 - From AI controllers, call the Blueprint function library or use `UAITask_UseGameplayBehaviorSmartObject` / `UBTTask_FindAndUseGameplayBehaviorSmartObject` to reserve and run Smart Objects.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Plugin marked experimental in 5.7; no additional version-specific notes observed.
+

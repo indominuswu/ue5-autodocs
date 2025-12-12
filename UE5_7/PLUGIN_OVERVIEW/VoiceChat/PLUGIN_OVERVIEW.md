@@ -6,12 +6,16 @@
 - Defines channel configuration, positional voice settings, and result/error handling shared across providers.
 - Client-only module; intended to be consumed by other voice chat providers or game code via the modular feature system.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developer-facing modular interfaces (`IVoiceChat`, `IVoiceChatUser`, channel/attenuation settings) that games use alongside provider plugins to drive voice chat.
+
+## 3. Key Modules
 
 - **VoiceChat** (ClientOnly)  
   - Role: Exposes `IVoiceChat`/`IVoiceChatUser` interfaces and shared result/error types (`FVoiceChatResult`, `EVoiceChatChannelType`, attenuation models).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IVoiceChat` / `IVoiceChatUser`
 
@@ -27,12 +31,13 @@
 
 - `EVoiceChatChannelType` (NonPositional, Positional, Echo) and `EVoiceChatAttenuationModel` (None, InverseByDistance, LinearByDistance, ExponentialByDistance) drive how providers configure spatialization.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable this plugin plus a concrete provider (e.g., EOSVoiceChat). On client startup, obtain `IVoiceChat`, call `Initialize()`, then login users and join channels as needed.
 - Configure positional channels using `FVoiceChatChannel3dProperties` to set attenuation and distance ranges.
 - Handle `FVoiceChatResult` values from API calls for error reporting and recovery (device changes, reconnects, etc.).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

@@ -6,7 +6,10 @@
 - Adds editor UI/workflows for queue management, presets, and movie graph authoring.
 - Includes MP4 encoding support and OpenEXR RTTI helpers for pipeline outputs.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Movie Render Queue/Graph editor UI plus runtime pipeline configs, executors, and Blueprint APIs.
+
+## 3. Key Modules
 - **MovieRenderPipelineCore** (Runtime)
   - Role: Core pipeline objects (jobs, queue, executors, configs, settings) and Movie Graph runtime types.
   - Notable types: `UMoviePipelineExecutorShot`, `UMoviePipelineExecutorJob`, `UMoviePipelineQueue`, `UMoviePipelinePrimaryConfig`, `UMoviePipelineShotConfig`, `UMoviePipelineBlueprintLibrary`, `UMoviePipelineQueueEngineSubsystem`, Movie Graph node/pin/config classes.
@@ -23,7 +26,7 @@
 - **UEOpenExrRTTI** (Runtime)
   - Role: OpenEXR RTTI support used by pipeline EXR outputs.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMoviePipelineQueue` / `UMoviePipelineExecutorJob`
 - Role: Define a queue of render jobs (sequences, maps) and per-job shot data (`UMoviePipelineExecutorShot`).
@@ -48,12 +51,12 @@
 - Role: Built-in render targets and outputs.
 - Examples: `UMoviePipelineDeferredPassBase` (deferred renderer), `UMoviePipelineImagePassBase`, `UMoviePipelineEXROutput`, `UMoviePipelineImageSequenceOutput`, `UMoviePipelineWaveOutput`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and open Movie Render Queue to render Level Sequences or Movie Render Graph configs with high-quality settings.
 - Create `MoviePipelinePrimaryConfig`/`ShotConfig` assets to define passes, outputs, AA/high-res tiling, burn-ins, and console variable overrides.
 - Build queues via UI or Blueprint (`UMoviePipelineQueue` + `UMoviePipelineBlueprintLibrary`), then execute with in-process or Python-host executors for automation.
 - Use Movie Graph authoring to set up node-based render pipelines and pass configurations, including layer/render pass selection and metadata nodes.
 - MP4 encoding can be added via the MP4 encoder module when rendering image sequences that need packaged video output.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

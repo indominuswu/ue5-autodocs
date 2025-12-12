@@ -7,13 +7,16 @@
 - Ships an editor suite (DMX Editor) plus Blueprint graph nodes for authoring DMX logic and debugging traffic.
 - Powers downstream DMX plugins (Pixel Mapping, Control Console, DisplayCluster DMX, MVR import/export).
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - DMX runtime subsystem/components/Blueprint nodes plus DMX Editor tooling and sequencer/BP graph nodes.
+
+## 3. Key Modules
 
 - **DMXRuntime** (Runtime) – DMX libraries, entities, ports, subsystem, sequencer integration, and components.
 - **DMXEditor** (Editor) – DMX Library editor UI, asset factories, customizations, exporters/importers, and tooling for fixtures/patches.
 - **DMXBlueprintGraph** (UncookedOnly) – Blueprint nodes (K2) for DMX operations exposed to designers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - `UDMXSubsystem` (EngineSubsystem) – Central Blueprint API for sending/receiving DMX, querying libraries/fixtures, and converting channel data. Key calls include `SendDMXToOutputPort`, `GetDMXDataFromInputPort`, `GetFunctionsMap`, and utility conversions between bytes/normalized values.
 - `UDMXLibrary` with entities `UDMXEntityController`, `UDMXEntityFixtureType`, and `UDMXEntityFixturePatch` – Define universes, signal formats, fixture definitions, and channel patches for a show.
@@ -22,7 +25,7 @@
 - MVR helpers such as `ADMXMVRSceneActor` and associated import/export utilities for My Virtual Rig workflows.
 - Editor tooling: `FDMXEditorModule`, DMX Library factories (`UDMXGDTFFactory`, `UDMXLibraryFromMVRFactory`), details customizations, and conflict/monitor widgets.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Create a DMX Library asset, define `UDMXEntityFixtureType` entries, add controllers/universes, and patch fixtures with `UDMXEntityFixturePatch`.
 - Configure DMX input/output ports (Art-Net/sACN) via the DMX Protocol plugin, then use `UDMXSubsystem` Blueprint nodes to send or read DMX data.
@@ -30,6 +33,6 @@
 - Author DMX cues in Sequencer using the DMX Library track/sections, or drive values procedurally through Blueprint Graph nodes supplied by `DMXBlueprintGraph`.
 - Use the DMX Editor for visual patching, monitoring (Activity/Channels/Conflict monitors), and MVR import/export workflows.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - `UDMXSubsystem` contains several deprecation notes (e.g., older helpers deprecated in favor of `SendDMXToOutputPort` and `LoadDMXLibrariesSynchronous`), but no explicit UE 5.7-only features are flagged. This overview reflects the UE 5.7 source state.

@@ -7,7 +7,10 @@
 - Provides an actor/component to run a graph in a level plus editor asset types/factories to author graphs.
 - Experimental feature set for advanced compositing and render-target workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime component/actor to execute post-process material graphs plus editor factories for graph assets.
+
+## 3. Key Modules
 
 - **PPMChainGraph** (Runtime)  
   - Role: Defines the `UPPMChainGraph` asset, execution component, actor, and world subsystem that runs graph instances.
@@ -16,7 +19,7 @@
   - Role: Asset factories, actor factory, and asset definitions for authoring chain graph assets in the editor.
   - Notable types: `UPPMChainGraphFactoryNew`, `UActorFactoryPPMChainGraphActor`, `UAssetDefinition_PPMChainGraph`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UPPMChainGraph`
 
@@ -38,14 +41,14 @@
 - Role: Manages registration and ticking of chain graph components within a world.
 - Behavior: Ensures graphs execute at the configured post-processing stage and handles render-target routing.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - In the editor, create a new Post Process Material Chain Graph asset via the content browser (factory) and add post-process materials in the desired order.
 - Place a `PPMChainGraphActor` or add a `UPPMChainGraphComponent` to an existing actor; assign the graph asset and choose the execution stage (e.g., PrePostProcess, AfterToneMap).
 - Optionally name render targets in graph nodes to collect intermediate outputs instead of writing back to scene color.
 - Use the editor module tools to instantiate assets; runtime module handles execution with no additional Blueprint nodes required.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Experimental; not enabled by default in UE 5.7.
 - No explicit 5.7-specific deprecations were found; APIs reflect the current source snapshot.

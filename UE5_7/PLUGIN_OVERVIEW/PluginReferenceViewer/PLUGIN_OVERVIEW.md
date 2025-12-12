@@ -6,13 +6,17 @@
 - Helps authors understand dependency graphs, load order implications, and circular references between plugins.
 - Presents nodes/edges in an interactive graph with context actions.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor graph viewer (`UEdGraph_PluginReferenceViewer`/`UEdGraphNode_PluginReference`) that plugin authors open to inspect dependency relationships.
+
+## 3. Key Modules
 
 - **PluginReferenceViewer** (Editor)  
   - Role: Graph schema, nodes, and editor integration for visualizing plugin references.
   - Notable types: `UEdGraph_PluginReferenceViewer`, `UEdGraphNode_PluginReference`, `UPluginReferenceViewerSchema`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UEdGraph_PluginReferenceViewer`
 
@@ -29,13 +33,14 @@
 - Role: Graph schema defining pin types, connection rules, and context menus for the viewer.
 - Key behavior: Controls actions like “Re-center on Selection” and validity of edges.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - After enabling the plugin, open the Plugin Reference Viewer (Window/Developer Tools) and choose a plugin to visualize.
 - Click nodes to inspect dependencies; follow edges to explore upstream/downstream plugins.
 - Use the view to spot optional vs required references and to plan refactors that reduce coupling.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Experimental, disabled by default.
 - No UE 5.7-specific changes or deprecations were identified in the source.
+

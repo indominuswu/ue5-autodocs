@@ -6,7 +6,11 @@
 - Allows executing Python scripts, wrapping Python objects for use in UPROPERTY/UStruct fields, and exposing editor helpers to Python.
 - Provides preload support for initializing Python before other systems.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor Python integration with settings, Blueprint nodes (`Execute Python Script`), commandlets, and wrapper types that users rely on for automation and scripting.
+
+## 3. Key Modules
 
 - **PythonScriptPluginPreload** (Runtime)  
   - Role: Early initialization hook for Python support.
@@ -14,7 +18,7 @@
   - Role: Main editor module with commandlets, Blueprint nodes, settings, and Python wrapper types.
   - Notable types: `UPythonScriptPluginSettings`, `UPythonScriptLibrary`, `UEditorPythonScriptingLibrary`, `UK2Node_ExecutePythonScript`, `UPythonScriptCommandlet`, `UPythonOnlineDocsCommandlet`, wrapper types (`UPyWrapperBase`, `UPyWrapperObject`, `UPyWrapperStruct`, `UPyWrapperEnum`, `UPyWrapperDelegate`), test UObjects in `PyTest.h`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UPythonScriptPluginSettings`
 
@@ -42,14 +46,15 @@
 
 - Role: Command-line utilities to execute Python scripts or generate online docs for Python APIs.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, configure `UPythonScriptPluginSettings` (search paths, startup scripts), and restart the editor to initialize Python.
 - Execute scripts via the `py` console command, Blueprint `Execute Python Script` node, or by calling into `UPythonScriptLibrary`.
 - Use `UEditorPythonScriptingLibrary` for editor automation (spawning assets, manipulating levels) from Python.
 - Wrap Python objects with the provided wrapper types if you need to store them on UObjects.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Experimental and disabled by default in UE 5.7.
 - Multiple test classes in `PyTest.h` remain for validation; some legacy types are marked deprecated in source.
+

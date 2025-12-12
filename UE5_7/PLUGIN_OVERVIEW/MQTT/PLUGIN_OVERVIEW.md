@@ -5,14 +5,18 @@
 - Exposes Blueprint-friendly MQTT clients, subscriptions, and payload helpers.
 - Provides editor hooks for debugging/stats while authoring MQTT-driven features.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users create MQTT clients via `UMQTTSubsystem`/`UMQTTClientObject`, configure project URLs, and bind Blueprint delegates to publish/subscribe to topics.
+
+## 3. Key Modules
 - **MQTTCore** (Runtime)
   - Role: Core MQTT client implementation, subsystem access, and Blueprint wrappers.
   - Notable types: `UMQTTSubsystem`, `UMQTTClientObject`, `UMQTTSubscriptionObject`, `FMQTTClientMessage`, `FMQTTURL`, `UMQTTClientSettings`, `IMQTTClient` interfaces.
 - **MQTTCoreEditor** (Editor)
   - Role: Editor-facing stats/logging integration for MQTT usage.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMQTTSubsystem`
 - Role: Engine subsystem that creates/persists MQTT clients from URLs (project-defined or explicit).
@@ -29,11 +33,12 @@
 ### `FMQTTClientMessage` / `MQTTShared` types
 - Role: Structures describing topic, payload, QoS, and URL configuration.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin, then in Blueprint call `MQTTSubsystem.GetOrCreateClient` (or project URL variant) to obtain a client.
 - Bind delegates on `UMQTTClientObject` for connection/subscription events; publish or subscribe to topics as needed.
 - Use `UMQTTSubscriptionObject::SetOnMessageHandler` to receive messages, and `GetPayloadJson/String` helpers to parse payloads.
 - Configure default broker details via `UMQTTClientSettings` (project settings) if desired.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

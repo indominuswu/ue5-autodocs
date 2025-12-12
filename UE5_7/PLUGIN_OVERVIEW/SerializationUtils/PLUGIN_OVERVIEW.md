@@ -5,14 +5,18 @@
 - Provides extended serialization helpers for JSON and XML formats.
 - Supplies formatter/back-end implementations that plug into UE’s structured archive system for reading/writing data.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developer-oriented JSON/XML structured archive formatters (`FJsonArchive*FormatterEx`, `FXmlArchive*Formatter`, `FXmlStructSerializerBackend`) for custom serialization/exporters.
+
+## 3. Key Modules
 
 - **JsonSerialization** (Runtime, Default)  
   - Role: JSON-specific structured archive formatters with extended functionality.
 - **XmlSerialization** (Runtime, Default)  
   - Role: XML structured archive formatters and utilities.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### JSON
 
@@ -25,11 +29,12 @@
 - `FXmlStructSerializerBackend`: Backend adapter for struct serialization to XML.
 - Utilities: `FXmlWriter`, `FXmlFormatterHelper`, `FXmlUtils` for low-level XML writing and helper routines.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then use the provided formatters when serializing data via structured archives to JSON or XML.
 - Leverage the XML utilities/backends when building custom exporters that need direct XML output.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

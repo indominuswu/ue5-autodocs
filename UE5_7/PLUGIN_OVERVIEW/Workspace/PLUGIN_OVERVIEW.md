@@ -5,12 +5,16 @@
 - Provides an editor framework for editing multiple assets within a unified workspace UI.
 - Defines schemas, document state tracking, outliner integration, and viewport controllers to manage workspace tabs/payloads.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Experimental editor framework; developers implement `WorkspaceSchema`/factories and use `IWorkspaceEditorModule` to build custom multi-asset workspace UIs.
+
+## 3. Key Modules
 
 - **WorkspaceEditor** (Editor)
   - Role: Core workspace framework, interfaces, factories, and viewport/outliner utilities for multi-asset editing.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IWorkspaceEditorModule` / `IWorkspaceEditor`
 - Role: Entry points for the workspace framework; manage creation and lifecycle of workspace UIs.
@@ -36,12 +40,13 @@
 ### `WorkspaceDragDropOperation` / `WorkspaceItemMenuContext`
 - Role: Interaction helpers for drag-and-drop and context menus inside the workspace UI.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (editor). Implement a `WorkspaceSchema` and related factory to describe which assets and documents your workspace handles.
 - Use `IWorkspaceEditorModule` to register workspace types and spawn workspace UIs with custom outliners, viewports, and document handling.
 - Leverage `WorkspaceDocumentState` and `WorkspaceTabPayload` when managing multi-document editing sessions and restoring tabs.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin is experimental and disabled by default. No UE 5.7-specific behaviors were identified.
+

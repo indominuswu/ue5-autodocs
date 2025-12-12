@@ -6,13 +6,16 @@
 - Provides game-layer slotting, input mode control, and asset fallback handling for replicated UI.
 - Integrates with MVVM/LocalizableMessage dependencies for data binding and text delivery.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime replicated UI components and Blueprint-facing settings for building networked UI workflows.
+
+## 3. Key Modules
 
 - **UIFramework** (Runtime)  
   - Role: Core runtime that owns the replicated widget tree, game-layer slots, and input handoff for UI rendered on clients.  
   - Notable types: `UUIFrameworkPlayerComponent`, `UUIFrameworkLocalSettings`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UUIFrameworkPlayerComponent`
 
@@ -27,13 +30,13 @@
 - Role: Developer settings storing soft references to error/loading placeholder assets used by the framework.
 - Key properties: `ErrorResource`, `LoadingResource`; `LoadResources()` resolves them at runtime. Does not load on server.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then attach `UUIFrameworkPlayerComponent` to the player controller or pawn that should own the replicated UI tree.
 - Build widgets using UIFramework widget types, assign them to `FUIFrameworkGameLayerSlot` entries to control Z-order and whether input is routed to UI or game.
 - Configure placeholders in Project Settings → UI Framework Local Settings so missing assets show a defined fallback instead of errors.
 - Expect server authority to own widget creation/update; clients receive replicated widget data and render via UMG.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

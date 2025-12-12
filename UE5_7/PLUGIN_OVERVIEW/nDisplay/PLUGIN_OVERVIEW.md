@@ -7,7 +7,10 @@
 - Supplies media synchronization, remote control interception, and replication hooks for multi-node rendering.
 - Ships with editor tooling (Configurator, Operator, Light Card Editor, Stage Monitoring) to author and control nDisplay stages.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor configurator/operator tools plus runtime clustered rendering, media sync, and ICVFX pipelines.
+
+## 3. Key Modules
 
 - **DisplayCluster** (Runtime) – Core cluster runtime (root actor, configuration loading, network sync, viewport/frame orchestration).
 - **DisplayClusterProjection**, **DisplayClusterWarp**, **DisplayClusterShaders**, **DisplayClusterScenePreview** (Runtime) – Projection policies, warp/blend, and preview rendering.
@@ -20,7 +23,7 @@
 - **SharedMemoryMedia**, **SharedMemoryMediaEditor** (Runtime/Editor) – Shared-memory-based media IO helpers.
 - **DisplayClusterTests** (UncookedOnly) – Test coverage for cluster code paths.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `ADisplayClusterRootActor`
 
@@ -47,7 +50,7 @@
 
 - Types such as `ADisplayClusterLightCardActor`, `UDisplayClusterStageGeometryComponent`, and light-card editor interfaces power LED stage card workflows.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Author an nDisplay configuration asset in DisplayClusterConfigurator, then spawn an `nDisplay Root Actor` in the level bound to that asset.
 - Configure projection/warp policies per viewport, OCIO/postprocess settings, and ICVFX camera frustums; preview via Scene Preview and Stage Monitoring.
@@ -55,7 +58,6 @@
 - Integrate media sync through DisplayClusterMedia outputs/inputs and SharedMemoryMedia when sharing frames with other processes.
 - For rendering pipelines, enable the Movie Pipeline modules to drive cluster renders via Movie Render Queue.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific flags were found in the module descriptors or headers; the overview reflects the current 5.7 source layout.
-

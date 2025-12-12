@@ -6,12 +6,15 @@
 - Streams height data from a `RuntimeVirtualTextureVolume` and renders adaptive LOD meshes with optional occlusion and min/max height textures.
 - Provides editor tooling to build auxiliary textures (min/max) and customize component details.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime heightfield mesh component/actor with editor helpers for min/max texture generation.
+
+## 3. Key Modules
 
 - **VirtualHeightfieldMesh** (Runtime) – Heightfield mesh component/actor and rendering logic (client-only; denied on servers).
 - **VirtualHeightfieldMeshEditor** (Editor) – Details customizations, min/max texture building helpers, and asset tools for the component.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UVirtualHeightfieldMeshComponent`
 
@@ -27,13 +30,13 @@
 
 - `IVirtualHeightfieldMeshEditorModule` exposes `HasMinMaxHeightTexture` / `BuildMinMaxHeightTexture` for generating min/max textures from editor tools.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, place a `VirtualHeightfieldMeshActor`, or add `UVirtualHeightfieldMeshComponent` to an actor.
 - Assign a `RuntimeVirtualTextureVolume` that contains the heightmap; optionally build a `MinMaxTexture` via the editor module to accelerate LOD/occlusion.
 - Tune LOD distances and bias values to balance quality vs. virtual texture memory; assign a material tailored for heightfield rendering.
 - In editor, use details panel actions (via VirtualHeightfieldMeshEditor) to generate min/max textures and copy bounds from the source virtual texture.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

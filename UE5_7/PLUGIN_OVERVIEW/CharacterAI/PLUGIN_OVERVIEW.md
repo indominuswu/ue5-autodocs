@@ -2,25 +2,28 @@
 
 ## 1. What this plugin does
 
-- Provides supporting code and assets for implementing character-focused AI workflows.
-- Ships with content and configuration oriented toward AI-driven characters (behavior trees, logic assets, etc.).
-- Runtime code is minimal; primarily registers logging/category scaffolding for the plugin modules.
+- Defines a stub runtime module for Character AI experiments.
+- Registers a log category but does not ship assets, settings, or editor tooling in this build.
+- Enabled by default as scaffolding for projects that may add their own CharacterAI content.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Runtime module only registers a log category; no assets, settings, or editor/runtime features are exposed to users.
+
+## 3. Key Modules
 
 - **CharacterAI** (Runtime)  
   - Role: Holds the plugin’s runtime module and logging setup for character AI assets and samples.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
-- The module exposes only foundational scaffolding (log category declarations). The primary utility comes from the accompanying AI assets/content rather than runtime APIs.
+- Only a log category declaration (`LogCharacterAI`) is provided; there are no runtime systems or public APIs.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
-- Enable the plugin to access the included character AI assets and project scaffolding.
-- Use the provided content (behavior assets, configurations) as a starting point for AI-driven characters; extend within your game modules.
-- Expect runtime code impact to be minimal—integrate the assets into your own AI controllers/behavior trees as needed.
+- No direct runtime or editor workflow is provided; the module serves as a placeholder if you add CharacterAI code/content in your project.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

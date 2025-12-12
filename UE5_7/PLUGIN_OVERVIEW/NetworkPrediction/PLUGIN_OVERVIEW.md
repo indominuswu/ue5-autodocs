@@ -6,11 +6,15 @@
 - Provides replication proxies, buffering, rollback, and fixed/independent ticking models for deterministically simulated actors.
 - Exposes components and subsystem helpers to wire simulations into actor replication and input production.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developers build gameplay simulations on `UNetworkPredictionComponent`/`UNetworkPredictionWorldManager`, configuring replication proxies and tick models for their actors.
+
+## 3. Key Modules
 
 - **NetworkPrediction** (Runtime) – Core framework (proxies, world subsystem, replication integration, config/settings, debug/tracing helpers).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UNetworkPredictionWorldManager`
 
@@ -30,13 +34,13 @@
 
 - APIs in `NetworkPredictionTrace`, `NetworkPredictionDebug`, and `NetworkPredictionUtil` expose trace channels and validation helpers for simulations.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Derive a component from `UNetworkPredictionComponent`, implement `InitializeNetworkPredictionProxy`, and register a simulation model/driver with `UNetworkPredictionWorldManager`.
 - Use replication proxies to serialize input/sync/aux state; choose fixed or independent ticking via config.
 - For debugging, enable trace capture to inspect simulation timelines and corrections.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific flags found; the framework reflects the shipped 5.7 source.
 

@@ -2,25 +2,30 @@
 
 ## 1. What this plugin does
 
-- DNA Calibration tool plugin
-- Derived from plugin metadata; see source for specifics.
+- C++ library for calibrating DNA (MetaHuman) data: wraps `IDNAReader` output and exposes a suite of calibration commands (prune/remove/rename joints, blend shapes, animated maps, etc.).
+- Ships as runtime-only modules; no editor tooling or Blueprint surfaces are present in the plugin.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
 
-- **DNACalibLib** (Runtime)
-- **DNACalibLibTest** (Runtime)
-- **DNACalibModule** (Runtime)
+- User-facing: No - Runtime C++ calibration library only; no editor tools or Blueprint APIs for project teams.
 
-## 3. Important Types & APIs
+## 3. Key Modules
 
-- No major subsystem/component/settings classes were auto-detected; review source for additional APIs.
+- **DNACalibLib** (Runtime) - Core calibration library and DNA reader wrappers.
+- **DNACalibLibTest** (Runtime) - Test harness for the calibration library (Win64).
+- **DNACalibModule** (Runtime) - UE module hook that exposes the library.
 
-## 4. Typical usage patterns
+## 4. Important Types & APIs
 
-- Enable the plugin in the project/plugins manager; modules load accordingly.
-- Use the classes above in game code or Blueprints where appropriate (traits, components, subsystems, or utility libraries based on naming).
-- Editor modules (if present) add supporting tooling or debugging for the runtime modules.
+- `FDNACalibDNAReader` - `IDNAReader` wrapper that surfaces calibrated DNA data (all reader getters implemented).
+- Command classes under `Commands/` such as `FDNACalibSetSkinWeightsCommand`, `FDNACalibSetVertexPositionsCommand`, `FDNACalibCalculateMeshLowerLODsCommand`, `FDNACalibRemoveJointCommand`, `FDNACalibRenameBlendShapeCommand`, and `FDNACalibCommandSequence`.
+- `EDNACalibVectorOperation` (BlueprintType enum) defines math ops used by command implementations.
 
-## 5. Version-specific notes (UE 5.7)
+## 5. Typical usage patterns
+
+- Programmatic use from C++ to assemble and run calibration command sequences against DNA assets/readers; no built-in editor UI observed.
+
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific or experimental notes found.
+

@@ -6,12 +6,16 @@
 - Supplies assets to describe model data, IO mappings, and tiling for temporal/static denoisers.
 - Includes shader support for runtime execution.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users create `UNNEDenoiserAsset` data assets (with mapping data tables and tiling configs) to drive NNE denoisers in Path Tracer/Movie Render Queue workflows.
+
+## 3. Key Modules
 
 - **NNEDenoiser** (Runtime) – Denoiser assets, IO mapping types, runtime integration.
 - **NNEDenoiserShaders** (Runtime) – Shader code required to run the denoiser models.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UNNEDenoiserAsset`
 
@@ -27,13 +31,13 @@
 
 - Utility and configuration types controlling resource naming and tile sizing when executing denoiser models.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Create an `NNEDenoiserAsset` referencing an NNE model and mapping data tables; adjust tiling for GPU memory constraints.
 - Use the asset in path-tracing or Movie Render Queue setups that support NNE denoisers; mappings define how render targets feed the network and where outputs are written.
 - Customize input/output mapping tables to align with the channels expected by the chosen model.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific notes surfaced; overview reflects current assets and enums.
 

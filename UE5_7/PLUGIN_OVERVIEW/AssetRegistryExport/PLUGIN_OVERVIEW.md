@@ -7,13 +7,16 @@
 - Supports dependency listing and size breakdown with optional shared dependency output.
 - Disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Developer-facing commandlet `UAssetRegistryExportCommandlet` to export asset registry data to SQLite/CSV for analysis.
+
+## 3. Key Modules
 
 - **AssetRegistryExport** (Editor, Default)  
   - Role: Implements the export commandlet; depends on `SQLiteCore`.  
   - Notable types: `UAssetRegistryExportCommandlet`, `LogAssetRegistryExport`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UAssetRegistryExportCommandlet`
 
@@ -29,13 +32,14 @@
   - Inserts asset rows (with size tags if present) and writes dependency summaries; uses pragma tweaks for faster SQLite writes.  
   - Reports orphaned assets if size metadata is missing or ambiguous.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Run from command line: `UE4Editor-Cmd.exe <Project> -run=AssetRegistryExport -Input=Path/DevelopmentAssetRegistry.bin -Output=Assets.db`  
   - Or `-CSV=OutputDir` for CSVs.  
   - Use `-ListDependencies=TypeA,TypeB` to generate dependency reports (`ListedDependencies.csv`, `SizeDependencies.csv`), optionally `-IncludeSharedWithDependencies`.
 - Ensure `WriteBackMetadataToAssetRegistry` is enabled if compressed size tags are needed.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit 5.7-specific changes noted; commandlet behavior reflects the current 5.7 source.
+

@@ -6,7 +6,10 @@
 - Supplies UObject-based helpers for caching USD assets, managing metadata, and exposing USD settings to projects.
 - Acts as the runtime foundation for higher-level USD tools such as USD Importer/Stage Editor.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Project settings, runtime USD components, and conversion utilities used directly in USD workflows.
+
+## 3. Key Modules
 
 - **UnrealUSDWrapper** (Runtime)  
   - Role: Low-level bridge to the Pixar USD SDK (schema bindings, stage wrappers).
@@ -15,7 +18,7 @@
 - **USDClasses** (Runtime)  
   - Role: UObject layer exposing USD-specific asset caches, metadata helpers, draw-mode rendering components, and project settings.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UUsdProjectSettings`
 
@@ -32,13 +35,13 @@
 - `UUsdAssetCache3` / `UUsdAssetCache2` / `UUsdAssetCache`: UObject caches for USD-authored assets generated during conversion/import, optionally blueprint-accessible.
 - `UUsdAssetUserData`, `UUsdAssetImportData`, `FUsdStageOptions`, `FUsdReferenceOptions`, `FUsdMetadata` utility types to persist USD metadata and import options on assets.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable USD Core (usually indirectly via USD Importer) to allow USD stages to be opened and converted.
 - Configure project-wide USD behavior in Project Settings → USDCore (paths for USD plugins, resolver search path, material purposes, schema lists, logging verbosity).
 - Use asset caches (`UUsdAssetCache3`) when importing or live-updating USD scenes so generated meshes/materials can be reused across prims.
 - Attach `UUsdDrawModeComponent` when rendering USD prim stand-ins that rely on USD draw modes instead of fully converted assets.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

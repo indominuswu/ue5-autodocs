@@ -5,7 +5,10 @@
 - Provides actors and Blueprint libraries for building compositing pipelines (captures, post-process blends, tonemapping).
 - Editor tools and layer editor to manage compositing element collections and Sequencer integration.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Compositing actors/Blueprint library for runtime plus editor layer/pipeline tools and Sequencer integration.
+
+## 3. Key Modules
 - **Composure** (Runtime)  
   - Role: Compositing elements, capture components, pipeline actors, view extension, and Blueprint library.
 - **ComposureEditor** (Editor)  
@@ -13,7 +16,7 @@
 - **ComposureLayersEditor** (Editor)  
   - Role: Layer/collection editor UI, view models, and detail customizations for compositing elements.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UCompositingElement`
 - Role: Core unit in the compositing graph; manages inputs, transforms, and rendering passes.
@@ -33,10 +36,10 @@
 - `FCompElementCollectionViewModel`, `FCompElementManager`, `FCompElementEditorModule`: Manage element collections and editor UI.
 - Sequencer support under `ComposureEditor/Sequencer` for animating compositing parameters.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Editor: Create compositing elements, assemble them in a pipeline actor, and edit layers with the Composure Layers Editor. Use Sequencer tracks to animate element parameters. Blueprint nodes from `UComposureBlueprintLibrary` assist in updating transforms and passes.
 - Runtime: Place a pipeline actor or spawn via Blueprint, configure passes and inputs, and render to targets visible in the viewport or external outputs.
 - Migration: Marked as legacy; newer workflows may prefer newer compositing stacks, but this plugin remains available.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Description labels the plugin as legacy; no new 5.7-specific changes are flagged in code. Overview reflects current sources.

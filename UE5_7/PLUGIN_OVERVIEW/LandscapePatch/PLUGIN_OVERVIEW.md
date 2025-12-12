@@ -6,12 +6,16 @@
 - Supports texture-backed patches, circle/shape patches, and bindable edit layers for ordered blending.
 - Provides runtime components plus editor-only tooling; includes compatibility manager for legacy patch actors.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Landscape authors add `ULandscapePatchComponent` derivatives and bind them to edit layers to sculpt height/weightmaps procedurally with editor UI support.
+
+## 3. Key Modules
 
 - **LandscapePatch** (Runtime, PostConfigInit) — Core patch components, edit layers, and render target utilities.
 - **LandscapePatchEditorOnly** (Editor, PostEngineInit) — Editor integrations and details/UI support.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `ULandscapePatchComponent` (USceneComponent)
 
@@ -36,13 +40,13 @@
 
 - Role: Legacy actor for patch aggregation; kept for backward compatibility but superseded by `ULandscapePatchEditLayer`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin. Add `ULandscapePatchComponent`-derived components (e.g., `LandscapeTexturePatch` or `LandscapeCircleHeightPatch`) to actors and bind them to a landscape’s procedural edit layer.
 - Configure render targets, weight/height materials, and priorities; patches update the landscape when moved or when their render targets change.
 - Use the edit-layer binding to order multiple patches; the editor module provides details UI for managing registered patches.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes; deprecated `ULandscapePatchManager` remains for compatibility while new edit-layer workflow is active.
 

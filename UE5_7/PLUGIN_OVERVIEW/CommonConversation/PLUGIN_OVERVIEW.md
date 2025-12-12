@@ -6,7 +6,10 @@
 - Runtime component and registry manage active conversations and participants.
 - Editor tooling includes a graph editor, debugger, search, and diff views.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Conversation editor/graph tooling with runtime components, Blueprint library, and registry for dialogue execution.
+
+## 3. Key Modules
 - **CommonConversationRuntime** (Runtime)  
   - Role: Conversation assets, runtime context, participant tracking, node execution, and Blueprint helpers.
 - **CommonConversationGraph** (UncookedOnly)  
@@ -14,7 +17,7 @@
 - **CommonConversationEditor** (Editor)  
   - Role: Asset actions, conversation editor tabs/modes, debugger, and toolbar/command bindings.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UConversationDatabase`
 - Role: Asset containing the conversation graph (entry points, tasks, choices, requirements, side effects, link nodes).
@@ -38,11 +41,10 @@
 ### Graph node classes (`UConversationTaskNode`, `UConversationChoiceNode`, `UConversationRequirementNode`, `UConversationSideEffectNode`, `UConversationLinkNode`)
 - Role: Typed nodes that define execution, branching, gating, and side effects in the dialogue graph; compiled by the graph compiler.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Editor: Create a `Conversation Database` asset, open it in the Conversation Editor, author entry points, tasks, choices, requirements, and side effects. Use the built-in debugger and diff/search tools while iterating.
 - Runtime: Attach `UConversationParticipantComponent` to actors, register databases (or load them), and start conversations via `UConversationLibrary` or the registry. Drive UI by reading available choices from the context and advancing the conversation when the player selects a branch.
 - Scripting: Use Blueprint nodes from `UConversationLibrary` to start conversations and inspect node/choice data.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked experimental in the `.uplugin`. No explicit UE 5.7-specific APIs noted; overview reflects the current source.
-

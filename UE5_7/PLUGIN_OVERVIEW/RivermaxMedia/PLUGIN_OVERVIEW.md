@@ -5,7 +5,11 @@
 - Provides media sources, outputs, capture, player, custom time step, and timecode provider built on Rivermax streams.
 - Editor factories and customizations enable asset creation and configuration within the Content Browser.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Media Framework integration (Rivermax media source/output/capture/player assets, custom timestep/timecode, editor factories) that users configure for Rivermax video IO.
+
+## 3. Key Modules
 - **RivermaxMedia** (Runtime)  
   - Media capture/output/player implementations using Rivermax; texture sampling/conversion utilities and custom timing sources.
 - **RivermaxMediaEditor** (Editor)  
@@ -13,7 +17,7 @@
 - **RivermaxMediaFactory** (RuntimeNoCommandlet)  
   - Factory registration for runtime media player/capture creation.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### Media assets
 - `URivermaxMediaSource`: describes an incoming Rivermax stream; includes connection options.
 - `URivermaxMediaOutput`: config for Rivermax-backed output; paired with `URivermaxMediaCapture` to send frames.
@@ -28,12 +32,12 @@
 - Detail customizations (`RivermaxMediaDetailsCustomization`, `RivermaxMediaPropertyCustomization`) expose stream options in the editor.
 - Factories create Rivermax media source/output assets from the Content Browser.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable RivermaxCore and this plugin; ensure Rivermax hardware/drivers are available.
 - Create a `RivermaxMediaSource` for input streams or `RivermaxMediaOutput` for output; configure network parameters.
 - Use `URivermaxMediaCapture` to send viewport/render target output via Rivermax; set `URivermaxCustomTimeStep`/`URivermaxTimecodeProvider` if synchronization to Rivermax is required.
 - Play Rivermax streams through `URivermaxMediaPlayer` in Media Framework components.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
 

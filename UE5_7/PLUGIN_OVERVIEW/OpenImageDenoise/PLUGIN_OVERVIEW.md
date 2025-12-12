@@ -6,12 +6,16 @@
 - Adds console-configurable denoise passes for color/alpha and optional auxiliary buffers (albedo/normal).
 - Provides a runtime module that registers the OIDN denoiser when available on the target platform.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Registers an OIDN path-tracer denoiser and exposes `r.OIDN.*` console/ini controls that users tweak when rendering with the Path Tracer/MRQ.
+
+## 3. Key Modules
 
 - **OpenImageDenoise** (ClientOnly)  
   - Role: Runtime denoiser module; registers with the renderer and exposes console variables for OIDN behavior.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - `FOpenImageDenoiseModule` (`Plugin.cpp`)  
   - Module that registers/unregisters the denoiser; wraps OIDN device/context creation.
@@ -22,12 +26,13 @@
 - Internal structs `FDenoiseSettings`, `FDenoiseTextureParameters`  
   - Capture current console configuration and RDG texture bindings for the denoiser.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin for path-traced renders; OIDN activates when `WITH_INTELOIDN` is true for the platform.
 - Adjust quality/performance via the `r.OIDN.*` console variables; auxiliary buffers improve quality at extra cost.
 - No editor UI is provided; configuration is via console/ini settings or custom render pipeline integration.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview reflects the current OIDN integration in the UE 5.7 source tree.
+

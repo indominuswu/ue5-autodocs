@@ -5,7 +5,10 @@
 - Integrates Motion Design with the Scene State framework to allow Scene State actors to use Avalanche-specific components and players.
 - Provides Motion Design-aware Scene State component defaults and editor extensions.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Supplies Scene State runtime components/players and editor extensions tailored for Motion Design workflows.
+
+## 3. Key Modules
 
 - **AvalancheSceneState** (Runtime)  
   - Role: Runtime Scene State component/player overrides for Motion Design scenes.
@@ -14,7 +17,7 @@
 - **AvalancheSceneStateEditor** (Editor)  
   - Role: Editor extensions for Scene State assets using Motion Design components.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UAvaSceneStateComponent` (USceneStateComponent)
 
@@ -28,12 +31,12 @@
 
 - Editor code hooks Scene State editors via `UAssetEditorSubsystem` to work with the Avalanche-aware components and players.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable alongside Motion Design when using Scene State actors that should leverage Motion Design playback.
 - Scene State actors automatically get `UAvaSceneStateComponent`/`UAvaSceneStatePlayer` defaults via the plugin.
 - Edit Scene State assets in the editor; the plugin’s editor module ensures the Avalanche components are recognized and editable.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

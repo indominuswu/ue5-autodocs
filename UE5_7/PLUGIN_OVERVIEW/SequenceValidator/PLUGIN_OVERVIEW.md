@@ -6,12 +6,16 @@
 - Provides a validator that queues sequences, runs registered validation rules, and reports results asynchronously.
 - Integrates with the editor to expose validation commands and menu contexts for Sequencer users.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor validation tool; Sequencer users queue sequences and run `FSequenceValidator` rules (or custom rules) via menu/commands to find authoring issues.
+
+## 3. Key Modules
 
 - **SequenceValidator** (Editor, PostEngineInit)  
   - Role: Registers validation rules, commands, and UI hooks; runs validators against sequences and collects results.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FSequenceValidator`
 
@@ -30,12 +34,13 @@
 
 - Role: Menu context used by editor widgets/commands to trigger validation from Sequencer UI.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then queue sequences into `FSequenceValidator` (via commands/UI) to run the built-in rules.
 - Use the results to flag issues in sequences (e.g., problematic sections/subsections) and fix them directly in Sequencer.
 - Extend by registering custom `FSequenceValidationRule` implementations with the module.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

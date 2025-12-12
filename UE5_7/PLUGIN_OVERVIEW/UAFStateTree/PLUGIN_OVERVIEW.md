@@ -6,7 +6,11 @@
 - Provides traits, tasks, and conditions to run AnimNext graphs within StateTrees and exchange data.
 - Includes editor and uncooked-only helpers for asset creation and compilation.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - StateTree/AnimNext bridge with traits, tasks, schemas, and editor factories so designers can run AnimNext graphs inside StateTree assets.
+
+## 3. Key Modules
 
 - **UAFStateTree** (Runtime)
   - Role: Runtime StateTree integration (traits, tasks, schema/types) for AnimNext.
@@ -15,7 +19,7 @@
 - **UAFStateTreeEditor** (Editor)
   - Role: Asset definitions, compilation handlers, factories, and editor host for AnimNext-aware StateTrees.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FAnimStateTreeTrait`
 
@@ -33,12 +37,13 @@
 
 - `UAnimNextStateTreeFactory`, `FAnimNextStateTreeAssetDefinition`, `FAnimNextStateTreeEditorHost`, and `FStateTreeAssetCompilationHandler` manage asset creation and compilation.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Author StateTree assets that reference AnimNext graphs via the provided tasks/traits to control character state logic.
 - Use editor factory and asset definition to create AnimNext-aware StateTrees and compile them with the included handler.
 - Workspace export helpers support editor-only data during authoring; uncooked modules are omitted from cooked builds.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

@@ -5,12 +5,16 @@
 - Visualizes connected clients, sessions, transport logs, package transmissions, and session history.
 - Exposes console commands and server preferences for managing sessions.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Provides the Multi-User Server app UI (tabs for clients/sessions/logs) and server preferences that users operate when hosting Concert sessions.
+
+## 3. Key Modules
 - **MultiUserServer** (UncookedOnly)
   - Role: Server app module, window/tabs/widgets, console commands, and server-side settings.
   - Notable types: `IMultiUserServerModule`, server window/tab controllers, transport log/clients/package viewer widgets, `MultiUserServerUserPreferences`, `MultiUserServerPackageTransmissionSettings`, `ConcertTransportLogSettings`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IMultiUserServerModule`
 - Role: Module interface to start/stop the server UI and expose server-specific functionality.
@@ -25,10 +29,11 @@
 ### Console/utility classes
 - `ConcertConsoleCommandExecutor`, server console variables for enabling/disabling features or logging.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Run the Multi-User Server app (with the plugin enabled) to host sessions used by Multi-User clients.
 - Use the server UI to monitor clients, inspect package transmission, review transport logs, and manage archived/live sessions.
 - Adjust server preferences and logging options via the provided settings classes or console commands.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview reflects the current plugin contents.
+

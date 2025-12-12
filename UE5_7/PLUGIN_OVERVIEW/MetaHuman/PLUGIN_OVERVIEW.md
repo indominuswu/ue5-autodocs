@@ -6,7 +6,10 @@
 - Supplies extensive editor UI, pipelines, and batch processing utilities for MetaHuman footage and configuration.
 - Category: MetaHuman; primarily editor tooling with runtime support for certain trackers/solvers.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Extensive editor tooling for MetaHuman capture/solving plus runtime trackers/solvers and Sequencer integration.
+
+## 3. Key Modules
 - **MetaHumanCore** (Runtime) / **MetaHumanCoreEditor** (Editor): Core data structures, shared utilities, and editor integration.
 - **MetaHumanIdentity** (Runtime) / **MetaHumanIdentityEditor** (Editor): Identity asset, parts/poses, promoted frames, and the identity asset editor.
 - **MetaHumanFaceContourTracker** (Runtime) / **MetaHumanFaceContourTrackerEditor** (Editor): Face contour tracking and editor helpers.
@@ -16,7 +19,7 @@
 - **MetaHumanPerformance** / **MetaHumanSequencer** (Editor PostEngineInit): Performance review/Sequencer integration for captured MetaHuman data.
 - **MetaHumanPipeline**, **MetaHumanToolkit**, **MetaHumanSpeech2Face**, **MetaHumanBatchProcessor**, **MetaHumanConfig**/**MetaHumanConfigEditor**, **MetaHumanPlatform**, **MetaHumanControlsConversionTest**, **MetaHumanImageViewerEditor**, **MeshTrackerInterface**: Supporting pipeline, config, conversion tests, and viewer modules.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### Identity creation and editing
 - `UMetaHumanIdentity`, `UMetaHumanIdentityPart` (+ `UMetaHumanIdentityFace/Body/Hands/Outfit/Prop`), `UMetaHumanIdentityPose`, `UMetaHumanIdentityPromotedFrame`: Define the identity asset, its poses, and promoted frames used for solving.
 - `UMetaHumanIdentityViewportSettings`, `FMetaHumanIdentityStateValidator`: Viewport/render settings and asset validation.
@@ -32,11 +35,11 @@
 - `MetaHumanPerformance`/`MetaHumanSequencer` integrate solved data with Sequencer for review; `MetaHumanSpeech2Face` handles speech-driven alignment.
 - `MetaHumanBatchProcessor` automates pipeline tasks across multiple shots/frames.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (MetaHuman category). Create a MetaHuman Identity asset and open it in the MetaHuman Identity editor.
 - Import footage, promote frames, and run contour tracking; adjust head alignment and camera calibration within the editor widgets.
 - Run fitting/animation solvers to produce MetaHuman-ready animation; review in Sequencer via the MetaHuman Performance/Sequencer modules.
 - Use MetaHuman Toolkit/Batch Processor to automate capture-to-solve pipelines; tune `UMetaHumanConfig` for solver settings.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; the plugin is marked as the official MetaHuman Animator toolkit shipped with UE 5.7.

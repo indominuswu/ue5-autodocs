@@ -6,11 +6,14 @@
 - Supplies logging/UI helpers for test execution plus IPC hooks for suspending/resuming servers during tests.
 - Intended for uncooked/editor usage; not meant for shipping builds.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Uncooked test framework with logging UI and IPC helpers for netcode validation.
+
+## 3. Key Modules
 
 - **NetcodeUnitTest** (UncookedOnly) – Core framework, logging widgets, IPC hooks, and utilities used by netcode tests.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `INetcodeUnitTest` / `FNUTModuleInterface`
 
@@ -32,13 +35,12 @@
 
 - Hard-assert macro for test validation and named pipe string for coordinating suspended servers.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable in editor/test builds, implement tests in modules deriving from `FNUTModuleInterface`, and register them with `UUnitTestManager`.
 - Use provided utilities to open channels, capture replication traffic, and drive simulated clients/servers.
 - Run tests with the UI widgets to monitor log output; use IPC pipe and helper macros to pause/resume servers when reproducing edge cases.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; behavior matches the current source state.
-

@@ -7,7 +7,10 @@
 - Includes a Niagara renderer for geometry caches and a streaming path for large caches.
 - Supplies track types and editors so Geometry Caches can be animated within Level Sequences.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime cache assets/components/renderer plus editor asset factories, Sequencer track editor, and streaming settings.
+
+## 3. Key Modules
 
 - **GeometryCache** (Runtime)  
   - Role: Core runtime playback of geometry cache assets, codecs, tracks, and Niagara renderer integration.  
@@ -29,7 +32,7 @@
   - Role: Interfaces and settings for streaming geometry cache data.  
   - Notable types: `IGeometryCacheStreamer`, `IGeometryCacheStream`, `UGeometryCacheStreamerSettings`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UGeometryCache` / `UGeometryCacheComponent` / `AGeometryCacheActor`
 
@@ -56,7 +59,7 @@
 - Role: Sequencer track and sections that bind an actor/component to Geometry Cache playback over time.
 - Key properties: Cache asset reference, playback settings per section.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Import or create a Geometry Cache asset, then place an `AGeometryCacheActor` or add `UGeometryCacheComponent` to an actor; assign the cache and configure looping/play rate.
 - In Sequencer, add a Geometry Cache track to animate cache playback, swapping caches or trimming playback ranges via sections.
@@ -64,6 +67,6 @@
 - For Niagara effects, add a Geometry Cache renderer to emit cached mesh animation within particle systems.
 - When handling large caches, configure streaming through `UGeometryCacheStreamerSettings` and streamable tracks.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

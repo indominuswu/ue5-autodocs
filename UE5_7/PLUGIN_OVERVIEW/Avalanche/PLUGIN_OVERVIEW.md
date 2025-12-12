@@ -7,13 +7,16 @@
 - Editor modules provide dedicated modes, component visualizers, outliners, and designer-centric tooling for Motion Design content creation.
 - Integrates with remote control, media IO, geometry tools, dynamic materials, text (3D), and actor modifier frameworks.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Extensive editor modes/outliners/visualizers plus runtime subsystems and Blueprint libraries for Motion Design workflows.
+
+## 3. Key Modules
 
 - **Runtime/Program**: `Avalanche`, `AvalancheAttribute`, `AvalancheCamera`, `AvalancheCore`, `AvalancheEffectors`, `AvalancheInteractiveToolsRuntime`, `AvalancheMask`, `AvalancheMedia`, `AvalancheModifiers`, `AvalancheMRQ`, `AvalanchePropertyAnimator`, `AvalancheRemoteControl`, `AvalancheSceneRig`, `AvalancheSceneTree`, `AvalancheSequence`, `AvalancheShapes`, `AvalancheTag`, `AvalancheText`, `AvalancheTransition`.
 - **Editor**: `AvalancheAttributeEditor`, `AvalancheComponentVisualizers`, `AvalancheEditor`, `AvalancheEditorCore`, `AvalancheEffectorsEditor`, `AvalancheInteractiveTools`, `AvalancheLevelViewport`, `AvalancheMaskEditor`, `AvalancheMediaEditor`, `AvalancheModifiersEditor`, `AvalancheMRQEditor`, `AvalancheOutliner`, `AvalanchePropertyAnimatorEditor`, `AvalancheRemoteControlEditor`, `AvalancheSceneRigEditor`, `AvalancheSequencer`, `AvalancheShapesEditor`, `AvalancheSVGEditor`, `AvalancheTagEditor`, `AvalancheTextEditor`, `AvalancheTransitionEditor`, `AvalancheViewport`.
 - **UncookedOnly**: `AvalancheTransitionEditor` (sequencer/transition authoring).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Core subsystems and settings
 
@@ -34,7 +37,7 @@
 
 - `UAvaTransitionCameraLibrary`, `UAvaRCLibrary`, `UAvaBroadcastLibrary`, `UAvaPlayableLibrary`, `UAvaShapeMeshFunctions` provide Blueprint helpers for transitions, remote control, broadcast routing, playback, and mesh generation.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin (disabled by default) to access the Motion Design workspace and tools.
 - In the editor, use Motion Design modes/outliner to author scenes with effectors, cloners, masks, text, and shape components; visualize and edit components with the provided visualizers.
@@ -42,7 +45,7 @@
 - For broadcast/live workflows, configure `AvaMedia` settings, use Broadcast components, and drive playback/rundown through the provided subsystems and Blueprint libraries.
 - Runtime usage centers on the Motion Design subsystems (camera, sequencer, scene) and runtime modules for transitions, tags, media, and remote control.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - The `.uplugin` lists numerous dependencies and is disabled by default; no explicit UE 5.7-only notes were found in code excerpts.
 - Deprecated Sequencer sidebar settings in `UAvaSequencerSettings` carry deprecation annotations (from 5.6), but remain present in 5.7.

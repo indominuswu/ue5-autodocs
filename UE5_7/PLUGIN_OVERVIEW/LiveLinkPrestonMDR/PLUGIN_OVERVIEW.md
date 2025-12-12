@@ -6,7 +6,11 @@
 - Publishes MDR lens telemetry as Live Link camera role data with configurable calibration or raw encoder input.
 - Includes an editor source panel and factory to create/manage the Live Link source from the UI.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users add a Preston MDR source via the LiveLink UI/panel and configure data mode/encoder ranges to stream FIZ telemetry as LiveLink camera data.
+
+## 3. Key Modules
 
 - **LiveLinkPrestonMDR** (Runtime)
   - Role: Implements the Live Link source, data role, and data structs for Preston MDR streams.
@@ -15,7 +19,7 @@
   - Role: Editor integration that exposes the Preston MDR Live Link source panel and factory for adding the source.
   - Notable types: `FLiveLinkPrestonMDREditorModule`, `SLiveLinkPrestonMDRSourcePanel`, `ULiveLinkPrestonMDRFactory`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `ULiveLinkPrestonMDRSourceSettings`
 
@@ -36,12 +40,13 @@
 
 - Role: Background thread that reads MDR network messages, parses FIZ values, and forwards them to the source.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and open Live Link in the editor, then add a Preston MDR source via the provided source panel/factory.
 - Choose the incoming data mode (raw encoder vs calibrated) and configure per-axis encoder ranges if using raw encoder data.
 - Consume the Live Link subject as camera data in Control Rig, Sequencer, or other systems that read FIZ from Live Link camera roles.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

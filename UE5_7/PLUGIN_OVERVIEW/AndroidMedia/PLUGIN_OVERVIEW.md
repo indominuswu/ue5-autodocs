@@ -5,7 +5,10 @@
 - Provides runtime playback, texture sampling, and platform integration for Android media sources.
 - Supplies editor and factory support for creating Android media players/media sources.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Media Framework platform player with factories/settings (`UAndroidMediaSettings`, `UAndroidFileMediaSourceFactory`) used when authoring media for Android targets.
+
+## 3. Key Modules
 - **AndroidMedia** (RuntimeNoCommandlet, PreLoadingScreen)
   - Role: Core media player implementation and platform codecs.
 - **AndroidMediaEditor** (Editor)
@@ -13,7 +16,7 @@
 - **AndroidMediaFactory** (Editor, RuntimeNoCommandlet)
   - Role: Media player factory registration for Android targets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `FAndroidMediaPlayer`
   - Role: Platform media player handling playback, tracks, and synchronization.
 - `FAndroidMediaTextureSample`
@@ -25,10 +28,10 @@
 - `UAndroidFileMediaSourceFactory`
   - Role: Editor factory for Android file-based media sources.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (on by default) for Android projects needing media playback.
 - Create media players/sources in the editor; Android-specific factory registers the player so existing Media Framework assets work on device.
 - Adjust `AndroidMedia` settings in Project Settings for platform-specific playback tuning.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

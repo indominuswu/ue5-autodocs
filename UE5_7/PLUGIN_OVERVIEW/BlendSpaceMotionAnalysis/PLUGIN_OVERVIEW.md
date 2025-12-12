@@ -2,23 +2,31 @@
 
 ## 1. What this plugin does
 
-- Allows analysis of locomotion/root motion properties in blend spaces
-- Derived from plugin metadata; see source for specifics.
+- Adds analysis functions for locomotion and root motion inside blend spaces.
+- Provides analysis property assets to configure axes/bones and cache analysis results for reuse.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor analysis helpers (`ULocomotionAnalysisProperties`, `URootMotionAnalysisProperties`, `UCachedMotionAnalysisProperties`) for animators evaluating blend space motion.
+
+## 3. Key Modules
 
 - **BlendSpaceMotionAnalysis** (Editor)
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
-- No major subsystem/component/settings classes were auto-detected; review source for additional APIs.
+- `ULocomotionAnalysisProperties` / `URootMotionAnalysisProperties`
+  - Role: Analysis property objects specifying axes, bones/sockets, and character orientation for locomotion/root motion evaluation.
+- `UCachedMotionAnalysisProperties`
+  - Role: Cached settings storing selected locomotion/root motion function axes.
+- Analysis helpers `CalculateLocomotion` / `CalculateRootMotion`
+  - Role: Functions that compute speeds/directions based on analysis properties for a blend space and animation sequence.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
-- Enable the plugin in the project/plugins manager; modules load accordingly.
-- Use the classes above in game code or Blueprints where appropriate (traits, components, subsystems, or utility libraries based on naming).
-- Editor modules (if present) add supporting tooling or debugging for the runtime modules.
+- Enable the plugin; use the blend space analysis tooling to evaluate locomotion/root motion metrics with the provided analysis property objects.
+- Configure axes and bone/socket targets on the analysis properties, then run analysis to populate cached values for blend space samples.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific or experimental notes found.
+

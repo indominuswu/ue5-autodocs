@@ -5,12 +5,16 @@
 - Extends Movie Render Pipeline with blueprint-exposed image pass types.
 - Provides Movie Graph nodes for configuring object ID output in graph-driven renders.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Movie Render Queue users add the Object ID and Panoramic passes (and Movie Graph node) directly when configuring jobs, making this an editor-facing rendering feature.
+
+## 3. Key Modules
 - **MoviePipelineMaskRenderPass** (UncookedOnly)
   - Role: Implements additional render passes and graph nodes for editor-side rendering workflows.
   - Notable types: `UMoviePipelineObjectIdRenderPass`, `UMoviePipelinePanoramicPass`, `UMovieGraphObjectIdNode`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UMoviePipelineObjectIdRenderPass`
 - Role: Generates Object ID mattes (limited Cryptomatte-style) for Movie Render Queue shots.
@@ -25,10 +29,11 @@
 ### `UMovieGraphObjectIdNode`
 - Role: Movie Graph node that exposes Object ID pass configuration when using graph-based render setups.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin, open Movie Render Queue, and add “Object Ids (Limited)” or “Panoramic Rendering” passes to a render config.
 - For Movie Graph workflows, insert `MovieGraphObjectIdNode` to emit Object ID outputs.
 - Configure object ID settings (ID type, inclusion of translucency) or panoramic tiling counts per job.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

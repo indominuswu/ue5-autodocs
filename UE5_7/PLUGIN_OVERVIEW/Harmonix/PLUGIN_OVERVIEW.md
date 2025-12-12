@@ -5,7 +5,10 @@
 - Supplies runtime components and data types for music-driven gameplay, offline rendering, and audio analysis.
 - Includes editor modules for authoring/testing MIDI and Metasound graphs built on Harmonix data.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime components/Blueprint-facing MIDI and Metasound nodes plus editor tooling for authoring and testing music assets.
+
+## 3. Key Modules
 - **Harmonix** (Runtime)  
   - Role: Core Harmonix utilities, plugin/developer settings, timebase helpers.
 - **HarmonixDsp** (Runtime)  
@@ -19,7 +22,7 @@
 - **HarmonixDspTests**, **HarmonixMidiTests**, **HarmonixMetasoundTests** (UncookedOnly)  
   - Role: Test harness modules.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Core settings
 - `UHarmonixDeveloperSettings`, `UHarmonixPluginSettings`: Configure global behavior for Harmonix audio systems.
@@ -35,11 +38,11 @@
 - Harmonix Metasound: Data types such as `FHarmonixMetasoundMusicAsset`, `FMidiStream`, `FMidiClock`, `FMusicTransport`, `FMusicTimeInterval`, and nodes like `MidiPlayerNode`, `MusicSeekTargetBuilder`, `DelayNode`, `MorphingLfoNode`, `TransportWavePlayerControllerNode`.
 - Blueprint helpers: `UMusicParameterBlueprintLibrary` for manipulating music parameters inside graphs.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin, then add `MusicClockComponent`/`MusicTempometerComponent` to actors needing tempo-synced behavior.
 - Import or generate MIDI assets and use Harmonix MIDI data with Metasound nodes (`MidiPlayerNode`, `MidiStream` analyzers) to drive audio/gameplay.
 - Use Harmonix DSP nodes for stretching, pitch shifting, filtering, and analysis inside Metasound or custom pipelines.
 - Configure global behavior via Harmonix plugin/developer settings; use editor modules to test MIDI playback or Metasound graphs.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

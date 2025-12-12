@@ -6,7 +6,10 @@
 - Supplies editor-only integrations (UI, details, operators) and runtime modules for tool execution and previewing.
 - Forms the foundation for the Modeling mode/tool palette and other modeling plugins.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Modeling mode/tool palette UI plus runtime tools/components for mesh editing and scripting.
+
+## 3. Key Modules
 - **MeshModelingTools** (Runtime)
   - Role: Implements mesh tools for sculpting, painting, booleans, remeshing, deformation, primitive creation, and mesh processing.
   - Notable tools: `UAddPrimitiveTool`, `UDynamicMeshSculptTool`, `UEditMeshPolygonsTool`, `UMeshVertexPaintTool`, `UCSGMeshesTool`, `UDisplaceMeshTool`, `UMeshAttributePaintTool`, `ULatticeDeformerTool`.
@@ -21,7 +24,7 @@
 - **SkeletalMeshModifiers** (Editor)
   - Role: Editor utilities for applying modeling-style modifiers to skeletal meshes.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### Representative modeling tools (from `MeshModelingTools`)
 - `UAddPrimitiveTool` (quickly create primitives), `UDynamicMeshSculptTool` / `UMeshVertexSculptTool` (brush-based sculpting), `UEditMeshPolygonsTool` (poly editing), `UMeshVertexPaintTool` / `UMeshGroupPaintTool` (vertex/group painting), `UCSGMeshesTool` / `UCombineMeshesTool` (boolean/combine), `UDisplaceMeshTool` / `USpaceDeformerTool` variants (deformations), `UHoleFillTool` and `UConvertToPolygonsTool` (repair/convert), `UMeshAttributePaintTool` (attribute/UV/weights painting).
 
@@ -32,11 +35,11 @@
 ### `UModelingComponentsSettings`
 - Role: Project/editor settings controlling default materials, preview behaviors, and asset creation targets for modeling tools.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (often alongside `ModelingToolsEditorMode`). Open the Modeling mode/tool palette to access tools.
 - Select meshes or start from an empty scene; run tools such as Sculpt, Poly Edit, Add Primitive, Remesh, Paint, or Booleans.
 - Use tool property panels to configure output (new asset vs. modify in-place), preview materials, and target actors/components.
 - For scripting/extensibility, use ModelingComponents APIs to spawn tools, feed meshes, and collect generated assets programmatically.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; overview reflects the toolset present in UE 5.7.

@@ -6,13 +6,17 @@
 - Locates Rider installations per-platform, generates/opens solutions, and launches files at specific lines.
 - Provides UI styling/assets for editor integration.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Source code accessor users select in Editor Preferences, enabling open/jump-to-line workflows in Rider via `FRiderSourceCodeAccessor`.
+
+## 3. Key Modules
 
 - **RiderSourceCodeAccess** (EditorNoCommandlet, Default)  
   - Role: Rider-backed `ISourceCodeAccessor`, path discovery, and style registration.  
   - Notable types: `FRiderSourceCodeAccessor`, `FRiderSourceCodeAccessModule`, `FRiderPathLocator` (Common/Linux/Mac/Win variants), `FRiderSourceCodeAccessStyleSet`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FRiderSourceCodeAccessor`
 
@@ -32,11 +36,13 @@
 
 - Role: Registers accessor and styles on startup; cleans up on shutdown.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
-- Enable the plugin; select Rider in Editor Preferences → Source Code.  
+- Enable the plugin; select Rider in Editor Preferences > Source Code.  
 - Use editor commands to open the solution or jump to source locations; Rider will be launched via the discovered executable.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific changes flagged; plugin reflects current Rider integration shipped with 5.7.
+
+

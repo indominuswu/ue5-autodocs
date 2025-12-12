@@ -6,13 +6,17 @@
 - Defines core types for record sets, column metadata, and query construction without bundling an actual driver.
 - Disabled by default; intended to be paired with platform/database-specific implementations.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Hidden runtime abstraction layer for database plugins (`DatabaseSupport` module only); no editor UI, drivers, or gameplay/Blueprint surfaces by itself.
+
+## 3. Key Modules
 
 - **DatabaseSupport** (Runtime)  
   - Role: Base database abstractions and helper enums shared by database plugins.
   - Notable types: `FDataBaseRecordSet`, `FDatabaseColumnInfo`, `EDataBaseUnrealTypes`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FDataBaseRecordSet`
 - Role: Base iterator interface for database query results.
@@ -25,12 +29,13 @@
 ### `EDataBaseUnrealTypes`
 - Role: Enumerates the supported data types exposed by the abstraction layer.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable alongside a platform-specific database plugin; use the shared types to implement or consume database queries.
 - Iterate over `FDataBaseRecordSet` in custom code to fetch column values using the metadata in `FDatabaseColumnInfo`.
 - The plugin itself does not expose Blueprint utilities; it provides C++ interfaces for other modules.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No UE 5.7-specific behaviors noted; plugin serves as an abstract layer in this branch.
+

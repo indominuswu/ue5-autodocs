@@ -5,14 +5,18 @@
 - Extends Scene State with tasks that can execute Data Link graphs as part of state execution.
 - Provides editor support to configure Data Link task parameters inside Scene State assets.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Scene State authors add the “Run Data Link” task (`USceneStateRunDataLinkTask`) and configure it via editor customizations to invoke Data Link graphs during state execution.
+
+## 3. Key Modules
 
 - **SceneStateDataLink** (Runtime)  
   - Role: Implements Scene State task types that invoke Data Link graphs during state execution.
 - **SceneStateDataLinkEditor** (Editor)  
   - Role: Details/customization support for configuring Data Link tasks in the Scene State editors.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `USceneStateRunDataLinkTask`
 
@@ -23,11 +27,12 @@
 
 - Role: Editor customization that exposes Data Link task settings in the details panel.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable alongside Scene State; add a “Run Data Link” task in a Scene State graph to execute a Data Link graph at runtime.
 - Configure the Data Link task parameters via the Scene State editor details panel (provided by the Data Link editor module).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

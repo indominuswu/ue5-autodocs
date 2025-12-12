@@ -6,12 +6,15 @@
 - Adds a dedicated editor tab that lists sequences, subsections, tracks, and markers with customizable columns and filters.
 - Supports drag/drop handlers, item actions, and view/menu extensions to navigate large sequence hierarchies quickly.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Ships an editor tab with navigator UI, filters, and extensibility for sequence asset workflows.
+
+## 3. Key Modules
 
 - **SequenceNavigator** (Editor, PreDefault)  
   - Role: Hosts the navigation tool UI, commands, filters, item proxies, menus, and view logic for sequencing assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Core tool surfaces
 
@@ -28,12 +31,12 @@
 - Slate widgets for list/tree views and columns (`SNavigationToolTreeView`, `SNavigationToolView`, `SNavigationToolItemColumns`, `SNavigationToolFilterBar`).
 - Column extensibility interfaces (`INavigationToolColumn`, `NavigationToolColumnExtender`) and menu contexts for tool menu registration.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and open the Sequence Navigator tab; use the filter bar and column pickers to tailor the view.
 - Navigate sequences, sub-tracks, and bindings via the tree; use drag/drop to reorder or queue items as supported by the handlers.
 - Extend behavior by registering custom columns, filters, or item proxy factories through the exposed interfaces.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

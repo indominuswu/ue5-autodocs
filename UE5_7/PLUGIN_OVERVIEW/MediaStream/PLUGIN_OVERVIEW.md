@@ -6,7 +6,10 @@
 - Integrates with Media Player assets, allowing managed playback of files, assets, and subobjects via custom scheme handlers.
 - Editor module supplies details customizations and widgets for configuring streams, tracks, and playback controls.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor widgets/details plus runtime actors/components and Blueprint helpers for media stream playback.
+
+## 3. Key Modules
 - **MediaStream** (Runtime)
   - Role: Core runtime for stream sources, scheme/object handlers, player integration, and Blueprint helpers.
   - Notable types: `UMediaStreamComponent`, `AMediaStreamActor`, `UMediaStreamSource`, `UMediaStreamSchemeHandlerSubsystem`, `UMediaStreamObjectHandlerSubsystem`, `UMediaStreamSourceBlueprintLibrary`, `UMediaStreamPlayerConfig`.
@@ -14,7 +17,7 @@
   - Role: Details customizations, Sequencer helpers, and Slate widgets for editing media stream assets and playback controls.
   - Notable types: `FMediaStreamEditorModule`, `MediaStreamSourceCustomization`, `SMediaStreamPlaybackControls`, `SMediaStreamMediaDetails`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `UMediaStreamSource`
 - Role: Configurable source definition that links a target media object, scheme handler, and playback options.
 - Key properties: player configuration (`FMediaStreamPlayerConfig`), optional texture overrides (`FMediaStreamTextureConfig`), and handler names.
@@ -30,11 +33,11 @@
 ### `UMediaStreamSourceBlueprintLibrary`
 - Role: Blueprint helpers to create or configure stream sources and set scheme/object handler names without C++.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the experimental plugin. Add an `AMediaStreamActor` or `UMediaStreamComponent` to a level.
 - Create a `UMediaStreamSource` asset or configure the component inline, selecting a scheme (file, asset, managed) and playback settings.
 - Use Blueprint or C++ to start/stop playback and to swap sources. Handlers resolve URIs to concrete media objects for the Media Player.
 - In the editor, use the custom details/Sequencer widgets (`SMediaStreamPlaybackControls`, `SMediaStreamMediaTrack`) to scrub media and adjust tracks.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked Experimental in the `.uplugin`. No additional UE 5.7-only notes found; behavior is based on the current source tree.

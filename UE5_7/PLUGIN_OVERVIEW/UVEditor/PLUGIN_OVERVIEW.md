@@ -6,7 +6,10 @@
 - Includes tooling modules for UV editing workflows and editor-only helpers.
 - Beta and enabled by default in the editor.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor UV editor mode with 2D/3D viewports and tool property sets.
+
+## 3. Key Modules
 - **UVEditor** (Editor)
   - Role: Core editor mode/viewports, UX property sets, and actions (e.g., `UVEditor3DViewportMode`, `UVEditorUXPropertySets`).
 - **UVEditorTools** (Editor)
@@ -14,7 +17,7 @@
 - **UVEditorToolsEditorOnly** (Editor)
   - Role: Editor-only wiring, registration, and utilities for the UV tools.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `SUVEditor2DViewport` / `SUVEditor3DViewport`
 - Role: Slate viewports providing 2D and 3D views of UVs and the source mesh.
 
@@ -27,12 +30,12 @@
 ### `UnsetUVsAction`
 - Role: Editor action for clearing/unsetting UVs on selected meshes or channels.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable “UVEditor” (and Modeling tools dependencies) in the editor.
 - Open a static mesh and launch the UV Editor; use the 2D/3D viewports to inspect seams and shells.
 - Adjust properties via the UV editor details panel; run actions such as unsetting UVs or tool-specific operations from toolbars.
 - Save changes back to the mesh asset once UV edits are finalized.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked beta in the `.uplugin`.
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

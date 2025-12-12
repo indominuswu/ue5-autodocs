@@ -6,11 +6,15 @@
 - Editor module offers Blueprint library helpers for authoring and debugging geo-referenced worlds.
 - Relies on PROJ and SQLite third-party libraries for projection math and datasets.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users place a `GeoReferencingSystem` actor and call Blueprint helpers (`UGeoReferencingBFL`/`UGeoReferencingEditorBPLibrary`) to convert/world positions and author geo-referenced levels.
+
+## 3. Key Modules
 - **GeoReferencing** (Runtime) - Core geo-referencing system, coordinate utilities, and actors.
 - **GeoReferencingEditor** (Editor) - Editor-time Blueprint helpers and utilities for geo workflows.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `UGeoReferencingSystem`
 - Role: Runtime component/actor managing geo-origin, coordinate reference system (CRS), and conversions between world and geographic coords.
 - Key functions: conversion between ECEF/longitude-latitude-altitude and UE world positions; supports origin rebasing.
@@ -27,10 +31,11 @@
 ### `FEllipsoid` / `FGeographicCoordinates`
 - Role: Utility structs representing planet shape and geographic coordinate data.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Add a `GeoReferencingSystem` actor to the level to define the CRS and geospatial origin.
 - Use Blueprint functions to convert between longitude/latitude/altitude and UE world coordinates when spawning or positioning actors.
 - In editor, leverage the Blueprint library to verify conversions and configure planet/ellipsoid parameters; sample RoundPlanetPawn demonstrates movement on curved surfaces.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Uses third-party PROJ/SQLite shipped with UE 5.7; no explicit 5.7-only behaviors beyond current integration.
+

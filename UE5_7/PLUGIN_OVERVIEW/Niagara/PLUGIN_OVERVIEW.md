@@ -6,13 +6,16 @@
 - Includes runtime components, Blueprint nodes, animation notifies, shaders/vertex factories, and extensive editor tooling.
 - Supports data interfaces for gameplay, physics, ray tracing, GPU compute, and sequencer/parameter workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Niagara editor plus runtime components, Blueprint nodes, and systems for VFX playback.
+
+## 3. Key Modules
 
 - **NiagaraCore**, **Niagara**, **NiagaraAnimNotifies**, **NiagaraShader**, **NiagaraVertexFactories** (Runtime) – Core runtime, component/system evaluation, animation notifies, shaders and vertex factories.
 - **NiagaraBlueprintNodes** (UncookedOnly) – Blueprint integration for Niagara scripts/functions.
 - **NiagaraEditor**, **NiagaraEditorWidgets** (Editor) – Niagara editor UI, asset factories, stack graph editing, preview utilities, validation, and tooling.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UNiagaraSystem` / `UNiagaraEmitter` / `UNiagaraComponent`
 
@@ -35,14 +38,13 @@
 
 - `UNiagaraSettings`, scalability managers/state (`FNiagaraScalabilityManager`, `FNiagaraScalabilityState`) govern performance, pooling, and platform overrides.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - In the editor, create Niagara Systems/Emitters via the Niagara Editor; use Blueprint nodes (`SpawnSystemAtLocation` etc.) to trigger them at runtime with `UNiagaraComponent`.
 - Configure renderer properties per emitter (sprites/meshes/ribbons/volumes) and bind data interfaces to gameplay sources (physics assets, GPU ray tracing, data channels).
 - Use animation notifies (`AnimNotify_PlayNiagaraEffect`, timed notifies) to trigger effects from animation sequences.
 - Utilize parameter collections and user parameters for dynamic control, and leverage stack validation/audit tools to maintain asset quality.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific flags found; overview mirrors the current 5.7 plugin sources.
-

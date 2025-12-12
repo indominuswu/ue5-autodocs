@@ -6,7 +6,11 @@
 - Provides math/geometry libraries (GTEngine, xatlas, fTetWild) wrapped by Unreal modules for remeshing, UVs, simplification, and sampling.
 - Offers helper utilities for mesh file IO and algorithm wrappers used by higher-level plugins (e.g., Modeling Tools, Geometry Scripting).
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Exposes Dynamic Mesh/GeometryAlgorithms APIs for developers and underpins modeling/geometry scripting tools users rely on.
+
+## 3. Key Modules
 
 - **GeometryAlgorithms** (Runtime)  
   - Role: Core geometric algorithms (fTetWild wrappers, xatlas UV packing, PCA, convex hulls, fitting, arrangement, Clipper-based polygon ops).  
@@ -20,7 +24,7 @@
   - Role: Lightweight helpers for mesh file parsing/export.  
   - Notable types: `FMeshFileUtilsModule`, `OBJMeshUtil`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Dynamic Mesh operations
 
@@ -39,12 +43,13 @@
 
 - Role: Wrappers for convex hulls, minimum volume shapes, PCA, Clipper polygon ops, Delaunay triangulation, and xatlas UV packing.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Used by higher-level plugins (Modeling Tools, Geometry Scripting, GeometryFlow) to perform mesh edits, remeshing, UV generation, and baking.
 - Game/runtime code can link against these modules to perform custom geometry processing tasks using the Dynamic Mesh APIs.
 - MeshFileUtils can be used to parse/export simple mesh data (e.g., OBJ) for tool pipelines.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

@@ -6,7 +6,10 @@
 - Supplies runtime subsystems for managing connections and data exchange, plus editor support for graph authoring.
 - Forms part of the virtual production tooling stack.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Exposes runtime subsystems for Data Link transports and editor graph UI to configure motion design data flows.
+
+## 3. Key Modules
 
 - **DataLink** (Runtime)  
   - Role: Core runtime features; entry point for shared definitions.
@@ -26,7 +29,7 @@
 - **DataLinkJsonEditor** (Editor)  
   - Role: JSON-specific editor helpers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UDataLinkWebSocketSubsystem`
 - Role: Engine subsystem managing WebSocket connections identified by handles.
@@ -36,12 +39,12 @@
 - Role: Settings builders (`DataLinkNodeHttpSettingsBuilder`) and JSON translators for runtime data exchange.
 - Key behavior: Provide configuration objects and serialization helpers for Data Link nodes.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin for virtual production or motion design projects that require live data transport.
 - Use the editor graph modules to configure Data Link flows, selecting HTTP/JSON/WebSocket transports as needed.
 - At runtime, create or retrieve connections via `UDataLinkWebSocketSubsystem` or the HTTP settings builders, then push/pull payloads through configured nodes.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-only notes; plugin ships in this branch with multiple runtime/editor modules enabled by default states defined in the .uplugin.

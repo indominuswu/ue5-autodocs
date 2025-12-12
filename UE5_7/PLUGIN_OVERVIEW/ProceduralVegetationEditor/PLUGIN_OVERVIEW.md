@@ -7,7 +7,11 @@
 - Generates vegetation outputs (meshes, LOD data, materials) suitable for foliage rendering workflows.
 - Experimental and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Provides the Procedural Vegetation asset type and editor graph/nodes (`UProceduralVegetation`, `UProceduralVegetationPreset`, settings nodes) that artists use to author vegetation content.
+
+## 3. Key Modules
 
 - **ProceduralVegetation** (Runtime)  
   - Role: Core data types and graph runtime for procedural vegetation assets and presets.
@@ -16,7 +20,7 @@
   - Role: Editor UI, graph nodes, and asset authoring support for vegetation graphs.
   - Notable types: Blueprintable settings nodes like `UPVBaseSettings`, `UPVOutputSettings`, `UPVBoneReductionSettings`; editor graph utilities.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `UProceduralVegetation`
 
@@ -33,14 +37,15 @@
 - Role: BlueprintType node payloads that define growth, mesh assignment, wind response, and output targets.
 - Usage: Instantiated inside the graph to drive generation; parameters exposed to the editor UI.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and create a new Procedural Vegetation asset in the Content Browser.
 - Load or assign a `UProceduralVegetationPreset` as a starting point, then edit the node graph (growth, mesh selection, wind, output settings).
 - Generate vegetation assets for Nanite foliage; outputs can be consumed by foliage/instancing systems.
 - Editor module provides the authoring experience; runtime module holds the data types referenced at cook time.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Experimental in UE 5.7; off by default.
 - No UE 5.7-specific deprecations were observed in source files.
+

@@ -7,7 +7,10 @@
 - Adds editor tooling (asset factories, selection/edit modes, thumbnail/asset definitions) and Sequencer tracks for Geometry Collections.
 - Provides example geometry and nodes for generating/processing collections.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Geometry Collection Dataflow nodes, Sequencer tracks, and editor factories/modes for Chaos destruction authoring.
+
+## 3. Key Modules
 
 - **GeometryCollectionEditor** (Editor)  
   - Role: Editor UI, factories, commands, selection mode, and asset definitions for Geometry Collections and caches.  
@@ -28,7 +31,7 @@
 - **GeometryCollectionDepNodes** (Runtime)  
   - Role: Dependent Dataflow nodes for vertex transfer and color utilities (e.g., `GeometryCollectionTransferVertexScalarAttributeDepNode`).  
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Editor factories and commands
 
@@ -48,13 +51,13 @@
 
 - `FGeometryCollectionSelectRigidBodyEdMode` provides viewport selection/editing of collection rigid bodies.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin along with dependencies (Chaos, Dataflow, Fracture). Create a Geometry Collection asset via the factory or convert meshes using Dataflow nodes.
 - Use the editor commands/modes to fracture, cluster, and preview destruction setups; thumbnail and asset definition integrate with Content Browser.
 - Author Dataflow graphs using the provided node libraries to procedurally generate or post-process Geometry Collections.
 - In Sequencer, add a Geometry Collection track to play back a recorded/simulated cache against collection actors.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - The plugin is marked beta/experimental in the descriptor; no additional UE 5.7-specific notes surfaced.

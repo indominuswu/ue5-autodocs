@@ -6,7 +6,11 @@
 - Supplies editor tooling (graph editor, asset actions, AnimGraph node) and developer hooks.
 - Depends on Control Rig.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Experimental but exposes `URigMapperDefinition`, graph editor, and `AnimNode_RigMapper` that animators use to author and run rig-to-rig mappings.
+
+## 3. Key Modules
 - **RigMapper** (Runtime)
   - Role: Runtime remapping APIs and data structures (`RigMapperDefinition`, `RigMapperProcessor`, `AnimNode_RigMapper`).
 - **RigMapperEditor** (UncookedOnly)
@@ -14,7 +18,7 @@
 - **RigMapperDeveloper** (UncookedOnly)
   - Role: Developer utilities and module wiring for testing/extension.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `URigMapperDefinition`
 - Role: Defines mapping data between source/target rigs, including bone/curve links and settings.
 
@@ -28,12 +32,13 @@
 ### Editor types (`RigMapperDefinitionEditorToolkit`, `RigMapperDefinitionEditorGraph`, `SRigMapperDefinitionGraphEditor`)
 - Role: Graph-based editor for authoring mapper definitions, with asset actions for creation and linked definitions.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable Rig Mapper and Control Rig.
 - Create a Rig Mapper Definition asset via the Content Browser; edit it in the graph-based Rig Mapper editor.
 - Add `AnimNode_RigMapper` to an AnimGraph and reference the definition to perform runtime remapping.
 - Use developer module hooks for testing or extending remap behaviors.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked experimental in the `.uplugin`.
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

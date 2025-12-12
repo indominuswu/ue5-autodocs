@@ -6,12 +6,15 @@
 - Provides editor tooling for visualization and Blueprint nodes for runtime setup.
 - Enabled by default in UE 5.7 projects.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Runtime subsystems/components/Blueprint nodes for enhanced input plus editor visualization/settings support.
+
+## 3. Key Modules
 - **EnhancedInput** (Runtime) — Core runtime system (subsystems, mappings, actions).
 - **InputBlueprintNodes** (UncookedOnly) — Blueprint nodes for input workflows.
 - **InputEditor** (Editor) — Editor visualization, settings, and asset support.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Runtime subsystems and components
 - `UEnhancedInputLocalPlayerSubsystem` / `UEnhancedInputWorldSubsystem` / `UEnhancedInputSubsystem`: Manage active mapping contexts per player or world and route input to actions.
@@ -28,11 +31,11 @@
 - `UEnhancedInputEditorSubsystem`, `UEnhancedInputEditorSettings`, and project settings for editor visualization.
 - Input Editor module registers factories, visualization, and property customization for mapping contexts and actions.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Create `UInputAction` and `UInputMappingContext` assets in the editor; configure triggers/modifiers and optionally mark mappings as player-mappable with `UPlayerMappableKeySettings`.
 - In runtime code/Blueprints, add mapping contexts to `UEnhancedInputLocalPlayerSubsystem` (e.g., in `BeginPlay`) and bind actions on an `UEnhancedInputComponent`.
 - Use `UEnhancedInputUserSettings` to save/load remappings and expose UI for key rebinding.
 - For editor tooling, adjust defaults in Enhanced Input project settings; use visualization tools from the Input Editor module.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Enabled by default in UE 5.7 projects; no additional 5.7-specific notes surfaced from source.

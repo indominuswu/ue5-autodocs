@@ -5,7 +5,10 @@
 - Supplies Sequencer/AnimGraph integration so animations can target mixer nodes.
 - Provides editor tooling for mixer track editing and AnimBlueprint extensions.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Sequencer editor track tooling and runtime mixer systems/AnimGraph nodes.
+
+## 3. Key Modules
 - **MovieSceneAnimMixer** (Runtime)
   - Role: Core runtime systems for mixed skeletal animation in Sequencer.
   - Notable types: `FMovieSceneAnimationMixerTrack`, `UMovieSceneAnimMixerSettings`, `UAnimSubsystem_SequencerMixer`, systems for anim instances/blueprints/targets/root motion, mixer component type definitions.
@@ -13,7 +16,7 @@
   - Role: Editor support—track editor, AnimBlueprint extension, and AnimGraph node for Sequencer mixer targets.
   - Notable types: `UAnimGraphNode_SequencerMixerTarget`, `UAnimBlueprintExtension_SequencerMixerTarget`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FMovieSceneAnimationMixerTrack` / `UMovieSceneRootMotionSystem`
 - Role: Track and system enabling blended skeletal animation clips with root motion support in Sequencer.
@@ -30,10 +33,10 @@
 ### `UAnimBlueprintExtension_SequencerMixerTarget`
 - Role: Editor extension that registers the mixer target support inside AnimBlueprints.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin, add a Sequencer Anim Mixer track to a sequence, and stack animation layers that blend via mixer systems.
 - In AnimBlueprints, insert `Sequencer Mixer Target` nodes and enable the extension so Sequencer can drive the target pose.
 - Adjust runtime settings in `UMovieSceneAnimMixerSettings` to tune evaluation behavior if exposed.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Plugin is marked experimental; no additional UE 5.7-specific notes were found beyond current source comments.

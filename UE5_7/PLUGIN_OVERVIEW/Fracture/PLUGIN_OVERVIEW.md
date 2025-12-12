@@ -5,12 +5,16 @@
 - Provides fracture algorithms, sampling, convex hull generation, and material/embed helpers used when generating destructible geometry.
 - Depends on the PlanarCut plugin for cutting operations.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Supports the Fracture Editor workflow; users rely on these fracture/clustering utilities when authoring destructible geometry in the editor.
+
+## 3. Key Modules
 - **FractureEngine** (Runtime)
   - Role: Implements fracture logic, clustering, convex decomposition, and related utilities consumed by the editor tooling.
   - Notable headers: `FractureEngineFracturing.h`, `FractureEngineClustering.h`, `FractureEngineConvex.h`, `FractureEngineSampling.h`, `FractureEngineSelection.h`, `FractureEngineMaterials.h`, `FractureEngineEmbed.h`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Fracture engine utility namespaces (header groups)
 - `FractureEngineFracturing`/`Clustering`/`Convex`/`Sampling` provide functions for breaking meshes, generating fracture pieces, clustering shards, and computing sampling distributions.
@@ -20,10 +24,11 @@
 ### `FFractureEnginePlugin`
 - Role: Module definition and entry point (from `FractureEnginePlugin.h`) that exposes the fracture engine API to the editor.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin alongside the Fracture Editor tools; the runtime module supplies the algorithms invoked by the editor UI.
 - Use the editor’s Fracture panel to cut and cluster geometry; underlying calls route to the functions in the `FractureEngine*` headers.
 - When extending fracture behaviors, include the relevant `FractureEngine*.h` headers to call into the provided utility functions.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Plugin is marked beta in 5.7; no additional version-specific changes detected.
+

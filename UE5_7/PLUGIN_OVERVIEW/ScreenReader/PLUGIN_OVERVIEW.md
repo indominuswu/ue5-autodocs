@@ -6,12 +6,16 @@
 - Defines platform-agnostic interfaces to build and run a screen reader service and route widget announcements.
 - Provides basic navigation policy and message handling scaffolding for accessibility tooling.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Accessibility framework exposing announcement channels, navigation policy, and builder/message-handler interfaces for teams implementing screen reader support.
+
+## 3. Key Modules
 
 - **ScreenReader** (Runtime, PostEngineInit)  
   - Role: Core accessibility framework (announcements, navigation policy, user/session handling) with platform hooks for screen reader implementations.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `FScreenReaderBase` and `IScreenReaderBuilder`
 
@@ -33,12 +37,13 @@
 
 - Role: Base message handler used to intercept application input/events for accessibility purposes.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin to expose the accessibility framework.
 - Implement a platform-specific `IScreenReaderBuilder` and message handler to connect to the target screen reader service.
 - Register announcement channels and use the navigation policy to drive focus/announcement behavior for widgets.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

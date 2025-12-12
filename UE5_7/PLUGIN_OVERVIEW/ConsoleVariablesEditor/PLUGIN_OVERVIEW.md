@@ -6,7 +6,10 @@
 - Supports Concert multi-user sync of cvar states and presets; ships a runtime asset type for storing cvar sets.
 - Beta and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor panel for cvars, multi-user sync, and runtime preset asset (`UConsoleVariablesAsset`).
+
+## 3. Key Modules
 
 - **ConsoleVariablesEditor** (UncookedOnly, Default, Editor)  
   - Role: Main UI, commands, styles, asset actions/factory, multi-user sync.  
@@ -16,7 +19,7 @@
   - Role: Runtime asset for cvar presets and module registration.  
   - Notable types: `UConsoleVariablesAsset`, `FConsoleVariablesEditorRuntimeModule`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - UI widgets: `SConsoleVariablesEditorMainPanel`, `SConsoleVariablesEditorList`/`Row`, `SConsoleVariablesEditorCustomConsoleInputBox`, global search toggle, tooltips.  
 - Filters: show-only modified/commands/variables, set-by-current-preset, set-in-session, source filters.  
@@ -24,12 +27,12 @@
 - Multi-user: `FConsoleVariableSync` and Concert customizations synchronize cvars across sessions.  
 - Commands & style: `FConsoleVariablesEditorCommandInfo`, `FConsoleVariablesEditorStyle`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin; open the Console Variables Editor panel to inspect and edit cvars, apply filters, and save/load presets as `ConsoleVariablesAsset`.  
 - Use Concert sync to share cvar changes during multi-user sessions.  
 - Run presets at runtime using `UConsoleVariablesAsset` (Runtime module).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Beta/off by default; no explicit 5.7-specific changes noted.

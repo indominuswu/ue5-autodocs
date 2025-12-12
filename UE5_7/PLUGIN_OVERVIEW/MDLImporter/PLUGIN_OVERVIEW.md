@@ -6,13 +6,17 @@
 - Wraps the MDL SDK to load modules, compile materials, and create UE material/texture assets.
 - Provides an import options dialog and logging to surface MDL SDK issues during import/reimport.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Users import `.mdl` files via the Content Browser, configure `UMDLImporterOptions` in the dialog, and generate UE materials/material instances.
+
+## 3. Key Modules
 
 - **MDLImporter** (Editor; Win64/Mac/Linux)
   - Role: Full MDL import pipeline, UI, and SDK binding.
   - Notable types: `IMDLImporterModule` (module interface), `FMDLImporter` (core importer), `UMDLImporterOptions`, `SMDLOptionsWindow`, `FMDLMaterialSelector`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IMDLImporterModule` / `FMDLImporter`
 
@@ -32,12 +36,13 @@
 
 - Role: Classifies MDL materials (opaque, masked, translucent, carpaint, subsurface, clearcoat, emissive) and picks the correct UE material factory path.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin on desktop platforms and ensure MDL SDK binaries are present under `Plugins/Enterprise/MDLImporter/Binaries/ThirdParty/MDL/<Platform>`.
 - Import `.mdl` files from the Content Browser; configure `UMDLImporterOptions` in the options dialog (module/resource paths, etc.).
 - Use reimport to refresh materials; review the importer log for unsupported features (e.g., light profiles, measured BSDF/BTF textures).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

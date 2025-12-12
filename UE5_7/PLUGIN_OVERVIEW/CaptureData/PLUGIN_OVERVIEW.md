@@ -6,7 +6,11 @@
 - Provides runtime data assets for captured footage and meshes plus utilities for timecode parsing and validation.
 - Editor module adds asset factories, definitions, and customizations for Capture Data and camera calibration records.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor factories/definitions let users create and edit Capture Data and Camera Calibration assets; runtime CaptureData assets and timecode utilities are configured by VP users for footage alignment.
+
+## 3. Key Modules
 
 - **CaptureDataCore** (Runtime)  
   - Role: Defines Capture Data assets, metadata structures, timecode utilities, and core log/bridge helpers.
@@ -15,7 +19,7 @@
 - **CaptureDataEditor** (Editor)  
   - Role: Asset definitions/factories, detail customizations, and editor bridges for Capture Data and Camera Calibration assets.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - Capture assets: `UCaptureData` (base), `UMeshCaptureData`, `UFootageCaptureData` for storing image/depth sequences, audio tracks, and references to calibration data.
 - Metadata: `FCaptureMetadata`, `FCaptureTimecodeInfo`, `FCaptureTimecodeAlignment`, enums like `EFootageDeviceClass`.
@@ -23,13 +27,14 @@
 - Editor-facing: `UAssetDefinition_CaptureData`, `UAssetDefinition_CameraCalibration`, `UCaptureDataFactory`, `UCameraCalibrationFactory`, `FCaptureMetadataCustomization`, `FCaptureDataCustomizations`, `FDeferredObjectDirtier`.
 - Bridge helpers: `FCaptureDataEditorBridge`, `FCaptureDataLog`.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin to create `Capture Data` assets from recorded image/audio sequences via the provided factories.
 - Populate `UCaptureData` derivatives with image sequences, depth, and audio; associate `UCameraCalibration` assets for alignment.
 - Use the timecode utilities to align captured footage and audio, and the path checker to validate sequence locations.
 - Editor customizations expose Capture Data properties in the Details panel; use them to configure timecode alignment and device metadata.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; overview reflects the current source.
+

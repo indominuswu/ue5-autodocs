@@ -5,10 +5,14 @@
 - Integrates with Editor Data Storage (TEDS) queries to locate and update affected assets.
 - Experimental tooling for cleaning up instance data after refactors.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Editor tool/panel that users run to find and fix `InstanceDataObject` references via TEDS queries and detail customization.
+
+## 3. Key Modules
 - **InstanceDataObjectFixupTool** (Editor) - Registers the panel, detail customization, and supporting queries.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `UInstanceDataObjectFixupTool`
 - Role: Tool entry point that coordinates fixup operations and exposes command hooks.
 
@@ -21,9 +25,10 @@
 ### `FInstanceDataObjectFixupToolTedsQueries`
 - Role: Helpers for querying Editor Data Storage to find stale references.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (requires `EditorDataStorageFeatures`), open the Fixup Tool panel, and run queries to locate loose `InstanceDataObject` links.
 - Use the UI to redirect references to new objects or clean up invalid entries.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked Experimental; behavior based on current UE 5.7 implementation.
+

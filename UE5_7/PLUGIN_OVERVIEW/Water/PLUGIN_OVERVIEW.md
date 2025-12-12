@@ -6,12 +6,15 @@
 - Generates water meshes/splines, flow data, collision, and buoyancy, plus landscape carving and caustics/brush utilities.
 - Integrates with Niagara, Landmass, and GeometryProcessing for rendering and simulation.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor water authoring tools plus runtime water bodies, buoyancy, and Niagara data interfaces.
+
+## 3. Key Modules
 
 - **Water** (Runtime) – Core runtime components, water bodies, buoyancy, runtime settings, wave simulation, Niagara data interfaces, and water subsystems.
 - **WaterEditor** (Editor) – Editor subsystem, spline/brush tools, actor factories, caustics generator, and visualization helpers.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Core runtime
 
@@ -39,7 +42,7 @@
 - `UWaterEditorSettings`: Editor-specific defaults for authoring.
 - Brush/height tools: `UJumpFloodComponent2D`, `WaterBrushManager`, `WaterBodyActorFactory`, spline visualizers/details customizations; `ACausticsGeneratorActor` for caustics data.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the Water plugin (and dependencies like Landmass/Niagara). Place water body actors (River/Lake/Ocean/Custom) and shape them with `WaterSplineComponent`.
 - Configure global defaults in Project Settings → Water (materials, collision, wave presets). Adjust per-body properties (depth, flow, wave params, materials).
@@ -47,6 +50,6 @@
 - Add `UBuoyancyComponent` to actors that should float, or use Niagara data interfaces for water-aware VFX.
 - In editor, use WaterEditor brush tools to carve landscape, generate caustics, and build height/flow maps; spline visualizers assist with shaping rivers/coastlines.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - Plugin is marked experimental in 5.7; no additional UE 5.7-specific notes found beyond the current state in the source tree.

@@ -6,7 +6,10 @@
 - Supplies reusable waveform widgets for editor UI and details customizations.
 - Beta and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor-only waveform editor panels, widgets, and transformation tools for audio assets.
+
+## 3. Key Modules
 - **WaveformEditor** (Editor)
   - Role: Core editor integration, instantiation, details customizations, and transformation settings (`WaveformEditorTransformationsSettings`, `WaveformEditorInstantiator`).
 - **WaveformEditorWidgets** (Editor)
@@ -16,7 +19,7 @@
 - **WaveformTransformationsWidgets** (Editor)
   - Role: UI widgets for configuring and previewing transformations.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `IWaveformEditorModule` / `IWaveformEditorInstantiator`
 - Role: Entry points to create waveform editor instances and integrate with asset toolkits.
 
@@ -29,12 +32,12 @@
 ### `WaveformEditorDetailsCustomization` / `IWaveformEditorDetailsProvider`
 - Role: Customizes details panel exposure of waveform properties and transformation controls.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin (and dependencies like AudioSynesthesia and AudioWidgets).
 - Open an audio asset with the Waveform Editor; use transformation settings to apply edits.
 - Use provided widgets to visualize, scrub, and export transformed waveforms.
 - Extend transformations via the `WaveformTransformations` module if needed.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked beta in the `.uplugin`.
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

@@ -6,12 +6,16 @@
 - Allows external modules to register media initializers or actor extensions without modifying core nDisplay.
 - Ships light-card extender interfaces plus editor wiring for integration in Configurator tooling.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - nDisplay extension points (`IDisplayClusterLightCardActorExtender`, media initializer modular features) that other plugins implement to add custom behavior to stage actors/light cards.
+
+## 3. Key Modules
 
 - **DisplayClusterLightCardExtender** (Runtime) – Runtime modular feature hooks for light card and stage actor extensions.
 - **DisplayClusterModularFeaturesEditor** (Editor) – Editor integration for the modular feature providers (details, factories, Configurator support).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### `IDisplayClusterLightCardActorExtender`
 
@@ -29,13 +33,13 @@
 
 - Helper data structures used when spawning or modifying stage actor instances from extensible code.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin alongside nDisplay to allow other plugins to register `IModularFeature` implementations for light cards or stage actors.
 - Implement `IDisplayClusterLightCardActorExtender` in a custom module to add data channels or behaviors to nDisplay light cards.
 - Editor module surfaces the modular features in Configurator workflows so authored stages can use the extended capabilities.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; overview is based on the current plugin contents.
 

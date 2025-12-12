@@ -6,14 +6,17 @@
 - Provides scriptable tool base classes, behavior objects (input, hover, click/drag), and rendering/viewport helper APIs.
 - Includes editor-side wrappers to register and run scriptable tools in the tooling palette.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Exposes Blueprint-driven tool bases and editor integrations so users register and run tools in the editor palette.
+
+## 3. Key Modules
 
 - **ScriptableToolsFramework** (Runtime, PreDefault)  
   - Role: Runtime support for scriptable interactive tools, behaviors, property sets, and tool-target requirements.
 - **EditorScriptableToolsFramework** (Editor)  
   - Role: Registers editor tooling for scriptable tools and exposes builder components for editor use.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 ### Tool bases and behaviors
 
@@ -30,12 +33,12 @@
 
 - `UEditorScriptableInteractiveTool` and related editor variants register scriptable tools inside the editor tool framework and wire up behaviors.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin, then create Blueprint classes deriving from the scriptable tool bases to define tool logic and behaviors.
 - Define tool targets and requirements with the provided builders; assign property sets to expose adjustable parameters.
 - In the editor, register the Blueprint tools via the editor module so they appear in the tool palette; use behavior objects to handle input, hover, and viewport focus.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

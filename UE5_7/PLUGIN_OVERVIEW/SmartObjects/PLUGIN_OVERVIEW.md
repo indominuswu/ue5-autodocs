@@ -6,7 +6,10 @@
 - Includes editor tooling for authoring smart object definitions, collections, and debugging visualizers.
 - Ships with test/uncooked utilities for validation.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Exposes editor authoring tools/visualizers and runtime Blueprint APIs for smart object queries and use.
+
+## 3. Key Modules
 - **SmartObjectsModule** (Runtime)
   - Role: Core runtime managing registration, reservation, and execution of smart object behaviors.
   - Notable types: `USmartObjectSubsystem`, `USmartObjectComponent`, `USmartObjectUserComponent`, `USmartObjectBlueprintFunctionLibrary`, `USmartObjectSettings`, `USmartObjectRenderingComponent`, `USmartObjectContainerRenderingComponent`.
@@ -16,7 +19,7 @@
 - **SmartObjectsTestSuite** (UncookedOnly)
   - Role: Test helpers and types used by automated or sample validation of smart object flows.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 - `USmartObjectSubsystem` (UWorldSubsystem)
   - Role: Central manager tracking all smart objects in a world, handling registration, claiming, and state transitions.
   - Key functions: register/unregister definitions and runtime instances, claim/release slots for users, find smart objects via queries.
@@ -33,12 +36,12 @@
 - Debug components (`USmartObjectDebugRenderingComponent`, `USmartObjectContainerRenderingComponent`, `USmartObjectSubsystemRenderingComponent`)
   - Role: Visualize registered objects, slots, and claims during development.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the SmartObjects plugin and its dependencies (GameplayAbilities, TargetingSystem, WorldConditions).
 - Author smart object definitions and place actors with `USmartObjectComponent`, or create `USmartObjectPersistentCollection` assets for level-wide registration.
 - Add `USmartObjectUserComponent` to AI/agents; at runtime, query `USmartObjectSubsystem` or use Blueprint library functions to find and claim available smart object slots.
 - Use the editor module’s visualizers and debug rendering components to inspect placements and reservations during play-in-editor.
 - For testing, rely on the provided test suite utilities in non-cooked builds.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.

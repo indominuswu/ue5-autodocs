@@ -5,13 +5,17 @@
 - Provides Video Toolbox decoders/encoders and associated configuration objects.
 - Experimental and disabled by default; runtime-only with Mac platform allow list.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: No - Low-level Video Toolbox codec backend for AVCodecs; no editor/Blueprint/gameplay interfaces beyond being selected by the media pipeline.
+
+## 3. Key Modules
 - **VTCodecs** (Runtime)
   - Role: Registers Video Toolbox video encoder/decoder implementations (`VideoDecoderVT`, `VideoEncoderVT`) and configs.
 - **VTCodecsRHI** (Runtime)
   - Role: RHI-level support required for the codecs (Mac-only).
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `VideoDecoderVT` / `VideoDecoderConfigVT`
 - Role: Implements Video Toolbox-backed video decoding and configuration parameters.
 
@@ -21,11 +25,12 @@
 ### `NaluRewriter`, `VTSessionHelpers`
 - Role: Helpers for packetizing and configuring Video Toolbox sessions (e.g., NALU handling).
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin on Mac builds alongside `AVCodecsCore`.
 - Select or register Video Toolbox codecs through the AVCodecs pipeline; configure via the provided config objects.
 - Used at runtime for media playback or capture workflows that require VT hardware codecs.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked experimental in the `.uplugin`; Mac-only support.
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
+

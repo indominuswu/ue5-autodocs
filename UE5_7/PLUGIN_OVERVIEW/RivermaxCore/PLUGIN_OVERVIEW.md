@@ -5,7 +5,11 @@
 - Provides core Rivermax device management, stream setup, frame allocation, and PTP-aware scheduling utilities.
 - Includes editor customizations and rendering helpers for Rivermax-based workflows.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+
+- User-facing: Yes - Developer-facing Rivermax integration with settings (`URivermaxSettings`), stream APIs (`IRivermaxInputStream`/`OutputStream`), and editor device pickers for high-bandwidth video IO.
+
+## 3. Key Modules
 - **RivermaxCore** (Runtime)  
   - Core Rivermax manager, device discovery, frame management, stream interfaces (input/output/ancillary), wrappers, and tracing utilities.
 - **RivermaxEditor** (Editor)  
@@ -13,7 +17,7 @@
 - **RivermaxRendering** (Runtime)  
   - Shader support and rendering-side hooks for Rivermax output.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### Interfaces
 - `IRivermaxCoreModule`, `IRivermaxManager`: access to Rivermax initialization, device queries, and stream creation.
 - `IRivermaxInputStream`, `IRivermaxOutputStream`: abstract APIs for receiving/sending Rivermax video/ancillary data.
@@ -31,12 +35,12 @@
 ### Editor widgets
 - `SRivermaxInterfaceComboBox`, customizations (`RivermaxSettingsDetailsCustomization`, `RivermaxDeviceSelectionCustomization`) assist in picking NICs/interfaces.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable the plugin and configure `URivermaxSettings` (choose time source and PTP interface).
 - Use `IRivermaxManager` to enumerate interfaces and create input/output streams; implement boundary monitoring if needed.
 - For editor workflows, use provided customizations to select Rivermax-capable NICs in asset or project settings.
 - Streams can be coupled with media pipelines (via RivermaxMedia) or custom rendering paths (RivermaxRendering).
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
 

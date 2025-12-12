@@ -7,7 +7,10 @@
 - Supplies editor tools for authoring PCG graphs, inspecting execution, and baking results.
 - Includes optional compute features for GPU-assisted operations.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - PCG graph editor plus runtime components/volumes and Blueprint-accessible execution.
+
+## 3. Key Modules
 
 - **PCG** (Runtime)  
   - Role: Core PCG framework, data types, components, execution graph, and runtime scheduling.
@@ -16,7 +19,7 @@
 - **PCGCompute** (Runtime)  
   - Role: Compute-specific utilities (e.g., texture readback) for GPU-accelerated PCG tasks.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 
 - `UPCGComponent` (`PCGComponent.h`)  
   - Actor component that owns and runs a PCG graph, manages seed/state, and writes generated outputs.
@@ -35,7 +38,7 @@
 - `UPCGEditorSettings`, `FPCGEditorModule`  
   - Editor configuration for graph UI, commands, and asset conversion tools.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 
 - Enable the plugin and add a `PCGComponent` (or `PCGVolume`/`PCGWorldActor`) to a level actor; assign a PCG graph asset.
 - Author PCG graphs in the PCG graph editor (nodes define sampling, filtering, spawning, etc.); adjust `UPCGSettings` per node.
@@ -43,6 +46,6 @@
 - Use editor inspection tools to visualize graph execution and data flow; convert level content to PCG assets via editor utilities.
 - Optional compute features can be enabled for GPU-assisted tasks; `PCGCompute` supports texture readbacks and related operations.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 
 - No explicit UE 5.7-specific notes found; this overview is based on the current PCG implementation in the UE 5.7 source tree.

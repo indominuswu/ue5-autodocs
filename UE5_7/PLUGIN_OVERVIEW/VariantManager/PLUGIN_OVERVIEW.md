@@ -6,12 +6,15 @@
 - Integrates with Level Variant Sets assets supplied by the VariantManagerContent plugin.
 - Beta, editor-only, and disabled by default.
 
-## 2. Key Modules
+## 2. Editor/Runtime surfaces
+- User-facing: Yes - Editor Variant Manager UI and Blueprint helpers for activating variants.
+
+## 3. Key Modules
 - **VariantManager** (Editor)
   - Role: Variant Manager UI, commands, property capture utilities, and editor toolkit integration.
   - Notable types: `SVariantManager`, `SVariantManagerNodeTreeView`, `LevelVariantSetsEditorToolkit`, property capture helpers (`VariantManagerPropertyCapturer`, `CapturableProperty`), blueprint helpers `VariantManagerBlueprintLibrary`.
 
-## 3. Important Types & APIs
+## 4. Important Types & APIs
 ### `VariantManagerBlueprintLibrary`
 - Role: Blueprint-accessible helpers for activating variants, switching variant sets, and querying state.
 
@@ -25,12 +28,12 @@
 ### `VariantManagerPropertyCapturer` / `PropertyTemplateObject`
 - Role: Capture and apply property values for variants; template objects used when switching variants.
 
-## 4. Typical usage patterns
+## 5. Typical usage patterns
 - Enable Variant Manager (and Variant Manager Content dependency).
 - Create or open a `LevelVariantSets` asset; use the Variant Manager panel to add Variant Sets and Variants.
 - Capture properties or functions from actors (via the capture dialog) and arrange them in the tree.
 - Use Blueprint or runtime calls (via `VariantManagerBlueprintLibrary`) to switch variants during play.
 
-## 5. Version-specific notes (UE 5.7)
+## 6. Version-specific notes (UE 5.7)
 - Marked beta in the `.uplugin`.
 - No explicit UE 5.7-specific notes found; this overview is based on the current plugin state in the UE 5.7 source tree.
